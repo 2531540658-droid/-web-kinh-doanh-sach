@@ -5,8 +5,8 @@
    ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
 .bs-view-page {
-  background: #fcfaff;
-  color: #392e49;
+  background: #fffafd;
+  color: #62546b;
   font-family: 'Be Vietnam Pro','Quicksand',sans-serif;
   min-height: 58vh;
   font-size: 14px
@@ -34,7 +34,7 @@
   font-size: 10px
 }
 .bs-view-page .bs-view-crumb a {
-  color: #7659ad
+  color: #a47caa
 }
 .bs-view-page .bs-view-crumb a:hover {
   text-decoration: underline
@@ -60,7 +60,7 @@
   width: 100%;
   min-height: 440px;
   padding: 25px;
-  background: linear-gradient(150deg,#f1e9fc,#fff5ee);
+  background: linear-gradient(150deg,#eee8fa,#fff3eb);
   border-radius: 20px;
   display: grid;
   place-items: center
@@ -86,7 +86,7 @@
 }
 .bs-view-page .bs-view-kicker {
   display: block;
-  color: #8a65c8;
+  color: #a47caa;
   font-weight: 800;
   font-size: 11px;
   letter-spacing: .11em;
@@ -98,8 +98,8 @@
 .bs-view-page .bs-view-category {
   display: inline-block;
   border-radius: 100px;
-  background: #f1e9ff;
-  color: #7b50bc;
+  background: #f8e9f3;
+  color: #76598c;
   padding: 7px 12px;
   font-size: 12px;
   font-weight: 700
@@ -125,7 +125,7 @@
 }
 .bs-view-page .bs-view-price strong {
   display: block;
-  color: #8b57cf;
+  color: #a47caa;
   font-size: 32px;
   font-weight: 800;
   letter-spacing: -.025em;
@@ -163,7 +163,7 @@
   border-radius: 10px;
   padding: 12px 16px;
   color: #fff;
-  background: #9061d7;
+  background: #bd9acb;
   font-size: 14px;
   font-weight: 800;
   display: flex;
@@ -172,13 +172,13 @@
   justify-content: center
 }
 .bs-view-page .bs-view-add-cart:hover {
-  background: #7045b9
+  background: #a680b6
 }
 .bs-view-page .bs-view-like {
   border: 1px solid #e7ddef;
   border-radius: 10px;
   background: #fff;
-  color: #815eaf;
+  color: #9675a0;
   min-height: 47px;
   font-size: 13px;
   font-weight: 800;
@@ -189,8 +189,8 @@
   margin-right: 8px
 }
 .bs-view-page .bs-view-like:hover {
-  background: #f7f1ff;
-  border-color: #b9a3d5
+  background: #fff7fd;
+  border-color: #d8b8d3
 }
 /* Kết thúc yêu cầu thì trở lại tim rỗng, kể cả khi nút còn focus. */
 .bs-view-page .bs-view-like:active i,
@@ -199,7 +199,7 @@
   font-weight: 900;
 }
 .bs-view-page .bs-view-like:focus-visible {
-  outline: 2px solid #bba0ec;
+  outline: 2px solid #d8b8d3;
   outline-offset: 2px;
 }
 /* 04. Mô tả sách riêng, dễ đọc */

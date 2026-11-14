@@ -38,7 +38,7 @@
 /* Liên hệ ở trang chủ - index */
 
 .home-contact {
-  background-color: var(--black);
+  background-color: #715c80;
   text-align: center;
 }
 
@@ -112,7 +112,7 @@
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-   background-color: var(--brown);
+   background-color: #bc97c5;
 }
 
 .fade {

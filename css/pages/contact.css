@@ -6,10 +6,10 @@
    =============================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
 .bs-contact-page {
-  --bs-ink: #55465c;
-  --bs-muted: #827788;
-  --bs-lilac: #a48db4;
-  --bs-rose: #c5899b;
+  --bs-ink: #62546b;
+  --bs-muted: #95849e;
+  --bs-lilac: #a680b6;
+  --bs-rose: #c58da7;
   background: #fffafc;
   color: var(--bs-ink);
   font-family: 'Nunito','Quicksand',sans-serif;
@@ -27,7 +27,7 @@
 /* 01. Dòng giới thiệu gọn, không icon trang trí. */
 .bs-contact-page .bs-contact-hero {
   padding: 35px 24px 58px;
-  background: linear-gradient(115deg,#f5effb,#fff3f5 62%,#fff9f4)
+  background: linear-gradient(115deg,#eee8fa,#f8e9f3 62%,#fff3eb)
 }
 .bs-contact-page .bs-contact-crumb {
   display: flex;
@@ -186,7 +186,7 @@
 .bs-contact-page .bs-contact-submit {
   border: 0;
   border-radius: 9px;
-  background: #b792bb;
+  background: #bd9acb;
   color: #fff;
   font-size: 14px;
   font-weight: 800;
@@ -195,7 +195,7 @@
   transition: background .2s
 }
 .bs-contact-page .bs-contact-submit:hover {
-  background: #9f78aa
+  background: #a680b6
 }
 .bs-contact-page .bs-contact-privacy {
   color: #9d929f;
