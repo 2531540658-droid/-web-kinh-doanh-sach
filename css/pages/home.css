@@ -148,7 +148,7 @@
   max-width: 1240px;
   margin: 0 auto;
   padding: 24px 28px;
-  background: linear-gradient(113deg, #fff0eb 0%, #fff5ef 54%, #faf0f4 100%);
+  background: linear-gradient(113deg, #fff0eb 0%, #fff5ef 54%, #faf0fa 100%);
   border: 1px solid #f1dcdf;
   border-radius: 21px;
   box-shadow: 0 8px 22px rgba(110, 71, 90, .035);
@@ -162,7 +162,7 @@
   color: #5c4554;
 }
 .bs-home-offers .bs-offers-heading h2 {
-  color: #5a434b;
+  color: #59435a;
   font-size: clamp(23px, 2.35vw, 28px);
   font-family: inherit;
   font-weight: 800;
@@ -174,7 +174,7 @@
 .bs-home-offers .bs-offers-heading p {
   font-size: 13px;
   line-height: 1.65;
-  color: #85757b;
+  color: #857581;
 }
 .bs-home-offers .bs-offers-tag {
   display: inline-flex;
@@ -201,7 +201,7 @@
   border-bottom: 1px solid #dca8b5;
 }
 .bs-home-offers .bs-offers-shop-link:hover {
-  color: #7d4e5f;
+  color: #794e7d;
 }
 /* 02. Voucher: card nhỏ gọn hơn theo chiều ngang, chữ giá vẫn nổi bật. */
 .bs-home-offers .bs-offers-grid {
@@ -249,7 +249,7 @@
 .bs-home-offers .bs-offer-value {
   font-size: 14px;
   font-weight: 700;
-  color: #55494d;
+  color: #544955;
   margin: 5px 0 2px;
 }
 .bs-home-offers .bs-offer-value strong {
@@ -260,13 +260,13 @@
 }
 .bs-home-offers .bs-offer-minimum {
   font-size: 12px;
-  color: #74666b;
+  color: #716674;
   line-height: 1.5;
   margin: 0 0 2px;
 }
 .bs-home-offers .bs-offer-expiry {
   font-size: 11.5px;
-  color: #9a8d92;
+  color: #9a8d98;
   margin: 0 0 5px;
 }
 .bs-home-offers .bs-offer-expiry i {
@@ -316,7 +316,7 @@
   display: flex;
   align-items: center;
   gap: 18px;
-  color: #5b474e;
+  color: #59475b;
 }
 .bs-home-offers .bs-offers-empty div {
   flex: 1;
@@ -338,7 +338,7 @@
 .home-contact {
   padding: 34px 22px 56px;
   text-align: left;
-  background: #fcfafb;
+  background: #fcfafc;
 }
 .home-contact .content {
   max-width: 1240px;
@@ -348,8 +348,8 @@
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 24px;
-  background: linear-gradient(112deg, #f9ecf1 0%, #fff4f6 100%);
-  border: 1px solid #e9dce1;
+  background: linear-gradient(112deg, #f4ecf9 0%, #fff4f6 100%);
+  border: 1px solid #e9dce9;
   border-radius: 20px;
   box-shadow: 0 8px 28px rgba(99, 70, 108, .045);
 }
@@ -361,7 +361,7 @@
   font-size: clamp(21px, 2vw, 26px);
   font-weight: 800;
   line-height: 1.4;
-  color: #6e4e5a;
+  color: #644e6e;
   text-transform: none;
   margin: 0 0 5px;
 }
@@ -371,7 +371,7 @@
   font-size: 13px;
   font-weight: 400;
   line-height: 1.75;
-  color: #7e6d73;
+  color: #7b6d7e;
 }
 .home-contact .content .btn {
   display: inline-flex;
@@ -381,7 +381,7 @@
   margin: 0;
   padding: 11px 22px;
   border-radius: 11px;
-  background: #b88b9b;
+  background: #b18bb8;
   color: #fff;
   font-family: 'Be Vietnam Pro','Quicksand',sans-serif;
   font-size: 13px;
@@ -391,7 +391,7 @@
   box-shadow: 0 5px 12px rgba(144, 97, 161, .09);
 }
 .home-contact .content .btn:hover {
-  background: #a06f81;
+  background: #936fa0;
   color: #fff;
 }
 /* 04. Responsive: thẻ không bị nhỏ chữ hoặc tràn ở màn hình hẹp. */
@@ -451,7 +451,7 @@
   background: #fffafd;
 }
 .bs-home-page > .products .title {
-  color: #805c69;
+  color: #715c80;
   font-family: 'Nunito','Quicksand',sans-serif;
   font-weight: 900;
   text-transform: none;
@@ -460,51 +460,51 @@
 }
 .bs-home-page > .products .box-container .box {
   background: #fff;
-  border-color: #eee1e6;
+  border-color: #eee1eb;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(88,61,103,.035);
 }
 .bs-home-page > .products .box-container .box:hover {
-  border-color: #d8b8c4;
+  border-color: #d8b8d3;
   box-shadow: 0 8px 20px rgba(159,121,176,.12);
 }
 .bs-home-page > .products .box-container .box .price {
-  background: #cb9aac;
+  background: #c39acb;
   color: #fff;
 }
 .bs-home-page > .products .box-container .box .fa-eye {
-  color: #9b7381;
-  border-color: #e9d8de;
+  color: #8f739b;
+  border-color: #e6d8e9;
   background: #fff9fd;
 }
 .bs-home-page > .products .box-container .box .fa-eye:hover {
   color: #fff;
-  background: #b78a9a;
-  border-color: #b78a9a;
+  background: #aa8ab7;
+  border-color: #aa8ab7;
 }
 .bs-home-page > .products .box-container .box .name {
-  color: #6b545c;
+  color: #62546b;
   font-family: 'Nunito','Quicksand',sans-serif;
   font-weight: 800;
 }
 .bs-home-page > .products .box-container .box .category {
-  color: #ad8b97;
-  border-color: #e4cbd4;
+  color: #ad8ba9;
+  border-color: #e4cbe1;
 }
 .bs-home-page > .products .box-container .box .qty {
-  color: #716167;
-  background: #fcf6f8;
-  border-color: #e7d8dd;
+  color: #6e6171;
+  background: #fcf6fc;
+  border-color: #e6d8e7;
 }
 .bs-home-page > .products .box-container .box .box-actions .option-btn {
-  color: #a07584;
-  border-color: #e7d4db;
-  background: #fff7fa;
+  color: #9675a0;
+  border-color: #e3d4e7;
+  background: #fff7fd;
 }
 .bs-home-page > .products .box-container .box .box-actions .option-btn:hover {
   color: #fff;
-  background: #c597a8;
-  border-color: #c597a8;
+  background: #bc97c5;
+  border-color: #bc97c5;
 }
 .bs-home-page > .products .box-container .box .box-actions .btn {
   background: #d9a5bb;
@@ -515,12 +515,12 @@
   background: #c58da7;
 }
 .bs-home-page .more-btn .option-btn {
-  background: #c597a8;
+  background: #bc97c5;
   color: #fff;
   border-radius: 10px;
 }
 .bs-home-page .more-btn .option-btn:hover {
-  background: #b68093;
+  background: #a680b6;
 }
 /* Đổi nền đệm mà không tác động ảnh banner/slideshow gốc. */
 .bs-home-page .slideshow {

@@ -41,9 +41,8 @@ $wishlistProducts = product_wishlist_ids($conn, (int) $user_id);
    <link rel="stylesheet" href="../css/components/search-form.css">
    <!-- Chỉ đổi màu và chữ cho Shop, không sửa layout/form. -->
    <link rel="stylesheet" href="../css/pages/shop.css">  
-    <link rel="stylesheet" href="../css/pages/pink-theme.css">
 </head>
-<body class="bs-pink-theme">
+<body>
    
 <?php @include '../components/header.php'; ?>
 <?php include __DIR__ . '/../components/product_notice.php'; ?>
