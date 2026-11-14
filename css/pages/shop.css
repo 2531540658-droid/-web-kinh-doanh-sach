@@ -72,7 +72,7 @@
   box-shadow: 0 8px 20px rgba(122,82,164,.12)
 }
 .bs-shop-products .box-container .box .price {
-  background: #af84c9;
+  background: #C5B3D3;
   color: #fff;
   font-family: 'Nunito','Quicksand',sans-serif
 }
@@ -104,13 +104,13 @@
 .bs-shop-products .box-container .box .box-actions .option-btn {
   font-family: 'Nunito','Quicksand',sans-serif;
   color: #705b78;
-  border-color: #f5cbcb;
+  border-color: #C5B3D3;
   background: #fbeeee
 }
 .bs-shop-products .box-container .box .box-actions .option-btn:hover {
   color: #5f4b68;
   background: #ffe2e2;
-  border-color: #f5cbcb
+  border-color: #C5B3D3
 }
 .bs-shop-products .box-container .box .box-actions .option-btn[data-wishlist-hovered="true"] i,
 .bs-shop-products .box-container .box .box-actions .option-btn[data-wishlist-pending="true"] i {
