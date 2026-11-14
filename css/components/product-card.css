@@ -162,11 +162,8 @@
   color: inherit;
 }
 
-/* Hồng chỉ là phản hồi lúc bấm/gửi, không phải màu cố định của sách đã lưu. */
-.products .box-container .box .box-actions .option-btn:active i,
-.products .box-container .box .box-actions .option-btn[data-wishlist-pending="true"] i {
+.products .box-container .box .box-actions .option-btn[data-wishlist-hovered="true"] i {
   color: var(--wishlist-heart);
-  font-weight: 900;
 }
 .products .box-container .box .box-actions .option-btn:focus-visible {
   outline: 2px solid #bba0ec;

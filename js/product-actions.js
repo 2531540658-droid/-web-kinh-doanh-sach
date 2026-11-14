@@ -34,10 +34,29 @@
   window.addEventListener('resize', positionToast);
   if (!toast.hidden) showNotice(toastMessage.textContent, toast.dataset.kind === 'error');
 
+  const forms = [...document.querySelectorAll('form[data-product-form]')];
+  const setHeartIcon = (button, filled) => {
+    const icon = button.querySelector('i');
+    icon.classList.toggle('fas', filled);
+    icon.classList.toggle('far', !filled);
+  };
+  forms.forEach((form) => {
+    const button = form.querySelector('[name="add_to_wishlist"]');
+    button.addEventListener('mouseenter', () => {
+      if (button.dataset.wishlistHoverLock === 'true') return;
+      button.dataset.wishlistHovered = 'true';
+      setHeartIcon(button, true);
+    });
+    button.addEventListener('mouseleave', () => {
+      delete button.dataset.wishlistHoverLock;
+      delete button.dataset.wishlistHovered;
+      setHeartIcon(button, false);
+    });
+  });
+
   if (typeof window.fetch !== 'function' || typeof FormData !== 'function'
       || typeof AbortController !== 'function' || typeof SubmitEvent !== 'function'
       || !('submitter' in SubmitEvent.prototype)) return;
-  const forms = [...document.querySelectorAll('form[data-product-form]')];
   const busyProducts = new Set();
   const productId = (form) => form.querySelector('[name="product_id"]').value;
 
@@ -54,10 +73,7 @@
       const isSaved = saved.has(productId(form));
       button.dataset.wishlistSaved = String(isSaved);
       button.title = isSaved ? 'Đã lưu vào yêu thích' : 'Thêm vào yêu thích';
-      const icon = button.querySelector('i');
-      // The saved state belongs to the wishlist; the icon is only click feedback.
-      icon.classList.remove('fas');
-      icon.classList.add('far');
+      setHeartIcon(button, false);
     });
   }
 
@@ -111,7 +127,16 @@
       } finally {
         window.clearTimeout(timeout);
         busyProducts.delete(id);
-        hearts.forEach((heart) => { delete heart.dataset.wishlistPending; });
+        hearts.forEach((heart) => {
+          delete heart.dataset.wishlistPending;
+          delete heart.dataset.wishlistHovered;
+          setHeartIcon(heart, false);
+          if (heart.matches(':hover')) {
+            heart.dataset.wishlistHoverLock = 'true';
+          } else {
+            delete heart.dataset.wishlistHoverLock;
+          }
+        });
         controls.forEach((control, index) => { control.disabled = disabled[index]; });
       }
     });
