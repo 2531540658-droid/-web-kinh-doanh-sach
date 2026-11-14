@@ -1,5 +1,6 @@
 <?php
 require_once '../config/config.php';
+require_once __DIR__ . '/../config/sepay.php';
 session_start();
 
 /** @var mysqli $conn Connection initialized by config.php. */
@@ -10,10 +11,10 @@ if ($user_id === null) {
     exit();
 }
 
-$sepayBank = trim((string) ($localConfig['sepay_bank_code'] ?? getenv('SEPAY_BANK_CODE')));
-$sepayAccount = trim((string) ($localConfig['sepay_account_number'] ?? getenv('SEPAY_ACCOUNT_NUMBER')));
-$sepayWebhookKey = trim((string) ($localConfig['sepay_webhook_api_key'] ?? getenv('SEPAY_WEBHOOK_API_KEY')));
-$sepayConfigured = $sepayBank !== '' && $sepayAccount !== '' && $sepayWebhookKey !== '';
+$sepay = sepay_configuration($localConfig);
+$sepayBank = $sepay['bank'];
+$sepayAccount = $sepay['account'];
+$sepayConfigured = $sepay['configured'];
 $message = [];
 $checkoutOrder = null;
 $_SESSION['checkout_csrf_token'] ??= bin2hex(random_bytes(32));
@@ -198,7 +199,7 @@ if ($checkoutOrder && $checkoutOrder['method'] === 'sepay_qr' && $sepayConfigure
     $qrParameters = http_build_query([
         'bank' => $sepayBank,
         'acc' => $sepayAccount,
-        'template' => 'compact',
+        'template' => 'qronly',
         'amount' => (int) round((float) $checkoutOrder['total_price']),
         'des' => 'DH' . (int) $checkoutOrder['id'],
     ]);
@@ -226,12 +227,12 @@ $isPaymentCompleted = $checkoutOrder && $checkoutOrder['payment_status'] === 'co
     <!-- Sau khi đặt hàng: giữ nguyên logic thanh toán COD/SePay hiện có. -->
     <section class="bs-payment-result bs-panel">
         <?php if ($isQrPayment): ?>
-            <div class="sepay-payment-card <?php echo $isPaymentCompleted ? 'is-completed' : ''; ?>" id="sepay-payment-card">
+            <div class="sepay-payment-card <?php echo $isPaymentCompleted ? 'is-completed' : ''; ?>" id="sepay-payment-card" data-order-id="<?= (int) $checkoutOrder['id'] ?>">
                 <div class="sepay-payment-header">
                     <span class="sepay-payment-icon"><i class="fa-solid fa-building-columns"></i></span>
                     <div>
                         <h3>Thanh toán đơn hàng #<?php echo (int) $checkoutOrder['id']; ?></h3>
-                        <p id="payment-status" class="payment-status <?php echo $isPaymentCompleted ? 'payment-status-success' : 'payment-status-pending'; ?>">
+                        <p id="payment-status" role="status" aria-live="polite" class="payment-status <?php echo $isPaymentCompleted ? 'payment-status-success' : 'payment-status-pending'; ?>">
                             <?php echo $isPaymentCompleted ? 'Đã thanh toán thành công' : 'Đang chờ thanh toán'; ?>
                         </p>
                     </div>
@@ -239,6 +240,8 @@ $isPaymentCompleted = $checkoutOrder && $checkoutOrder['payment_status'] === 'co
 
                 <div class="sepay-pending-content" <?php echo $isPaymentCompleted ? 'hidden' : ''; ?>>
                     <p class="sepay-instruction">Mở ứng dụng ngân hàng và quét mã QR bên dưới để thanh toán.</p>
+                    <div class="sepay-brand" aria-label="BookStory">BookStory<span aria-hidden="true"></span></div>
+                    <p class="sepay-provider">Chuyển khoản ngân hàng qua SePay</p>
                     <div class="sepay-qr-wrapper">
                         <img src="<?php echo htmlspecialchars($qrUrl, ENT_QUOTES, 'UTF-8'); ?>" alt="Mã QR thanh toán SePay">
                     </div>
@@ -248,6 +251,12 @@ $isPaymentCompleted = $checkoutOrder && $checkoutOrder['payment_status'] === 'co
                     </div>
                     <p class="sepay-note"><i class="fa-solid fa-circle-info"></i> Giữ nguyên nội dung chuyển khoản để hệ thống tự động xác nhận.</p>
                     <div class="sepay-waiting"><span class="sepay-spinner"></span> Đang kiểm tra thanh toán...</div>
+                    <div class="sepay-status-error" role="alert" hidden>
+                        <p data-payment-error-message></p>
+                        <button type="button" class="sepay-retry" data-payment-retry>Kiểm tra lại</button>
+                        <a data-payment-error-link hidden></a>
+                    </div>
+                    <noscript><p class="sepay-note">Bật JavaScript hoặc tải lại trang để xem trạng thái thanh toán.</p></noscript>
                 </div>
 
                 <div id="payment-confirmation" class="sepay-success-content" <?php echo $isPaymentCompleted ? '' : 'hidden'; ?>>
@@ -345,39 +354,7 @@ $isPaymentCompleted = $checkoutOrder && $checkoutOrder['payment_status'] === 'co
 </div></main>
 <?php include '../components/footer.php'; ?><script src="../js/script.js"></script>
 <?php if ($isQrPayment && !$isPaymentCompleted): ?>
-<script>
-   const paymentStatus = document.getElementById('payment-status');
-   const paymentConfirmation = document.getElementById('payment-confirmation');
-   const paymentCard = document.getElementById('sepay-payment-card');
-   const pendingContent = paymentCard.querySelector('.sepay-pending-content');
-   const orderId = <?php echo (int) $checkoutOrder['id']; ?>;
-
-   async function refreshPaymentStatus() {
-      try {
-         const response = await fetch('payment_status.php?order_id=' + orderId, {
-            headers: { 'Accept': 'application/json' }
-         });
-         if (!response.ok) return;
-         const result = await response.json();
-         if (result.payment_status === 'completed') {
-            paymentStatus.textContent = 'Đã thanh toán thành công';
-            paymentStatus.classList.remove('payment-status-pending');
-            paymentStatus.classList.add('payment-status-success');
-            paymentCard.classList.add('is-completed');
-            pendingContent.hidden = true;
-            paymentConfirmation.hidden = false;
-         }
-         if (result.payment_status === 'completed') {
-            window.clearInterval(paymentPoll);
-         }
-      } catch (error) {
-         console.error('Unable to refresh payment status.', error);
-      }
-   }
-
-   const paymentPoll = window.setInterval(refreshPaymentStatus, 3000);
-   refreshPaymentStatus();
-</script>
+<script src="../js/sepay-payment.js" defer></script>
 <?php endif; ?>
 
 </body></html>
