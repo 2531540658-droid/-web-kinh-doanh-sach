@@ -6,10 +6,10 @@
    =============================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
 .bs-contact-page {
-  --bs-ink: #62546b;
-  --bs-muted: #95849e;
-  --bs-lilac: #a680b6;
-  --bs-rose: #c58da7;
+  --bs-ink: #5c4d66;
+  --bs-muted: #887890;
+  --bs-lilac: #9b6fcf;
+  --bs-rose: #a978c4;
   background: #fffafc;
   color: var(--bs-ink);
   font-family: 'Nunito','Quicksand',sans-serif;
@@ -186,7 +186,7 @@
 .bs-contact-page .bs-contact-submit {
   border: 0;
   border-radius: 9px;
-  background: #bd9acb;
+  background: #9b6fcf;
   color: #fff;
   font-size: 14px;
   font-weight: 800;
@@ -195,7 +195,7 @@
   transition: background .2s
 }
 .bs-contact-page .bs-contact-submit:hover {
-  background: #a680b6
+  background: #7d52a4
 }
 .bs-contact-page .bs-contact-privacy {
   color: #9d929f;

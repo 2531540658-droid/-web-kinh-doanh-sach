@@ -88,7 +88,7 @@
 }
 
 .reviews .box-container .box .stars i {
-  color: #d9a5bb;
+  color: #a978c4;
   font-size: 1.7rem;
   margin: 0 0.3rem;
 }
@@ -109,7 +109,7 @@
 }
 .bs-about-page .heading h3 {
   font-family: 'Nunito','Quicksand',sans-serif;
-  color: #725c82;
+  color: #665077;
   font-weight: 900;
   text-transform: none;
   font-size: clamp(30px,3.6vw,46px)
@@ -119,10 +119,10 @@
   font-size: 18px
 }
 .bs-about-page .heading p a {
-  color: #a47caa
+  color: #8a62a4
 }
 .bs-about-page .heading p a:hover {
-  color: #76598c
+  color: #6f4988
 }
 /* 01. Giữ flex ảnh và nội dung y nguyên. Chỉ đổi màu nền/chữ/nút. */
 .bs-about-page .about {
@@ -132,7 +132,7 @@
   font-family: 'Nunito','Quicksand',sans-serif;
   font-size: clamp(27px,2.5vw,34px);
   font-weight: 900;
-  color: #715c80
+  color: #665077
 }
 .bs-about-page .about .flex .content p {
   font-family: 'Nunito','Quicksand',sans-serif;
@@ -141,13 +141,13 @@
 }
 .bs-about-page .about .flex .content .btn {
   font-family: 'Nunito','Quicksand',sans-serif;
-  background: #c9a2c9;
+  background: #a978c4;
   color: #fff;
   font-weight: 800;
   border-radius: 11px
 }
 .bs-about-page .about .flex .content .btn:hover {
-  background: #ae84b7
+  background: #895ba8
 }
 .bs-about-page .about .flex .image img {
   border-radius: 14px;
@@ -161,7 +161,7 @@
   font-family: 'Nunito','Quicksand',sans-serif;
   text-transform: none;
   font-weight: 900;
-  color: #715c80
+  color: #665077
 }
 .bs-about-page .reviews .box-container .box {
   border: 1px solid #eee1eb;
@@ -177,5 +177,5 @@
   color: #775d82
 }
 .bs-about-page .reviews .box-container .box .stars i {
-  color: #cc9cbb
+  color: #a978c4
 }

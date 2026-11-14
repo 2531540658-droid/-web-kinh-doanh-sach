@@ -7,7 +7,7 @@
 }
 
 .heading:not(.bs-shop-heading) h3 {
-  color: #725c82;
+  color: #665077;
   font-size: clamp(3.2rem, 4vw, 5rem);
   text-transform: none;
 }
@@ -18,11 +18,11 @@
 }
 
 .heading:not(.bs-shop-heading) p a {
-  color: #a47caa;
+  color: #8a62a4;
 }
 
 .heading:not(.bs-shop-heading) p a:hover {
-  color: #76598c;
+  color: #6f4988;
 }
 
 .search-form {
@@ -53,19 +53,19 @@
 }
 
 .search-form form .box:focus {
-  border-color: #bc97c5;
+  border-color: #b99bd1;
   box-shadow: 0 0 0 3px #f4ecf9;
 }
 
 .search-form form .btn {
   margin-top: 0;
-  background: #bd9acb;
+  background: #9b6fcf;
   color: #fff;
   font-weight: 700;
 }
 
 .search-form form .btn:hover {
-  background: #a680b6;
+  background: #7d52a4;
 }
 
 .search-form + .products {
@@ -84,13 +84,13 @@
 }
 
 .search-form + .products .box-container .box .price {
-  background: #c39acb;
+  background: #af84c9;
 }
 
 .search-form + .products .box-container .box .box-actions .btn {
-  background: #d9a5bb;
+  background: #a978c4;
 }
 
 .search-form + .products .box-container .box .box-actions .btn:hover {
-  background: #c58da7;
+  background: #895ba8;
 }
