@@ -38,7 +38,7 @@
 /* Liên hệ ở trang chủ - index */
 
 .home-contact {
-  background-color: #715c80;
+  background-color: #665077;
   text-align: center;
 }
 
@@ -112,7 +112,7 @@
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover,
 .next:hover {
-   background-color: #bc97c5;
+   background-color: #9b6fcf;
 }
 
 .fade {
@@ -451,7 +451,7 @@
   background: #fffafd;
 }
 .bs-home-page > .products .title {
-  color: #715c80;
+  color: #665077;
   font-family: 'Nunito','Quicksand',sans-serif;
   font-weight: 900;
   text-transform: none;
@@ -465,25 +465,25 @@
   box-shadow: 0 4px 15px rgba(88,61,103,.035);
 }
 .bs-home-page > .products .box-container .box:hover {
-  border-color: #d8b8d3;
-  box-shadow: 0 8px 20px rgba(159,121,176,.12);
+  border-color: #d6c3e3;
+  box-shadow: 0 8px 20px rgba(122,82,164,.12);
 }
 .bs-home-page > .products .box-container .box .price {
-  background: #c39acb;
+  background: #af84c9;
   color: #fff;
 }
 .bs-home-page > .products .box-container .box .fa-eye {
-  color: #8f739b;
-  border-color: #e6d8e9;
-  background: #fff9fd;
+  color: #80648f;
+  border-color: #e2d6e9;
+  background: #fcf9ff;
 }
 .bs-home-page > .products .box-container .box .fa-eye:hover {
   color: #fff;
-  background: #aa8ab7;
-  border-color: #aa8ab7;
+  background: #9b6fcf;
+  border-color: #9b6fcf;
 }
 .bs-home-page > .products .box-container .box .name {
-  color: #62546b;
+  color: #5c4d66;
   font-family: 'Nunito','Quicksand',sans-serif;
   font-weight: 800;
 }
@@ -497,30 +497,30 @@
   border-color: #e6d8e7;
 }
 .bs-home-page > .products .box-container .box .box-actions .option-btn {
-  color: #9675a0;
-  border-color: #e3d4e7;
-  background: #fff7fd;
+  color: #80648f;
+  border-color: #e2d6e9;
+  background: #fcf9ff;
 }
 .bs-home-page > .products .box-container .box .box-actions .option-btn:hover {
   color: #fff;
-  background: #bc97c5;
-  border-color: #bc97c5;
+  background: #9b6fcf;
+  border-color: #9b6fcf;
 }
 .bs-home-page > .products .box-container .box .box-actions .btn {
-  background: #d9a5bb;
+  background: #a978c4;
   color: #fff;
   font-weight: 800;
 }
 .bs-home-page > .products .box-container .box .box-actions .btn:hover {
-  background: #c58da7;
+  background: #895ba8;
 }
 .bs-home-page .more-btn .option-btn {
-  background: #bc97c5;
+  background: #9b6fcf;
   color: #fff;
   border-radius: 10px;
 }
 .bs-home-page .more-btn .option-btn:hover {
-  background: #a680b6;
+  background: #7d52a4;
 }
 /* Đổi nền đệm mà không tác động ảnh banner/slideshow gốc. */
 .bs-home-page .slideshow {
