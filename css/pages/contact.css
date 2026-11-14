@@ -6,9 +6,9 @@
    =============================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
 .bs-contact-page {
-  --bs-ink: #55465c;
-  --bs-muted: #827788;
-  --bs-lilac: #a48db4;
+  --bs-ink: #5c464e;
+  --bs-muted: #88777d;
+  --bs-lilac: #b48d9b;
   --bs-rose: #c5899b;
   background: #fffafc;
   color: var(--bs-ink);
@@ -27,24 +27,24 @@
 /* 01. Dòng giới thiệu gọn, không icon trang trí. */
 .bs-contact-page .bs-contact-hero {
   padding: 35px 24px 58px;
-  background: linear-gradient(115deg,#f5effb,#fff3f5 62%,#fff9f4)
+  background: linear-gradient(115deg,#fbeff3,#fff3f5 62%,#fff9f4)
 }
 .bs-contact-page .bs-contact-crumb {
   display: flex;
   gap: 10px;
   align-items: center;
   font-size: 12px;
-  color: #948b99;
+  color: #998b90;
   margin-bottom: 26px
 }
 .bs-contact-page .bs-contact-crumb a {
-  color: #866c9c
+  color: #9c6c7d
 }
 .bs-contact-page .bs-contact-eyebrow {
   font-size: 10px;
   letter-spacing: .16em;
   font-weight: 800;
-  color: #94759e
+  color: #9e7584
 }
 .bs-contact-page .bs-contact-hero h1 {
   font-size: clamp(29px,3.7vw,43px);
@@ -52,7 +52,7 @@
   line-height: 1.24;
   letter-spacing: -.035em;
   max-width: 760px;
-  color: #4e4059;
+  color: #594049;
   margin: 10px 0 13px;
   text-transform: none
 }
@@ -63,7 +63,7 @@
 .bs-contact-page .bs-contact-hero p {
   max-width: 640px;
   font-size: 14px;
-  color: #807587;
+  color: #87757b;
   line-height: 1.75
 }
 /* 02. Cột thông tin tối giản: không icon, không các ô chức năng lặp. */
@@ -91,26 +91,26 @@
   font-size: clamp(25px,2.6vw,32px);
   line-height: 1.35;
   font-weight: 800;
-  color: #55445e;
+  color: #5e444d;
   letter-spacing: -.025em;
   margin: 0 0 18px
 }
 .bs-contact-page .bs-contact-aside>p {
   font-size: 14px;
-  color: #817584;
+  color: #84757a;
   line-height: 1.9;
   max-width: 400px
 }
 .bs-contact-page .bs-contact-note {
   margin-top: 40px;
   padding: 17px 0 17px 18px;
-  border-left: 3px solid #d2bedb;
+  border-left: 3px solid #dbbec8;
   background: transparent
 }
 .bs-contact-page .bs-contact-note strong {
   font-size: 13px;
   font-weight: 800;
-  color: #6d5b78
+  color: #785b65
 }
 .bs-contact-page .bs-contact-note p {
   font-size: 13px;
@@ -123,7 +123,7 @@
 .bs-contact-page .bs-contact-form-card {
   padding: 32px 35px 29px;
   background: #fff;
-  border: 1px solid #efe6ed;
+  border: 1px solid #efe6e9;
   border-radius: 16px;
   box-shadow: 0 13px 35px rgba(84,60,85,.06)
 }
@@ -133,12 +133,12 @@
 .bs-contact-page .bs-contact-form-heading h2 {
   font-size: 23px;
   font-weight: 800;
-  color: #55425e;
+  color: #5e424c;
   margin: 0 0 5px
 }
 .bs-contact-page .bs-contact-form-heading p {
   font-size: 13px;
-  color: #9b8f9c
+  color: #9c8f94
 }
 .bs-contact-page .bs-contact-form {
   display: grid;
@@ -153,7 +153,7 @@
   display: block;
   font-size: 12px;
   font-weight: 800;
-  color: #665669;
+  color: #69565d;
   margin-bottom: 7px
 }
 .bs-contact-page .bs-contact-field label span {
@@ -161,9 +161,9 @@
 }
 .bs-contact-page .bs-contact-field input,.bs-contact-page .bs-contact-field textarea {
   width: 100%;
-  border: 1px solid #ebdfeb;
+  border: 1px solid #ebdfe3;
   background: #fffbfd;
-  color: #5b4b61;
+  color: #614b53;
   font-size: 13px;
   line-height: 1.6;
   border-radius: 9px;
@@ -172,12 +172,12 @@
   box-shadow: none
 }
 .bs-contact-page .bs-contact-field input::placeholder,.bs-contact-page .bs-contact-field textarea::placeholder {
-  color: #b3a7b3
+  color: #b3a7ab
 }
 .bs-contact-page .bs-contact-field input:focus,.bs-contact-page .bs-contact-field textarea:focus {
   background: #fff;
-  border-color: #c3aacd;
-  box-shadow: 0 0 0 3px #ede4f0
+  border-color: #cdaab7;
+  box-shadow: 0 0 0 3px #f0e4e8
 }
 .bs-contact-page .bs-contact-field textarea {
   min-height: 140px;
@@ -186,7 +186,7 @@
 .bs-contact-page .bs-contact-submit {
   border: 0;
   border-radius: 9px;
-  background: #b792bb;
+  background: #bb92a1;
   color: #fff;
   font-size: 14px;
   font-weight: 800;
@@ -195,10 +195,10 @@
   transition: background .2s
 }
 .bs-contact-page .bs-contact-submit:hover {
-  background: #9f78aa
+  background: #aa788a
 }
 .bs-contact-page .bs-contact-privacy {
-  color: #9d929f;
+  color: #9f9297;
   font-size: 11px;
   text-align: center
 }
@@ -285,7 +285,7 @@
 }
 .bs-contact-page .bs-contact-field input::placeholder,
 .bs-contact-page .bs-contact-field textarea::placeholder {
-  color: #918395;
+  color: #958389;
 }
 .bs-contact-page .bs-contact-submit {
   font-size: 17px;
