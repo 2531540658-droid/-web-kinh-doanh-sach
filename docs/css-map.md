@@ -23,6 +23,8 @@
 | `css/components/product-notice.css` | Thông báo nhỏ phía trên, trạng thái thành công/lỗi | `index.php`, `pages/shop.php`, `pages/search_page.php`, `pages/view_page.php` |
 | `css/components/sepay.css` | QR, trạng thái chờ/thành công, spinner và thông báo thanh toán chưa khả dụng | `pages/checkout.php` |
 
+`css/pages/pink-theme.css` chỉ nạp sau CSS riêng ở `index.php`, `pages/shop.php`, `pages/about.php`, `pages/contact.php`. Các biến và màu ghi đè được giới hạn trong `body.bs-pink-theme`; trang khác tiếp tục dùng màu chung ban đầu.
+
 ## CSS riêng theo trang
 
 | File CSS | File PHP nạp CSS | Mục đích |

@@ -31,8 +31,9 @@ if ($user_id <= 0) {
     <link rel="stylesheet" href="../css/components/footer.css">
     <!-- Chỉ nạp palette pastel cho trang Về chúng tôi. -->
     <link rel="stylesheet" href="../css/pages/about.css">
+    <link rel="stylesheet" href="../css/pages/pink-theme.css">
 </head>
-<body class="bs-about-page">
+<body class="bs-about-page bs-pink-theme">
 <?php @include '../components/header.php'; ?>
 
 <section class="heading">
