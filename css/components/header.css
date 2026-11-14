@@ -80,7 +80,7 @@
 
 .header .flex .logo .logo-speed {
   display: block;
-  background-color: #15151a;
+  background-color: #1a1517;
 }
 
 .header .flex .logo .logo-speed-lg {
@@ -104,9 +104,9 @@
   font-size: 1em;
   line-height: 0.8;
   white-space: nowrap;
-  color: #141417;
+  color: #171415;
   text-shadow: 0.07em 0.06em 0 var(--brown);
-  -webkit-text-stroke: 0.011em #141417;
+  -webkit-text-stroke: 0.011em #171415;
 }
 
 .header .flex .logo:hover .logo-wordmark {
