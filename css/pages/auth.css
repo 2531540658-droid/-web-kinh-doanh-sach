@@ -5,44 +5,81 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 8rem);
+  padding: 5rem 2rem;
+  background: linear-gradient(145deg, #fffafd 0%, #f8f3fc 55%, #fff7f5 100%);
 }
 
 .form-container form {
-  padding: 2%;
-  border-radius: 2%;
+  padding: 4rem;
+  border: 1px solid #eee1eb;
+  border-radius: 1.6rem;
   background-color: var(--white);
-  box-shadow: var(--box-shadow);
-  width: 50rem;
+  box-shadow: 0 1.2rem 3.5rem rgba(88, 61, 103, 0.08);
+  width: min(56rem, 100%);
   text-align: center;
 }
 
 .form-container form h3 {
-  font-size: 25px;
+  font-size: 3rem;
   text-transform: uppercase;
-  color: var(--black);
-  margin-bottom: 2%;
+  color: #715c80;
+  margin-bottom: 2.2rem;
 }
 
 .form-container form .box {
   width: 100%;
   padding: 12px 14px;
   font-size: 18px;
-  color: var(--black);
-  background-color: gainsboro;
+  color: #62546b;
+  background-color: #fffafd;
+  border: 1px solid #e3d4e7;
   margin: 10px 0;
   border-radius: 10px;
+}
+
+.form-container form .box::placeholder {
+  color: #9a8d98;
+}
+
+.form-container form .box:focus {
+  border-color: #bc97c5;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px #f4ecf9;
+}
+
+.form-container form .btn {
+  background: #bd9acb;
+  color: #fff;
+  font-weight: 700;
+}
+
+.form-container form .btn:hover {
+  background: #a680b6;
 }
 
 .form-container form p {
   margin-top: 15px;
   font-size: 20px;
-  color: var(--light-color);
+  color: #756b7c;
 }
 
 .form-container form p a {
-  color: var(--brown);
+  color: #a47caa;
+  font-weight: 600;
 }
 
 .form-container form p a:hover {
-  color: blue;
+  color: #76598c;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 3rem 1.6rem;
+  }
+
+  .form-container form {
+    padding: 3rem 2rem;
+  }
 }

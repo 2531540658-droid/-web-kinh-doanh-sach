@@ -1,6 +1,34 @@
 /* pages/shop.php và pages/search_page.php: form lọc/tìm kiếm. */
 /* Trang tìm kiếm - search */
 
+.heading:not(.bs-shop-heading) {
+  min-height: 22vh;
+  background: linear-gradient(115deg, #eee8fa 0%, #f8e9f3 65%, #fff3eb 100%);
+}
+
+.heading:not(.bs-shop-heading) h3 {
+  color: #725c82;
+  font-size: clamp(3.2rem, 4vw, 5rem);
+  text-transform: none;
+}
+
+.heading:not(.bs-shop-heading) p {
+  color: #95849e;
+  font-size: 1.8rem;
+}
+
+.heading:not(.bs-shop-heading) p a {
+  color: #a47caa;
+}
+
+.heading:not(.bs-shop-heading) p a:hover {
+  color: #76598c;
+}
+
+.search-form {
+  background: #fffafd;
+}
+
 .search-form form {
   max-width: 1200px;
   margin: 0 auto;
@@ -11,14 +39,58 @@
 
 .search-form form .box {
   width: 100%;
-  border: var(--border);
+  border: 1px solid #d9c8df;
   background-color: var(--white);
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 4px 15px rgba(106, 76, 119, 0.06);
   padding: 1.2rem 1.4rem;
   font-size: 1.8rem;
+  color: #695b71;
   border-radius: 0.5rem;
+}
+
+.search-form form .box::placeholder {
+  color: #9a8d98;
+}
+
+.search-form form .box:focus {
+  border-color: #bc97c5;
+  box-shadow: 0 0 0 3px #f4ecf9;
 }
 
 .search-form form .btn {
   margin-top: 0;
+  background: #bd9acb;
+  color: #fff;
+  font-weight: 700;
+}
+
+.search-form form .btn:hover {
+  background: #a680b6;
+}
+
+.search-form + .products {
+  background: #fffafd;
+}
+
+.search-form + .products .empty {
+  color: #756b7c;
+  border: 1px solid #eee1eb;
+  box-shadow: 0 5px 18px rgba(88, 61, 103, 0.05);
+}
+
+.search-form + .products .box-container .box {
+  border-color: #eee1eb;
+  box-shadow: 0 4px 15px rgba(88, 61, 103, 0.04);
+}
+
+.search-form + .products .box-container .box .price {
+  background: #c39acb;
+}
+
+.search-form + .products .box-container .box .box-actions .btn {
+  background: #d9a5bb;
+}
+
+.search-form + .products .box-container .box .box-actions .btn:hover {
+  background: #c58da7;
 }
