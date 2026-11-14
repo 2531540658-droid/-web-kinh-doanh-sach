@@ -88,9 +88,21 @@
 }
 
 .search-form + .products .box-container .box .box-actions .btn {
-  background: #a978c4;
+  background: #9b6fcf;
 }
 
 .search-form + .products .box-container .box .box-actions .btn:hover {
-  background: #895ba8;
+  background: #7d52a4;
+}
+
+.search-form + .products .box-container .box .box-actions .option-btn {
+  color: #fff;
+  border-color: #9b6fcf;
+  background: #9b6fcf;
+}
+
+.search-form + .products .box-container .box .box-actions .option-btn:hover {
+  color: #fff;
+  border-color: #7d52a4;
+  background: #7d52a4;
 }

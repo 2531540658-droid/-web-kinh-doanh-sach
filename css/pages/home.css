@@ -497,22 +497,22 @@
   border-color: #e6d8e7;
 }
 .bs-home-page > .products .box-container .box .box-actions .option-btn {
-  color: #80648f;
-  border-color: #e2d6e9;
-  background: #fcf9ff;
+  color: #fff;
+  border-color: #9b6fcf;
+  background: #9b6fcf;
 }
 .bs-home-page > .products .box-container .box .box-actions .option-btn:hover {
   color: #fff;
-  background: #9b6fcf;
-  border-color: #9b6fcf;
+  background: #7d52a4;
+  border-color: #7d52a4;
 }
 .bs-home-page > .products .box-container .box .box-actions .btn {
-  background: #a978c4;
+  background: #9b6fcf;
   color: #fff;
   font-weight: 800;
 }
 .bs-home-page > .products .box-container .box .box-actions .btn:hover {
-  background: #895ba8;
+  background: #7d52a4;
 }
 .bs-home-page .more-btn .option-btn {
   background: #9b6fcf;
