@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/config/config.php';
+require_once __DIR__ . '/config/sepay.php';
 
 header('Content-Type: application/json; charset=utf-8');
 
@@ -27,9 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(405, ['success' => false, 'message' => 'Method not allowed']);
 }
 
-$webhookKey = $localConfig['sepay_webhook_api_key'] ?? getenv('SEPAY_WEBHOOK_API_KEY');
-if ($webhookKey === false || trim($webhookKey) === '') {
-    error_log('SePay webhook rejected: SEPAY_WEBHOOK_API_KEY is not configured.');
+$sepay = sepay_configuration($localConfig);
+if (!$sepay['configured']) {
+    error_log('SePay webhook rejected: recipient or a valid webhook key is not configured.');
     respond(503, ['success' => false, 'message' => 'Webhook is not configured']);
 }
 
@@ -41,13 +42,17 @@ foreach ($headers as $headerName => $headerValue) {
         break;
     }
 }
-if (!hash_equals('Apikey ' . trim($webhookKey), trim($authorization))) {
+if (!hash_equals('Apikey ' . $sepay['key'], trim($authorization))) {
     respond(401, ['success' => false, 'message' => 'Unauthorized']);
 }
 
 $payload = json_decode(file_get_contents('php://input'), true);
 if (!is_array($payload)) {
     respond(400, ['success' => false, 'message' => 'Invalid JSON payload']);
+}
+
+if (!sepay_recipient_matches($sepay, $payload['accountNumber'] ?? null, $payload['gateway'] ?? null)) {
+    respond(200, ['success' => true, 'message' => 'Transaction recipient does not match']);
 }
 
 $transferType = strtolower((string) ($payload['transferType'] ?? ''));

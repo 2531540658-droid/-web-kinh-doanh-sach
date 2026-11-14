@@ -50,6 +50,76 @@
   color: #16803c;
 }
 
+.payment-status-error {
+  color: #a13b53;
+}
+
+.sepay-payment-card [hidden] {
+  display: none !important;
+}
+
+.sepay-status-error {
+  margin-top: 1.5rem;
+  padding: 1.3rem 1.5rem;
+  border: 1px solid #efcbd3;
+  border-radius: 0.8rem;
+  background: #fff5f7;
+  color: #7d4353;
+  font-size: 1.4rem;
+  line-height: 1.6;
+}
+
+.sepay-status-error a,
+.sepay-retry {
+  display: inline-block;
+  margin-top: 0.8rem;
+  color: #7045a1;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  background: transparent;
+}
+
+.sepay-retry:focus-visible,
+.sepay-status-error a:focus-visible {
+  outline: 2px solid #9966ff;
+  outline-offset: 3px;
+}
+
+.sepay-retry:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.sepay-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 auto;
+  color: #1a1520;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 3.2rem;
+  text-shadow: 0.07em 0.06em 0 #9966ff;
+}
+
+.sepay-brand span {
+  width: 1.8rem;
+  height: 2.3rem;
+  background: #9966ff;
+  border: 1px solid #fff;
+  outline: 1px solid #9966ff;
+  transform: rotate(-8deg);
+}
+
+.sepay-provider {
+  margin: 0.6rem 0 1.4rem;
+  color: var(--light-color);
+  text-align: center;
+  font-size: 1.3rem;
+}
+
 .sepay-instruction {
   margin: 2rem 0 1.5rem;
   color: var(--light-color);

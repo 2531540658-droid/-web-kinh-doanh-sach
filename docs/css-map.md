@@ -21,7 +21,7 @@
 | `css/components/product-card.css` | Lưới sách, bìa, giá, tên, thể loại, số lượng, yêu thích và nút giỏ hàng | `index.php`, `pages/shop.php`, `pages/search_page.php` |
 | `css/components/search-form.css` | Form tìm kiếm/lọc thể loại | `pages/shop.php`, `pages/search_page.php` |
 | `css/components/product-notice.css` | Thông báo nhỏ phía trên, trạng thái thành công/lỗi | `index.php`, `pages/shop.php`, `pages/search_page.php`, `pages/view_page.php` |
-| `css/components/sepay.css` | QR, trạng thái chờ/thành công, spinner và thông báo thanh toán chưa khả dụng | `pages/checkout.php` |
+| `css/components/sepay.css` | Logo BookStory ngoài QR, trạng thái chờ/thành công/lỗi, nút thử lại và spinner | `pages/checkout.php` |
 
 ## CSS riêng theo trang
 
@@ -45,6 +45,8 @@ Trên bốn trang có form sản phẩm, `js/product-actions.js` gửi AJAX tớ
 `css/admin_style.css` tiếp tục phục vụ riêng `admin/admin_page.php`, `admin/admin_products.php`, `admin/admin_update_product.php`, `admin/admin_orders.php`, `admin/admin_coupons.php`, `admin/admin_users.php`, `admin/admin_contacts.php`. File này không nằm trong đợt tách `style.css`.
 
 `pages/logout.php`, `pages/payment_status.php`, `sepay_webhook.php` và các file cấu hình không trả giao diện HTML nên không nạp CSS. Các file component không tự thêm `<link>` vào body; trang PHP chứa chúng khai báo CSS trong head.
+
+`js/sepay-payment.js` chỉ nạp khi đơn SePay đang chờ trên checkout. Script kiểm tra trạng thái tuần tự, báo lỗi và cho phép thử lại; `config/sepay.php` đọc cấu hình riêng và đối chiếu tài khoản/ngân hàng nhận tiền ở phía máy chủ.
 
 ## Phần đã loại khỏi style.css
 
