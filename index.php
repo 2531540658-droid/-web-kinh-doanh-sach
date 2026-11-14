@@ -60,9 +60,8 @@ try {
         <link rel="stylesheet" href="css/components/product-card.css">
         <!-- CSS riêng trang chủ: khu ưu đãi và liên hệ, không đè các màn hình khác. -->
         <link rel="stylesheet" href="css/pages/home.css">
-        <link rel="stylesheet" href="css/pages/pink-theme.css">
     </head>
-    <body class="bs-home-page bs-pink-theme">
+    <body class="bs-home-page">
 
         <?php @include 'components/header.php'; ?>
         <?php include __DIR__ . '/components/product_notice.php'; ?>

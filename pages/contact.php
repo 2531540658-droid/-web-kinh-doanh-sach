@@ -42,9 +42,8 @@ if (isset($_POST['send'])) {
    <link rel="stylesheet" href="../css/components/footer.css">
    <!-- CSS trang liên hệ: tách riêng để giữ nguyên giao diện các trang khác. -->
    <link rel="stylesheet" href="../css/pages/contact.css">
-    <link rel="stylesheet" href="../css/pages/pink-theme.css">
 </head>
-<body class="bs-pink-theme">
+<body>
 <?php @include '../components/header.php'; ?>
 <main class="bs-contact-page">
    <!-- 01. Phần giới thiệu: typography đơn giản, không dùng icon trang trí. -->
