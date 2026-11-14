@@ -103,21 +103,21 @@
 }
 .bs-shop-products .box-container .box .box-actions .option-btn {
   font-family: 'Nunito','Quicksand',sans-serif;
-  color: #80648f;
-  border-color: #e2d6e9;
-  background: #fcf9ff
+  color: #fff;
+  border-color: #9b6fcf;
+  background: #9b6fcf
 }
 .bs-shop-products .box-container .box .box-actions .option-btn:hover {
   color: #fff;
-  background: #9b6fcf;
-  border-color: #9b6fcf
+  background: #7d52a4;
+  border-color: #7d52a4
 }
 .bs-shop-products .box-container .box .box-actions .btn {
   font-family: 'Nunito','Quicksand',sans-serif;
-  background: #a978c4;
+  background: #9b6fcf;
   color: #fff;
   font-weight: 800
 }
 .bs-shop-products .box-container .box .box-actions .btn:hover {
-  background: #895ba8
+  background: #7d52a4
 }

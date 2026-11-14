@@ -175,10 +175,10 @@
   background: #7d52a4
 }
 .bs-view-page .bs-view-like {
-  border: 1px solid #e7ddef;
+  border: 1px solid #9b6fcf;
   border-radius: 10px;
-  background: #fff;
-  color: #80648f;
+  background: #9b6fcf;
+  color: #fff;
   min-height: 47px;
   font-size: 13px;
   font-weight: 800;
@@ -189,10 +189,11 @@
   margin-right: 8px
 }
 .bs-view-page .bs-view-like:hover {
-  background: #fff7fd;
-  border-color: #d6c3e3
+  background: #7d52a4;
+  border-color: #7d52a4
 }
 /* Kết thúc yêu cầu thì trở lại tim rỗng, kể cả khi nút còn focus. */
+.bs-view-page .bs-view-like[data-wishlist-hovered="true"] i,
 .bs-view-page .bs-view-like:active i,
 .bs-view-page .bs-view-like[data-wishlist-pending="true"] i {
   color: var(--wishlist-heart);
@@ -224,8 +225,11 @@
 }
 .bs-view-page .bs-view-description p {
   font-size: 14px;
-  color: #70677a;
-  line-height: 1.95;
+  color: #5f5268;
+  line-height: 2;
+  text-align: justify;
+  text-align-last: left;
+  overflow-wrap: anywhere;
   white-space: normal
 }
 .bs-view-page .bs-view-missing {
