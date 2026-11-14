@@ -7,8 +7,8 @@ return [
     'db_password' => '',
     'db_name' => 'shop_db',
     'sepay_bank_code' => '',
-    'sepay_account_number' => '',
+    'sepay_account_number' => 'MBBANK',
     // Optional: exact gateway name from SePay if the QR bank alias differs.
-    'sepay_webhook_bank' => '',
-    'sepay_webhook_api_key' => '',
+    'sepay_webhook_bank' => '0708097507',
+    'sepay_webhook_api_key' => 'BookStore_Sepay_2026_Secret_9xKp',
 ];
