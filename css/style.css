@@ -3,14 +3,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --brown: #9966ff;
+  --brown: #ff669d;
   --red: #c0392b;
-  --orange: #ffa345;
+  --orange: #ae426c;
   --black: #5f5f5f;
   --white: #fff;
   --light-color: #666;
   --light-white: #ccc;
-  --light-bg: #f5f5f5;
+  --light-bg: #fff7fa;
   --wishlist-heart: #fdc2da;
   --border: 0.2rem solid var(--black);
   --box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.1);
