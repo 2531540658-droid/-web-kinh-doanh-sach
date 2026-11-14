@@ -103,14 +103,18 @@
 }
 .bs-shop-products .box-container .box .box-actions .option-btn {
   font-family: 'Nunito','Quicksand',sans-serif;
-  color: #fff;
-  border-color: #9b6fcf;
-  background: #9b6fcf
+  color: #705b78;
+  border-color: #f5cbcb;
+  background: #fbeeee
 }
 .bs-shop-products .box-container .box .box-actions .option-btn:hover {
-  color: #fff;
-  background: #7d52a4;
-  border-color: #7d52a4
+  color: #5f4b68;
+  background: #ffe2e2;
+  border-color: #f5cbcb
+}
+.bs-shop-products .box-container .box .box-actions .option-btn[data-wishlist-hovered="true"] i,
+.bs-shop-products .box-container .box .box-actions .option-btn[data-wishlist-pending="true"] i {
+  color: #d997ad
 }
 .bs-shop-products .box-container .box .box-actions .btn {
   font-family: 'Nunito','Quicksand',sans-serif;
