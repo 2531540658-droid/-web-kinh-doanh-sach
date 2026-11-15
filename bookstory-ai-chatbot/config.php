@@ -42,6 +42,12 @@ $settings = [
         'charset' => 'utf8mb4',
     ],
     'site_base_path' => $pathOverride !== false ? $pathOverride : $siteBasePath,
+    // Relative PHP paths. Set a page to false to show BookBot there again.
+    'hidden_pages' => [
+        'pages/cart.php' => true,
+        'pages/checkout.php' => true, // Includes pending QR and successful payment.
+        'pages/orders.php' => true,
+    ],
     'product_table' => 'products',
     'product_columns' => [
         'id' => 'id',

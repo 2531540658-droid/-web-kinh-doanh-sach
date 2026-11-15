@@ -14,6 +14,8 @@ return [
         'api_key' => getenv('OPENAI_API_KEY') ?: '',
         'model' => getenv('OPENAI_MODEL') ?: 'gpt-4.1-mini',
     ],
+    // Defaults hide BookBot on cart, checkout (all payment states) and orders.
+    // To show it on orders again: 'hidden_pages' => ['pages/orders.php' => false],
     // Only needed if a reverse proxy changes the public URL prefix.
     // 'site_base_path' => '/ten-thu-muc-website',
     // Use '' when serving this repository at the domain root.
