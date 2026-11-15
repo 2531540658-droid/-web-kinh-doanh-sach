@@ -1,2 +1,0 @@
-# Server-specific credentials must never be committed.
-/config/local.php
