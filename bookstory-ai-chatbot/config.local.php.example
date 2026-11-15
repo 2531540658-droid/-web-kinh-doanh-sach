@@ -1,12 +1,12 @@
 <?php
 /**
- * Optional: copy to config.local.php. That private file is ignored by Git.
- * Only include settings you want to change; config.php supplies the rest.
- * Database credentials are already read from ../config/local.php or DB_*.
+ * Tùy chọn: sao chép thành config.local.php. Git bỏ qua tệp cấu hình riêng này.
+ * Chỉ khai báo các mục muốn đổi; config.php cung cấp những giá trị còn lại.
+ * Thông tin kết nối cơ sở dữ liệu đã được đọc từ ../config/local.php hoặc DB_*.
  */
 return [
     'store_faq' => [
-        // Replace with the store's confirmed policies, not example delivery promises.
+        // Thay bằng chính sách cửa hàng đã xác nhận, không dùng cam kết giao hàng ví dụ.
         'shipping' => 'Vui lòng liên hệ cửa hàng để xác nhận phí và thời gian giao hàng.',
         'return' => 'Vui lòng liên hệ cửa hàng để xác nhận điều kiện đổi trả.',
     ],
@@ -14,9 +14,9 @@ return [
         'api_key' => getenv('OPENAI_API_KEY') ?: '',
         'model' => getenv('OPENAI_MODEL') ?: 'gpt-4.1-mini',
     ],
-    // Defaults hide BookBot on cart, checkout (all payment states) and orders.
-    // To show it on orders again: 'hidden_pages' => ['pages/orders.php' => false],
-    // Only needed if a reverse proxy changes the public URL prefix.
+    // Mặc định ẩn BookBot ở giỏ hàng, thanh toán (mọi trạng thái) và đơn hàng.
+    // Để hiện lại ở trang đơn hàng: 'hidden_pages' => ['pages/orders.php' => false],
+    // Chỉ cần khi máy chủ trung gian làm thay đổi tiền tố URL công khai.
     // 'site_base_path' => '/ten-thu-muc-website',
-    // Use '' when serving this repository at the domain root.
+    // Dùng '' khi phục vụ mã nguồn tại gốc tên miền.
 ];

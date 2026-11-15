@@ -1,7 +1,7 @@
 USE `shop_db`;
 
--- Prices/descriptions are maintained in update_verified_book_content.sql.
--- Prices were checked against publisher/retailer listings on 2026-10-27/28.
+-- Giá/mô tả được cập nhật trong update_verified_book_content.sql.
+-- Giá đã được đối chiếu với trang nhà xuất bản/nhà bán lẻ vào 2026-10-27/28.
 INSERT INTO `products` (`name`, `category`, `details`, `price`, `image`)
 SELECT seed.`name`, seed.`category`, seed.`details`, seed.`price`, seed.`image`
 FROM (

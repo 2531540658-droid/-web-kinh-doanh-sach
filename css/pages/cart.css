@@ -1,8 +1,8 @@
 /* ====================================================================
    BOOKSTORY · GIỎ HÀNG — chỉ nạp từ pages/cart.php
-   00. Shared storefront shell · 01. Bố cục · 02. Dòng sản phẩm · 03. Số lượng · 04. Tổng tiền · 05. Mobile
+   00. Khung giao diện cửa hàng dùng chung · 01. Bố cục · 02. Dòng sản phẩm · 03. Số lượng · 04. Tổng tiền · 05. Điện thoại
    ==================================================================== */
-/* 00. Shared storefront shell: dùng riêng cho trang mua sắm */
+/* 00. Khung giao diện cửa hàng dùng chung: dùng riêng cho trang mua sắm */
 .bs-commerce {
   --bs-purple: #9966e8;
   --bs-purple-dark: #7248ab;
@@ -433,7 +433,7 @@
 .bs-cart .bs-cart-details form {
   margin-top: 8px;
 }
-/* 03. Nút tăng/giảm số lượng: submit POST mỗi lần nhấn */
+/* 03. Nút tăng/giảm số lượng: gửi POST mỗi lần nhấn */
 .bs-cart .bs-cart-amount {
   justify-self: end;
   text-align: right;
@@ -512,7 +512,7 @@
 .bs-cart .bs-summary .bs-btn-primary {
   margin-top: 12px;
 }
-/* 05. Responsive */
+/* 05. Thích ứng màn hình */
 @media(max-width:980px) {
   .bs-cart .bs-cart-layout {
     grid-template-columns: minmax(0,1fr) 315px;

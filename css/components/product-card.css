@@ -88,7 +88,7 @@
   min-height: 4.8rem;
 }
 
-/* Thể loại: nhãn mực in, không còn là pill xám */
+/* Thể loại: nhãn mực in, không còn là nhãn dạng viên màu xám */
 .products .box-container .box .category {
   align-self: flex-start;
   margin: 0 1.6rem 1.4rem;

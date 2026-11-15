@@ -29,7 +29,7 @@ if ($user_id <= 0) {
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/components/header.css">
     <link rel="stylesheet" href="../css/components/footer.css">
-    <!-- Chỉ nạp palette pastel cho trang Về chúng tôi. -->
+    <!-- Chỉ nạp bảng màu dịu cho trang Về chúng tôi. -->
     <link rel="stylesheet" href="../css/pages/about.css">
 </head>
 <body class="bs-about-page">

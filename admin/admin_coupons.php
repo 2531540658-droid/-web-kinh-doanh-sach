@@ -107,7 +107,7 @@ try {
             <p>Thiết lập chương trình khuyến mãi và xem trước thẻ Voucher trực tiếp</p>
         </div>
 
-        <!-- Khung Xem Trước Voucher Trực Tiếp (Live Preview) -->
+        <!-- Khung xem trước mã giảm giá trực tiếp -->
         <div class="live-voucher-preview">
             <div class="preview-left">
                 <div class="preview-icon"><i class="fas fa-gift"></i></div>
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const minOrderInput = document.getElementById('minOrderInput');
     const minChips = document.querySelectorAll('.min-chip');
 
-    // Các phần tử trên thẻ Xem Trước (Live Preview)
+    // Các phần tử trên thẻ xem trước trực tiếp
     const previewCodeText = document.getElementById('previewCodeText');
     const previewDiscountText = document.getElementById('previewDiscountText');
     const previewMinOrderText = document.getElementById('previewMinOrderText');

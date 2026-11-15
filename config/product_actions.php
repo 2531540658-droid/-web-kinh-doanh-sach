@@ -1,6 +1,6 @@
 <?php
 
-// Shared by all product forms. Never trust the price/name/image sent by a browser.
+// Dùng chung cho mọi biểu mẫu sản phẩm. Không tin giá/tên/ảnh do trình duyệt gửi lên.
 function requested_product_action(array $input): ?string
 {
     $cart = array_key_exists('add_to_cart', $input);
@@ -54,7 +54,7 @@ function handle_product_action(mysqli $conn, int $userId, array $input): array
         mysqli_stmt_bind_param($stmt, 'iisdis', $userId, $productId, $book['name'], $book['price'], $quantity, $book['image']);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        // Remove the saved item only after the cart insert succeeds.
+        // Chỉ xóa mục đã lưu sau khi thêm vào giỏ hàng thành công.
         $stmt = mysqli_prepare($conn, 'DELETE FROM wishlist WHERE user_id = ? AND pid = ?');
         mysqli_stmt_bind_param($stmt, 'ii', $userId, $productId);
         mysqli_stmt_execute($stmt);
@@ -77,7 +77,7 @@ function handle_product_action(mysqli $conn, int $userId, array $input): array
     return ['Sản phẩm đã được thêm vào danh sách yêu thích.'];
 }
 
-/** Product IDs are kept as keys for rendering every copy of a book consistently. */
+/** Dùng mã sản phẩm làm khóa để mọi nơi hiển thị cùng một cuốn sách đều nhất quán. */
 function product_wishlist_ids(mysqli $conn, int $userId): array
 {
     $stmt = mysqli_prepare($conn, 'SELECT pid FROM wishlist WHERE user_id = ?');
@@ -102,7 +102,7 @@ function product_header_counts(mysqli $conn, int $userId): array
     return ['cart_count' => (int) $counts['cart_count'], 'wishlist_count' => (int) $counts['wishlist_count']];
 }
 
-/** AJAX returns JSON; a regular successful POST redirects to a GET (no replay). */
+/** AJAX trả về JSON; POST thường khi thành công chuyển sang GET để tránh gửi lại thao tác. */
 function process_product_request(mysqli $conn, int $userId, array $input, string $returnUrl): array
 {
     $messages = $_SESSION['product_notice'] ?? [];

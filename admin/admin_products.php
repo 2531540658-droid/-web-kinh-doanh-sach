@@ -92,7 +92,7 @@ while ($row = mysqli_fetch_assoc($select_products)) {
    
 <?php @include 'admin_header.php'; ?>
 
-<!-- PHẦN 1: STUDIO THÊM SẢN PHẨM MỚI + LIVE PREVIEW -->
+<!-- PHẦN 1: KHU VỰC THÊM SẢN PHẨM MỚI + XEM TRƯỚC TRỰC TIẾP -->
 <section class="product-studio-section">
    <div class="studio-layout">
       <form class="studio-form-card" action="" method="POST" enctype="multipart/form-data">

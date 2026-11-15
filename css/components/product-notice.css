@@ -1,4 +1,4 @@
-/* index/shop/search/view: thông báo nổi, không đẩy hoặc che toàn bộ header. */
+/* Trang chủ/cửa hàng/tìm kiếm/chi tiết: thông báo nổi, không đẩy hoặc che toàn bộ đầu trang. */
 .bs-product-toast {
   position: fixed;
   top: 88px;

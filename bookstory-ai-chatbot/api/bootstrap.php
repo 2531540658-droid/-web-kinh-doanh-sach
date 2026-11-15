@@ -200,8 +200,8 @@ function bb_recommend_rows(int $limit = 6): array
         $popScore = ($popularity[(int)$row['id']] ?? 0) / $maxPop;
         $alreadyPurchased = isset($recentlyPurchased[(int)$row['id']]);
         $row['_personalized'] = $affinity > 0;
-        // Blend personal category affinity and store-wide popularity. The weights are a simple baseline,
-        // not a trained ranking model; they can later be replaced with XGBoost/reranking.
+        // Kết hợp mức quan tâm thể loại của từng khách với độ phổ biến toàn cửa hàng. Các trọng số chỉ là mức cơ sở,
+        // chưa phải mô hình xếp hạng đã huấn luyện; sau này có thể thay bằng XGBoost hoặc bước xếp hạng lại.
         $row['_score'] = ($affinity * 1.8) + ($popScore * 1.2) - ($alreadyPurchased ? 2.0 : 0.0);
         if ($affinity > 0) $row['_reason'] = 'Phù hợp với thể loại bạn thường quan tâm';
         elseif ($popScore > 0) $row['_reason'] = 'Được nhiều khách hàng quan tâm';

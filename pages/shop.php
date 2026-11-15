@@ -39,7 +39,7 @@ $wishlistProducts = product_wishlist_ids($conn, (int) $user_id);
    <link rel="stylesheet" href="../css/components/product-notice.css">
    <link rel="stylesheet" href="../css/components/product-card.css">
    <link rel="stylesheet" href="../css/components/search-form.css">
-   <!-- Chỉ đổi màu và chữ cho Shop, không sửa layout/form. -->
+   <!-- Chỉ đổi màu và chữ cho Cửa hàng, không sửa bố cục/biểu mẫu. -->
    <link rel="stylesheet" href="../css/pages/shop.css">  
 </head>
 <body>

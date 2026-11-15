@@ -18,7 +18,7 @@ $dbUser = $dbSetting('DB_USER', 'db_user', 'root');
 $dbPassword = $dbSetting('DB_PASSWORD', 'db_password', '');
 $dbName = $dbSetting('DB_NAME', 'db_name', 'shop_db');
 
-// Keep connection failures consistent across PHP versions (including PHP 8.0).
+// Xử lý lỗi kết nối nhất quán giữa các phiên bản PHP (kể cả PHP 8.0).
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 try {
     $conn = mysqli_connect($dbHost, $dbUser, $dbPassword, $dbName);

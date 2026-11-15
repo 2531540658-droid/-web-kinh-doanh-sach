@@ -1,5 +1,5 @@
-/* BookStory widget: scoped rules keep storefront resets out of the chat UI.
-   Change the palette here; visibility is configured in ../config.php. */
+/* Tiện ích BookStory: giới hạn phạm vi CSS để phần đặt lại kiểu của cửa hàng không ảnh hưởng khung chat.
+   Đổi bảng màu tại đây; cấu hình hiển thị nằm trong ../config.php. */
 #bookbot-root {
   --bb-primary: #8553b0;
   --bb-hover: #704392;
@@ -49,7 +49,7 @@
   flex-shrink: 0;
 }
 
-/* Launcher and panel. Explicit padding overrides the site's section rule. */
+/* Nút mở và khung trò chuyện. Đặt rõ khoảng đệm để ghi đè quy tắc của thẻ section dùng chung. */
 #bookbot-root .bb-launcher {
   position: fixed;
   right: 24px;
@@ -136,7 +136,7 @@
 }
 #bookbot-root .bb-close:hover { background: #ffffffb3; color: var(--bb-hover); }
 
-/* Views: only the conversation or book list scrolls, never the composer. */
+/* Các vùng hiển thị: chỉ hội thoại hoặc danh sách sách cuộn, ô nhập luôn giữ nguyên vị trí. */
 #bookbot-root .bb-tabs { display: flex; flex-shrink: 0; gap: 6px; padding: 8px 14px; border-bottom: 1px solid var(--bb-line); }
 #bookbot-root .bb-tab { flex: 1; padding: 9px 8px; border-radius: 10px; color: var(--bb-muted); font-size: 13px; font-weight: 800; }
 #bookbot-root .bb-tab.is-active { background: #f3eaf9; color: var(--bb-primary); }
@@ -186,7 +186,7 @@
 #bookbot-root .bb-send:disabled { opacity: .5; cursor: wait; }
 #bookbot-root .bb-disclaimer { flex-shrink: 0; padding: 0 14px 12px; color: #96869f; font-size: 10px; line-height: 1.5; text-align: center; }
 
-/* Compact book rows suit a narrow chat window and long Vietnamese titles. */
+/* Thẻ sách dạng hàng gọn, phù hợp khung chat hẹp và tiêu đề tiếng Việt dài. */
 #bookbot-root .bb-recommend-view { flex: 1; padding: 16px 14px; }
 #bookbot-root .bb-recommend-intro { margin-bottom: 14px; color: var(--bb-muted); font-size: 12px; line-height: 1.7; }
 #bookbot-root .bb-recommend-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; min-width: 0; width: 100%; }
@@ -206,7 +206,7 @@
 @media (max-width: 520px) {
   #bookbot-root .bb-launcher { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); min-height: 48px; padding: 10px 16px; font-size: 13px; }
   #bookbot-root .bb-panel { right: 12px; bottom: calc(74px + env(safe-area-inset-bottom, 0px)); width: calc(100vw - 24px); max-height: calc(100vh - 94px); max-height: calc(100dvh - 94px - env(safe-area-inset-bottom, 0px)); border-radius: 21px; }
-  #bookbot-root .bb-input { font-size: 16px; } /* Prevent iOS zoom on focus. */
+  #bookbot-root .bb-input { font-size: 16px; } /* Ngăn iOS phóng to khi chọn ô nhập. */
 }
 @media (max-height: 520px) {
   #bookbot-root .bb-header { padding: 9px 14px; }

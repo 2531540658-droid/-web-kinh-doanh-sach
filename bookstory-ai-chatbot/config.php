@@ -18,8 +18,8 @@ $dbSetting = static function (string $environmentVariable, string $key, string $
 
 $dbPort = getenv('DB_PORT');
 
-// Derive the URL prefix from the current PHP file, including pages/ and api/.
-// BOOKBOT_SITE_PATH overrides this when a reverse proxy rewrites public URLs.
+// Xác định tiền tố URL từ tệp PHP hiện tại, bao gồm các thư mục pages/ và api/.
+// BOOKBOT_SITE_PATH ghi đè giá trị này khi máy chủ trung gian viết lại URL công khai.
 $siteBasePath = '';
 $scriptFile = str_replace('\\', '/', realpath($_SERVER['SCRIPT_FILENAME'] ?? '') ?: '');
 $projectPrefix = str_replace('\\', '/', $projectRoot) . '/';
@@ -42,10 +42,10 @@ $settings = [
         'charset' => 'utf8mb4',
     ],
     'site_base_path' => $pathOverride !== false ? $pathOverride : $siteBasePath,
-    // Relative PHP paths. Set a page to false to show BookBot there again.
+    // Đường dẫn PHP tương đối. Đặt trang thành false để hiện lại BookBot tại đó.
     'hidden_pages' => [
         'pages/cart.php' => true,
-        'pages/checkout.php' => true, // Includes pending QR and successful payment.
+        'pages/checkout.php' => true, // Bao gồm trạng thái chờ QR và thanh toán thành công.
         'pages/orders.php' => true,
     ],
     'product_table' => 'products',
@@ -73,7 +73,7 @@ $settings = [
         'return' => 'Vui lòng xem mục Chính sách đổi trả trên website hoặc liên hệ bộ phận chăm sóc khách hàng để được xác nhận điều kiện áp dụng.',
         'contact' => 'Bạn có thể gửi yêu cầu qua trang Liên hệ của cửa hàng để được nhân viên hỗ trợ.',
     ],
-    // Add words here instead of changing the request handler.
+    // Thêm từ nhận diện tại đây thay vì sửa phần xử lý yêu cầu.
     'faq_keywords' => [
         'shipping' => ['giao hàng', 'vận chuyển', 'ship', 'bao lâu nhận'],
         'payment' => ['thanh toán', 'trả tiền', 'chuyển khoản', 'COD'],
@@ -95,7 +95,7 @@ $settings = [
     'user_session_key' => 'user_id',
 ];
 
-// Optional private overrides; defaults stay versioned and easy to update.
+// Cấu hình ghi đè riêng là tùy chọn; các giá trị mặc định vẫn được Git quản lý và dễ cập nhật.
 $overrideFile = __DIR__ . '/config.local.php';
 if (is_file($overrideFile)) {
     $overrides = require $overrideFile;

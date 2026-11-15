@@ -19,7 +19,7 @@ function bb_faq_context(string $message): array
     return $answers;
 }
 
-/** Business rules stay deterministic; AI only helps describe matched products. */
+/** Quy tắc nghiệp vụ cho kết quả xác định; AI chỉ hỗ trợ mô tả các sản phẩm tìm được. */
 function bb_chat_reply(string $message): array
 {
     $faq = bb_faq_context($message);
@@ -64,7 +64,7 @@ function bb_chat_reply(string $message): array
     ];
 }
 
-/** Return null on provider failure so customers still receive the catalog answer. */
+/** Trả về null khi dịch vụ AI lỗi để khách vẫn nhận được câu trả lời từ danh mục. */
 function bb_ai_answer(string $message, array $products): ?string
 {
     global $config;
@@ -102,7 +102,7 @@ function bb_ai_answer(string $message, array $products): ?string
     $error = curl_error($handle);
     curl_close($handle);
     if ($raw === false || $status < 200 || $status >= 300) {
-        // Do not log keys, full prompts, or provider response bodies.
+        // Không ghi khóa bí mật, toàn bộ câu hỏi hoặc nội dung phản hồi của dịch vụ AI vào nhật ký.
         error_log('[BookBot OpenAI] HTTP ' . $status . ' ' . $error);
         return null;
     }

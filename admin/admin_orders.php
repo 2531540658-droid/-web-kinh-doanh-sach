@@ -35,7 +35,7 @@ if (isset($_GET['delete'])) {
     exit();
 }
 
-// 3. Lấy danh sách toàn bộ đơn hàng và tính chỉ số KPI
+// 3. Lấy danh sách toàn bộ đơn hàng và tính các chỉ số thống kê
 $orders_list = [];$count_all = 0;
 $count_pending = 0;
 $count_completed = 0;
@@ -68,7 +68,7 @@ while ($row = mysqli_fetch_assoc($select_orders)) {
 <?php @include 'admin_header.php'; ?>
 
 <section class="orders-hub-section">
-   <!-- 1. Banner Tiêu Đề -->
+   <!-- 1. Khối tiêu đề -->
    <div class="orders-hero-bar">
       <div class="orders-hero-title">
          <h1><i class="fas fa-shipping-fast"></i> Trung Tâm Điều Phối & Xử Lý Đơn Hàng</h1>
@@ -79,7 +79,7 @@ while ($row = mysqli_fetch_assoc($select_orders)) {
       </a>
    </div>
 
-   <!-- 2. 4 Thẻ KPI Đơn Hàng -->
+   <!-- 2. Bốn thẻ thống kê đơn hàng -->
    <div class="orders-kpi-grid">
       <div class="order-kpi-card kpi-all">
          <div class="o-kpi-text">

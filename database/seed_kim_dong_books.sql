@@ -1,11 +1,11 @@
 USE `shop_db`;
 
--- Prices and availability checked against NXB Kim Dong listings on 2026-10-27.
--- Current sale prices may change. Descriptions are original paraphrases of the
--- publisher's product information. Cover files are sourced from the linked
--- official listings; use them only under the store's confirmed authorization.
+-- Giá và tình trạng còn hàng được đối chiếu với trang NXB Kim Đồng ngày 2026-10-27.
+-- Giá bán hiện tại có thể thay đổi. Mô tả được diễn đạt lại từ
+-- thông tin sản phẩm của nhà xuất bản. Ảnh bìa được lấy từ các trang
+-- chính thức đã dẫn; chỉ sử dụng khi cửa hàng xác nhận có quyền dùng.
 --
--- Sources:
+-- Nguồn tham khảo:
 -- https://nxbkimdong.com.vn/products/dao-lam-chong-dam-tap-15
 -- https://nxbkimdong.com.vn/products/tokyo-aliens-tap-9-tang-kem-set-card
 -- https://nxbkimdong.com.vn/products/45-chuong-mo-dau-bo-truyen-ngan-doraemon-tap-2-26

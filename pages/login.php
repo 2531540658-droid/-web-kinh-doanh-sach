@@ -57,7 +57,7 @@ if (isset($_POST['submit'])) {
    <title>Đăng Nhập</title>
    <!-- liên kết font awesome cdn -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-   <!-- liên kết file css tùy chỉnh -->
+   <!-- liên kết tệp css tùy chỉnh -->
    <link rel="stylesheet" href="../css/style.css">
    <link rel="stylesheet" href="../css/components/header.css">
    <link rel="stylesheet" href="../css/pages/auth.css">

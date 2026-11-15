@@ -17,7 +17,7 @@ if (!isset($admin_id)) {
 
 $message = [];
 
-// 1. Tạo tài khoản mới trực tiếp từ trang Admin
+// 1. Tạo tài khoản mới trực tiếp từ trang quản trị
 if (isset($_POST['add_user_account'])) {
     $new_name = mysqli_real_escape_string($conn, trim($_POST['name'] ?? ''));
     $new_email = mysqli_real_escape_string($conn, trim($_POST['email'] ?? ''));
@@ -59,7 +59,7 @@ if (isset($_GET['delete'])) {
     exit();
 }
 
-// 4. Lấy thống kê đơn hàng & chi tiêu của từng user
+// 4. Lấy thống kê đơn hàng & chi tiêu của từng người dùng
 $user_order_stats = [];
 try {
     $stat_q = mysqli_query($conn, "SELECT user_id, COUNT(*) AS total_orders, COALESCE(SUM(total_price), 0) AS total_spent FROM `orders` GROUP BY user_id");
@@ -104,7 +104,7 @@ $total_all = count($users_list);
 <?php @include 'admin_header.php'; ?>
 
 <section class="users-management-section">
-    <!-- 1. Banner Tiêu Đề & Nút Mở Form Tạo Tài Khoản -->
+    <!-- 1. Khối tiêu đề và nút mở biểu mẫu tạo tài khoản -->
     <div class="users-hero-bar">
         <div class="users-hero-title">
             <h1><i class="fas fa-users-cog"></i> Quản Lý Tài Khoản & Phân Quyền Hệ Thống</h1>
@@ -148,7 +148,7 @@ $total_all = count($users_list);
         </form>
     </div>
 
-    <!-- 3. Ba Thẻ Thống Kê Nhanh (KPIs) -->
+    <!-- 3. Ba thẻ thống kê nhanh -->
     <div class="users-kpi-grid">
         <div class="user-kpi-card kpi-total">
             <div class="kpi-info">

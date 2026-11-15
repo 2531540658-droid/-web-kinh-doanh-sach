@@ -1,11 +1,11 @@
 <?php
-/** Include this file near the end of your page, just before </body>. */
+/** Nhúng tệp này gần cuối trang, ngay trước thẻ </body>. */
 $configFile = __DIR__ . '/config.php';
 if (!is_file($configFile)) return;
 $bookbotConfig = require $configFile;
 
-// Check the executing page, not query parameters or the previous page.
-// No launcher, panel, assets or chatbot requests on purchase-related pages.
+// Kiểm tra trang đang thực thi, không dựa vào tham số truy vấn hay trang trước đó.
+// Không xuất nút mở, khung chat, tài nguyên hay yêu cầu chatbot trên các trang mua hàng.
 $pageFile = str_replace('\\', '/', realpath($_SERVER['SCRIPT_FILENAME'] ?? '') ?: '');
 $projectDirectory = str_replace('\\', '/', dirname(__DIR__)) . '/';
 $relativePage = str_starts_with($pageFile, $projectDirectory) ? substr($pageFile, strlen($projectDirectory)) : '';

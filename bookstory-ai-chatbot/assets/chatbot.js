@@ -98,7 +98,7 @@
 
   async function track(event, productId, query = '') {
     if (!productId) return;
-    try { await request('/api/track.php', { event, product_id: Number(productId), query }, true); } catch (e) { /* Tracking must not interrupt shopping. */ }
+    try { await request('/api/track.php', { event, product_id: Number(productId), query }, true); } catch (e) { /* Việc ghi nhận tương tác không được làm gián đoạn mua sắm. */ }
   }
 
   async function loadRecommendations() {

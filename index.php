@@ -21,7 +21,7 @@ require_once __DIR__ . '/config/product_actions.php';
 $message = process_product_request($conn, (int) $user_id, $_POST, 'index.php');
 $wishlistProducts = product_wishlist_ids($conn, (int) $user_id);
 
-// BOOKSTORY / TRANG CHỦ: chỉ hiển thị voucher còn hiệu lực.
+// BOOKSTORY / TRANG CHỦ: chỉ hiển thị mã giảm giá còn hiệu lực.
 // Cùng điều kiện lọc với checkout.php; nếu bảng chưa được cài, trang vẫn hoạt động.
 $homeCoupons = [];
 try {
@@ -50,9 +50,9 @@ try {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Trang Chủ</title>
-        <!-- liên kết font awesome cdn  -->
+        <!-- Liên kết Font Awesome qua CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <!-- liên kết file css tùy chỉnh  -->
+        <!-- Liên kết tệp CSS tùy chỉnh -->
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/components/header.css">
         <link rel="stylesheet" href="css/components/footer.css">
@@ -129,7 +129,7 @@ try {
 
         </script>
 
-        <!-- BOOKSTORY / ƯU ĐÃI: bố cục lấy cảm hứng từ dải Flash Sale.
+        <!-- BOOKSTORY / ƯU ĐÃI: bố cục lấy cảm hứng từ dải giảm giá nhanh.
              Giá trị, ngày hết hạn và mã đều đọc từ bảng coupons thật. -->
         <section class="bs-home-offers" aria-labelledby="bs-offers-title">
             <div class="bs-offers-inner">
@@ -206,7 +206,7 @@ try {
             });
         </script>
 
-        <!-- section 1-->
+        <!-- Khu vực 1 -->
         <section class="products">
             <h1 class="title">Sản phẩm mới nhất</h1>
             <div class="box-container">
@@ -246,7 +246,7 @@ try {
             </div>
         </section>
 
-        <!-- section 2-->
+        <!-- Khu vực 2 -->
         <section class="products">
             <h1 class="title">Truyện tranh</h1>
             <div class="box-container">
@@ -306,7 +306,7 @@ try {
 
         </section>
 
-        <!-- BOOKSTORY / LIÊN HỆ NHANH: lời mời ngắn gọn, không dùng icon trang trí. -->
+        <!-- BOOKSTORY / LIÊN HỆ NHANH: lời mời ngắn gọn, không dùng biểu tượng trang trí. -->
         <section class="home-contact" aria-labelledby="home-contact-title">
             <div class="content">
                 <div class="bs-home-contact-copy">

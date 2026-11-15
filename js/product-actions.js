@@ -88,7 +88,7 @@
         return;
       }
 
-      // FormData(form) omits submit buttons: send only the button actually used.
+      // FormData(form) không chứa nút gửi: chỉ gửi kèm nút thực sự được sử dụng.
       const data = new FormData(form);
       data.delete('add_to_cart');
       data.delete('add_to_wishlist');

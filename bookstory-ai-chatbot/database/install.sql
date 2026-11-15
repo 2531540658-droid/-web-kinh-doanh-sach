@@ -1,5 +1,5 @@
--- Run this SQL in phpMyAdmin after selecting your bookstore database.
--- These are NEW chatbot tables; this script does not modify your products/users/orders tables.
+-- Chạy SQL này trong phpMyAdmin sau khi chọn cơ sở dữ liệu của cửa hàng sách.
+-- Đây là các bảng chatbot MỚI; lệnh này không sửa các bảng products/users/orders.
 
 CREATE TABLE IF NOT EXISTS ai_book_interactions (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,

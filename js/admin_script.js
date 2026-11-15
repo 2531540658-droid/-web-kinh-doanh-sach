@@ -4,19 +4,19 @@ const userBox = document.querySelector(".header .flex .account-box");
 const menuBtn = document.querySelector("#menu-btn");
 const userBtn = document.querySelector("#user-btn");
 
-// Định nghĩa sự kiện click cho nút menu
+// Định nghĩa sự kiện nhấn cho nút trình đơn
 menuBtn.onclick = () => {
   navbar.classList.toggle("active");
   userBox.classList.remove("active");
 };
 
-// Định nghĩa sự kiện scroll cho window
+// Định nghĩa sự kiện cuộn trang cho cửa sổ trình duyệt
 window.onscroll = () => {
   navbar.classList.remove("active");
   userBox.classList.remove("active");
 };
 
-// Định nghĩa sự kiện click cho nút user
+// Định nghĩa sự kiện nhấn cho nút người dùng
 userBtn.onclick = () => {
   userBox.classList.toggle("active");
   navbar.classList.remove("active");

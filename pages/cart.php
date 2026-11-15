@@ -1,5 +1,5 @@
 <?php
-// BookStory / Cart: nút +/- cập nhật số lượng bằng POST và kiểm tra đúng chủ giỏ.
+// BookStory / Giỏ hàng: nút +/- cập nhật số lượng bằng POST và kiểm tra đúng chủ giỏ.
 require_once '../config/config.php';
 
 if (!isset($conn) || !($conn instanceof mysqli)) {
@@ -63,7 +63,7 @@ $money = static fn($value): string => number_format((float) $value, 0, ',', '.')
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/components/header.css">
 <link rel="stylesheet" href="../css/components/footer.css">
-<!-- Tách CSS theo màn hình; header/footer được nạp riêng từ css/components/. -->
+<!-- Tách CSS theo màn hình; đầu trang/chân trang được nạp riêng từ css/components/. -->
 <link rel="stylesheet" href="../css/pages/cart.css">
 </head><body>
 <?php include '../components/header.php'; ?>

@@ -1,4 +1,4 @@
-/* pages/checkout.php: thẻ QR, pending/success, spinner và fallback. */
+/* pages/checkout.php: thẻ QR, trạng thái chờ/thành công, biểu tượng đang tải và giao diện dự phòng. */
 .sepay-payment-card {
   max-width: 62rem;
   margin: 0 auto 2rem;

@@ -2,7 +2,7 @@
 /**
  * BOOKSTORY - ĐƠN HÀNG CỦA BẠN
  * Giao diện mới tách CSS theo từng trang: css/pages/orders.css.
- * Nghiệp vụ giữ nguyên: chỉ xem đơn của tài khoản, xóa đơn pending bằng POST + CSRF.
+ * Nghiệp vụ giữ nguyên: chỉ xem đơn của tài khoản, xóa đơn đang chờ bằng POST + CSRF.
  */
 require_once '../config/config.php';
 require_once '../config/order_items.php';
@@ -20,14 +20,14 @@ if ($user_id <= 0) {
     exit();
 }
 
-// 01. Token CSRF riêng cho thao tác xóa đơn hàng.
+// 01. Mã CSRF riêng cho thao tác xóa đơn hàng.
 if (!isset($_SESSION['orders_csrf_token'])) {
     $_SESSION['orders_csrf_token'] = bin2hex(random_bytes(32));
 }
 $order_message = $_SESSION['orders_message'] ?? '';
 unset($_SESSION['orders_message']);
 
-// 02. Giữ nguyên quy tắc cũ: chỉ xóa đơn pending thuộc đúng người đăng nhập.
+// 02. Giữ nguyên quy tắc cũ: chỉ xóa đơn đang chờ thuộc đúng người đăng nhập.
 if (isset($_POST['delete_order'])) {
     $order_id = filter_input(INPUT_POST, 'order_id', FILTER_VALIDATE_INT);
     $csrf_token = (string) ($_POST['csrf_token'] ?? '');
@@ -70,7 +70,7 @@ if ($price_query) {
     }
 }
 
-// 04. Các helper giao diện: escape HTML, định dạng tiền và trạng thái.
+// 04. Các hàm hỗ trợ giao diện: mã hóa ký tự đặc biệt HTML, định dạng tiền và trạng thái.
 $e = static fn($value): string => htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 $money = static fn($value): string => number_format((float) $value, 0, ',', '.') . ' VNĐ';
 $status_info = static function ($value): array {
@@ -124,7 +124,7 @@ foreach ($orders as $order) {
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/components/header.css">
     <link rel="stylesheet" href="../css/components/footer.css">
-    <!-- CSS tách theo trang; mỗi mảng style được đặt trong file riêng để dễ bảo trì. -->
+    <!-- CSS tách theo trang; mỗi phần kiểu dáng được đặt trong tệp riêng để dễ bảo trì. -->
     <link rel="stylesheet" href="../css/pages/orders.css">
 </head>
 <body>
@@ -238,7 +238,7 @@ foreach ($orders as $order) {
                         </section>
                     </div>
 
-                    <!-- 08. Tổng đơn lấy từ database; giữ hành động thanh toán và xóa đơn pending. -->
+                    <!-- 08. Tổng đơn lấy từ cơ sở dữ liệu; giữ hành động thanh toán và xóa đơn đang chờ. -->
                     <div class="bs-order-bottom">
                         <div class="bs-order-total"><span>Tổng thanh toán</span><strong><?= $money($order['total_price'] ?? 0) ?></strong></div>
                         <?php if ($is_pending): ?>
