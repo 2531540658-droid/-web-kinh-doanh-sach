@@ -1,0 +1,42 @@
+#bookbot-root{--bb-ink:#202635;--bb-muted:#738096;--bb-line:#e7eaf0;--bb-primary:#3056a5;--bb-soft:#f4f7fc;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;position:relative;z-index:99990;color:var(--bb-ink)}
+#bookbot-root [hidden]{display:none!important}
+#bookbot-root *{box-sizing:border-box}
+#bookbot-root .bb-launcher{position:fixed;right:24px;bottom:22px;border:0;border-radius:999px;background:var(--bb-primary);color:#fff;padding:13px 19px;display:flex;align-items:center;gap:9px;box-shadow:0 8px 30px #142b5638;font-size:14px;font-weight:700;cursor:pointer}
+#bookbot-root .bb-launcher-icon{font-size:20px;line-height:1}
+#bookbot-root .bb-panel{position:fixed;right:24px;bottom:84px;width:min(390px,calc(100vw - 28px));height:min(610px,calc(100vh - 115px));min-height:420px;background:#fff;border:1px solid var(--bb-line);border-radius:18px;box-shadow:0 18px 60px #17223b2e;display:flex;flex-direction:column;overflow:hidden}
+#bookbot-root .bb-header{height:66px;flex:0 0 auto;display:flex;align-items:center;gap:11px;padding:12px 15px;background:var(--bb-primary);color:#fff}
+#bookbot-root .bb-avatar{width:38px;height:38px;border-radius:50%;background:#fff;color:var(--bb-primary);display:grid;place-items:center;font-weight:800}
+#bookbot-root .bb-heading{display:flex;flex-direction:column;gap:2px;flex:1}.bb-heading strong{font-size:15px}.bb-heading small{font-size:11px;opacity:.85}
+#bookbot-root .bb-close{border:0;background:transparent;color:#fff;font-size:27px;line-height:1;cursor:pointer;padding:3px 6px}
+#bookbot-root .bb-tabs{display:flex;border-bottom:1px solid var(--bb-line);padding:0 12px;gap:8px;flex:0 0 auto}
+#bookbot-root .bb-tab{border:0;background:transparent;color:var(--bb-muted);padding:12px 13px 10px;font-size:13px;font-weight:650;cursor:pointer;border-bottom:2px solid transparent}
+#bookbot-root .bb-tab.is-active{color:var(--bb-primary);border-bottom-color:var(--bb-primary)}
+#bookbot-root .bb-chat-view{display:flex;flex:1;min-height:0;flex-direction:column}
+#bookbot-root .bb-messages{flex:1;overflow:auto;padding:15px 13px 8px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+#bookbot-root .bb-message{max-width:88%;padding:10px 12px;border-radius:13px;font-size:13px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
+#bookbot-root .bb-bot{align-self:flex-start;background:var(--bb-soft);border:1px solid #e9eef8;border-bottom-left-radius:4px}
+#bookbot-root .bb-user{align-self:flex-end;background:#e6efff;color:#213c70;border-bottom-right-radius:4px}
+#bookbot-root .bb-thinking{color:var(--bb-muted);font-style:italic}
+#bookbot-root .bb-quick-prompts{display:flex;gap:6px;overflow-x:auto;padding:5px 12px 10px;flex:0 0 auto}
+#bookbot-root .bb-quick-prompts button{white-space:nowrap;border:1px solid #dce4f2;background:#fff;color:#425a83;border-radius:999px;padding:6px 9px;font-size:11px;cursor:pointer}
+#bookbot-root .bb-form{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--bb-line);flex:0 0 auto}
+#bookbot-root .bb-input{min-width:0;flex:1;border:1px solid #dfe4ed;border-radius:12px;padding:11px 12px;font-size:13px;outline:none;color:var(--bb-ink)}
+#bookbot-root .bb-input:focus{border-color:#7c9bd9;box-shadow:0 0 0 3px #3056a515}
+#bookbot-root .bb-send{width:42px;border:0;border-radius:12px;background:var(--bb-primary);color:#fff;font-size:18px;cursor:pointer}
+#bookbot-root .bb-send:disabled{opacity:.5;cursor:wait}
+#bookbot-root .bb-disclaimer{padding:0 12px 9px;color:#8993a4;font-size:10px;text-align:center;flex:0 0 auto}
+#bookbot-root .bb-recommend-view{padding:13px;overflow:auto;flex:1;min-height:0}
+#bookbot-root .bb-recommend-intro{font-size:12px;color:var(--bb-muted);line-height:1.45;margin:0 0 10px}
+#bookbot-root .bb-recommend-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+#bookbot-root .bb-product{min-width:0;border:1px solid var(--bb-line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
+#bookbot-root .bb-product-link{color:inherit;text-decoration:none;display:flex;flex-direction:column;flex:1}
+#bookbot-root .bb-product-image{height:116px;background:#f4f5f8;display:grid;place-items:center;overflow:hidden}
+#bookbot-root .bb-product-image img{width:100%;height:100%;object-fit:contain}
+#bookbot-root .bb-product-no-image{font-size:26px;color:#a0a9b8}
+#bookbot-root .bb-product-info{padding:8px 9px;display:flex;flex-direction:column;gap:5px;flex:1}
+#bookbot-root .bb-product-name{font-size:12px;font-weight:700;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+#bookbot-root .bb-product-price{font-size:12px;font-weight:750;color:#b33838}
+#bookbot-root .bb-product-meta{font-size:10px;color:var(--bb-muted);line-height:1.35}
+#bookbot-root .bb-product-reason{font-size:10px;color:#42619a;line-height:1.3;padding:0 9px 9px}
+#bookbot-root .bb-empty{font-size:12px;color:var(--bb-muted);padding:18px 8px;text-align:center;grid-column:1/-1}
+@media(max-width:520px){#bookbot-root .bb-launcher{right:14px;bottom:14px}#bookbot-root .bb-panel{right:10px;bottom:73px;width:calc(100vw - 20px);height:min(620px,calc(100vh - 90px))}}
