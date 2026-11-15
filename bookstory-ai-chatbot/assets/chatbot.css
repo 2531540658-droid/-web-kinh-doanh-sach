@@ -1,42 +1,217 @@
-#bookbot-root{--bb-ink:#202635;--bb-muted:#738096;--bb-line:#e7eaf0;--bb-primary:#3056a5;--bb-soft:#f4f7fc;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;position:relative;z-index:99990;color:var(--bb-ink)}
-#bookbot-root [hidden]{display:none!important}
-#bookbot-root *{box-sizing:border-box}
-#bookbot-root .bb-launcher{position:fixed;right:24px;bottom:22px;border:0;border-radius:999px;background:var(--bb-primary);color:#fff;padding:13px 19px;display:flex;align-items:center;gap:9px;box-shadow:0 8px 30px #142b5638;font-size:14px;font-weight:700;cursor:pointer}
-#bookbot-root .bb-launcher-icon{font-size:20px;line-height:1}
-#bookbot-root .bb-panel{position:fixed;right:24px;bottom:84px;width:min(390px,calc(100vw - 28px));height:min(610px,calc(100vh - 115px));min-height:420px;background:#fff;border:1px solid var(--bb-line);border-radius:18px;box-shadow:0 18px 60px #17223b2e;display:flex;flex-direction:column;overflow:hidden}
-#bookbot-root .bb-header{height:66px;flex:0 0 auto;display:flex;align-items:center;gap:11px;padding:12px 15px;background:var(--bb-primary);color:#fff}
-#bookbot-root .bb-avatar{width:38px;height:38px;border-radius:50%;background:#fff;color:var(--bb-primary);display:grid;place-items:center;font-weight:800}
-#bookbot-root .bb-heading{display:flex;flex-direction:column;gap:2px;flex:1}.bb-heading strong{font-size:15px}.bb-heading small{font-size:11px;opacity:.85}
-#bookbot-root .bb-close{border:0;background:transparent;color:#fff;font-size:27px;line-height:1;cursor:pointer;padding:3px 6px}
-#bookbot-root .bb-tabs{display:flex;border-bottom:1px solid var(--bb-line);padding:0 12px;gap:8px;flex:0 0 auto}
-#bookbot-root .bb-tab{border:0;background:transparent;color:var(--bb-muted);padding:12px 13px 10px;font-size:13px;font-weight:650;cursor:pointer;border-bottom:2px solid transparent}
-#bookbot-root .bb-tab.is-active{color:var(--bb-primary);border-bottom-color:var(--bb-primary)}
-#bookbot-root .bb-chat-view{display:flex;flex:1;min-height:0;flex-direction:column}
-#bookbot-root .bb-messages{flex:1;overflow:auto;padding:15px 13px 8px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
-#bookbot-root .bb-message{max-width:88%;padding:10px 12px;border-radius:13px;font-size:13px;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere}
-#bookbot-root .bb-bot{align-self:flex-start;background:var(--bb-soft);border:1px solid #e9eef8;border-bottom-left-radius:4px}
-#bookbot-root .bb-user{align-self:flex-end;background:#e6efff;color:#213c70;border-bottom-right-radius:4px}
-#bookbot-root .bb-thinking{color:var(--bb-muted);font-style:italic}
-#bookbot-root .bb-quick-prompts{display:flex;gap:6px;overflow-x:auto;padding:5px 12px 10px;flex:0 0 auto}
-#bookbot-root .bb-quick-prompts button{white-space:nowrap;border:1px solid #dce4f2;background:#fff;color:#425a83;border-radius:999px;padding:6px 9px;font-size:11px;cursor:pointer}
-#bookbot-root .bb-form{display:flex;gap:8px;padding:10px 12px;border-top:1px solid var(--bb-line);flex:0 0 auto}
-#bookbot-root .bb-input{min-width:0;flex:1;border:1px solid #dfe4ed;border-radius:12px;padding:11px 12px;font-size:13px;outline:none;color:var(--bb-ink)}
-#bookbot-root .bb-input:focus{border-color:#7c9bd9;box-shadow:0 0 0 3px #3056a515}
-#bookbot-root .bb-send{width:42px;border:0;border-radius:12px;background:var(--bb-primary);color:#fff;font-size:18px;cursor:pointer}
-#bookbot-root .bb-send:disabled{opacity:.5;cursor:wait}
-#bookbot-root .bb-disclaimer{padding:0 12px 9px;color:#8993a4;font-size:10px;text-align:center;flex:0 0 auto}
-#bookbot-root .bb-recommend-view{padding:13px;overflow:auto;flex:1;min-height:0}
-#bookbot-root .bb-recommend-intro{font-size:12px;color:var(--bb-muted);line-height:1.45;margin:0 0 10px}
-#bookbot-root .bb-recommend-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-#bookbot-root .bb-product{min-width:0;border:1px solid var(--bb-line);border-radius:12px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
-#bookbot-root .bb-product-link{color:inherit;text-decoration:none;display:flex;flex-direction:column;flex:1}
-#bookbot-root .bb-product-image{height:116px;background:#f4f5f8;display:grid;place-items:center;overflow:hidden}
-#bookbot-root .bb-product-image img{width:100%;height:100%;object-fit:contain}
-#bookbot-root .bb-product-no-image{font-size:26px;color:#a0a9b8}
-#bookbot-root .bb-product-info{padding:8px 9px;display:flex;flex-direction:column;gap:5px;flex:1}
-#bookbot-root .bb-product-name{font-size:12px;font-weight:700;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-#bookbot-root .bb-product-price{font-size:12px;font-weight:750;color:#b33838}
-#bookbot-root .bb-product-meta{font-size:10px;color:var(--bb-muted);line-height:1.35}
-#bookbot-root .bb-product-reason{font-size:10px;color:#42619a;line-height:1.3;padding:0 9px 9px}
-#bookbot-root .bb-empty{font-size:12px;color:var(--bb-muted);padding:18px 8px;text-align:center;grid-column:1/-1}
-@media(max-width:520px){#bookbot-root .bb-launcher{right:14px;bottom:14px}#bookbot-root .bb-panel{right:10px;bottom:73px;width:calc(100vw - 20px);height:min(620px,calc(100vh - 90px))}}
+/* BookStory widget: scoped rules keep storefront resets out of the chat UI.
+   Change the palette here; visibility is configured in ../config.php. */
+#bookbot-root {
+  --bb-primary: #8553b0;
+  --bb-hover: #704392;
+  --bb-ink: #463650;
+  --bb-muted: #82738b;
+  --bb-line: #ece3f1;
+  --bb-soft: #faf5fd;
+  font-family: 'Nunito', 'Quicksand', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--bb-ink);
+  position: relative;
+  z-index: 1100;
+}
+#bookbot-root *,
+#bookbot-root *::before,
+#bookbot-root *::after { box-sizing: border-box; }
+#bookbot-root * {
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  transition: none;
+}
+#bookbot-root [hidden] { display: none !important; }
+#bookbot-root button,
+#bookbot-root input { font: inherit; color: inherit; }
+#bookbot-root button {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  text-transform: none;
+}
+#bookbot-root :focus-visible {
+  outline: 3px solid #b995d6;
+  outline-offset: 3px;
+}
+#bookbot-root .bb-icon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+/* Launcher and panel. Explicit padding overrides the site's section rule. */
+#bookbot-root .bb-launcher {
+  position: fixed;
+  right: 24px;
+  bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 12px 20px;
+  border: 1px solid #ffffff70;
+  border-radius: 999px;
+  background: var(--bb-primary);
+  box-shadow: 0 8px 24px #6940872b;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+#bookbot-root .bb-launcher:hover,
+#bookbot-root .bb-send:hover { background: var(--bb-hover); }
+#bookbot-root.is-open .bb-launcher {
+  background: #f6eefb;
+  border-color: #ddcbe9;
+  color: var(--bb-primary);
+  box-shadow: 0 5px 18px #69408714;
+}
+#bookbot-root .bb-panel {
+  position: fixed;
+  right: 24px;
+  bottom: calc(86px + env(safe-area-inset-bottom, 0px));
+  width: min(384px, calc(100vw - 32px));
+  height: 590px;
+  max-height: calc(100vh - 110px);
+  max-height: calc(100dvh - 110px - env(safe-area-inset-bottom, 0px));
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 1px solid var(--bb-line);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 60px #4c2d6329;
+  overflow: hidden;
+}
+#bookbot-root .bb-header {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+  padding: 18px 16px;
+  background: linear-gradient(115deg, #f2e8fb, #fff2ed);
+  border-bottom: 1px solid var(--bb-line);
+}
+#bookbot-root .bb-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #e6d5f1;
+  border-radius: 15px;
+  background: #ffffffd9;
+  color: var(--bb-primary);
+}
+#bookbot-root .bb-heading { flex: 1; min-width: 0; }
+#bookbot-root .bb-heading strong {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+#bookbot-root .bb-heading strong span { color: #80688e; font-size: 10px; font-weight: 600; }
+#bookbot-root .bb-heading small { display: block; margin-top: 2px; color: #796584; font-size: 11px; }
+#bookbot-root .bb-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  color: #80658f;
+}
+#bookbot-root .bb-close:hover { background: #ffffffb3; color: var(--bb-hover); }
+
+/* Views: only the conversation or book list scrolls, never the composer. */
+#bookbot-root .bb-tabs { display: flex; flex-shrink: 0; gap: 6px; padding: 8px 14px; border-bottom: 1px solid var(--bb-line); }
+#bookbot-root .bb-tab { flex: 1; padding: 9px 8px; border-radius: 10px; color: var(--bb-muted); font-size: 13px; font-weight: 800; }
+#bookbot-root .bb-tab.is-active { background: #f3eaf9; color: var(--bb-primary); }
+#bookbot-root .bb-chat-view { display: flex; flex: 1; flex-direction: column; min-height: 0; min-width: 0; }
+#bookbot-root .bb-messages,
+#bookbot-root .bb-recommend-view {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #dac8e5 transparent;
+}
+#bookbot-root .bb-messages { display: flex; flex: 1; flex-direction: column; gap: 12px; padding: 16px 14px; }
+#bookbot-root .bb-messages > * { flex-shrink: 0; }
+#bookbot-root .bb-welcome {
+  padding: 24px 18px;
+  border: 1px solid #f0e6f4;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #faf5ff, #fff8f4);
+}
+#bookbot-root .bb-eyebrow { display: block; color: var(--bb-primary); font-size: 10px; font-weight: 800; letter-spacing: .04em; }
+#bookbot-root .bb-welcome h3 { margin: 9px 0; color: var(--bb-ink); font-size: 23px; font-weight: 800; line-height: 1.3; }
+#bookbot-root .bb-welcome p { color: #7a6984; font-size: 13px; line-height: 1.7; }
+#bookbot-root .bb-message { max-width: 92%; padding: 11px 13px; border-radius: 16px; font-size: 13px; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+#bookbot-root .bb-bot { align-self: flex-start; border: 1px solid var(--bb-line); border-bottom-left-radius: 5px; background: var(--bb-soft); }
+#bookbot-root .bb-user { align-self: flex-end; border-bottom-right-radius: 5px; background: #eee2f8; color: #604477; }
+#bookbot-root .bb-thinking { color: var(--bb-muted); font-style: italic; }
+#bookbot-root .bb-quick-prompts { display: flex; flex-wrap: wrap; flex-shrink: 0; gap: 6px; padding: 5px 14px 11px; }
+#bookbot-root .bb-quick-prompts button { padding: 7px 10px; border: 1px solid #e8dcef; border-radius: 999px; background: #fff; color: #7b5798; font-size: 11px; font-weight: 700; }
+#bookbot-root .bb-quick-prompts button:hover { background: var(--bb-soft); border-color: #d1b6e3; }
+#bookbot-root .bb-form {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  margin: 0 14px 9px;
+  padding: 7px;
+  border: 1px solid #e2d3ec;
+  border-radius: 17px;
+  background: #fdfbfe;
+}
+#bookbot-root .bb-form:focus-within { border-color: #b995d6; box-shadow: 0 0 0 3px #9b6fcf12; }
+#bookbot-root .bb-input { flex: 1; min-width: 0; width: 0; padding: 8px; border: 0; background: transparent; color: var(--bb-ink); font-size: 14px; outline: none; }
+#bookbot-root .bb-input::placeholder { color: #a092a9; }
+#bookbot-root .bb-send { display: grid; place-items: center; flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px; background: var(--bb-primary); color: #fff; }
+#bookbot-root .bb-send:disabled { opacity: .5; cursor: wait; }
+#bookbot-root .bb-disclaimer { flex-shrink: 0; padding: 0 14px 12px; color: #96869f; font-size: 10px; line-height: 1.5; text-align: center; }
+
+/* Compact book rows suit a narrow chat window and long Vietnamese titles. */
+#bookbot-root .bb-recommend-view { flex: 1; padding: 16px 14px; }
+#bookbot-root .bb-recommend-intro { margin-bottom: 14px; color: var(--bb-muted); font-size: 12px; line-height: 1.7; }
+#bookbot-root .bb-recommend-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; min-width: 0; width: 100%; }
+#bookbot-root .bb-product { min-width: 0; border: 1px solid var(--bb-line); border-radius: 16px; background: #fff; overflow: hidden; }
+#bookbot-root .bb-product:hover { border-color: #d5bfe5; }
+#bookbot-root .bb-product-link { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 12px; padding: 12px; color: inherit; text-decoration: none; }
+#bookbot-root .bb-product-image { display: grid; place-items: center; width: 62px; height: 84px; border-radius: 8px; background: var(--bb-soft); overflow: hidden; }
+#bookbot-root .bb-product-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+#bookbot-root .bb-product-no-image { color: #ad94bf; font-size: 24px; }
+#bookbot-root .bb-product-info { display: flex; flex-direction: column; justify-content: center; gap: 4px; min-width: 0; }
+#bookbot-root .bb-product-name { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; color: var(--bb-ink); font-size: 13px; font-weight: 800; line-height: 1.5; }
+#bookbot-root .bb-product-price { color: var(--bb-primary); font-size: 14px; font-weight: 800; }
+#bookbot-root .bb-product-meta { color: var(--bb-muted); font-size: 11px; overflow-wrap: anywhere; }
+#bookbot-root .bb-product-reason { padding: 7px 12px; border-top: 1px solid #f1eaf6; background: #fdfaff; color: #8b749b; font-size: 10px; line-height: 1.5; }
+#bookbot-root .bb-empty { padding: 24px 12px; color: var(--bb-muted); font-size: 13px; line-height: 1.7; text-align: center; }
+
+@media (max-width: 520px) {
+  #bookbot-root .bb-launcher { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); min-height: 48px; padding: 10px 16px; font-size: 13px; }
+  #bookbot-root .bb-panel { right: 12px; bottom: calc(74px + env(safe-area-inset-bottom, 0px)); width: calc(100vw - 24px); max-height: calc(100vh - 94px); max-height: calc(100dvh - 94px - env(safe-area-inset-bottom, 0px)); border-radius: 21px; }
+  #bookbot-root .bb-input { font-size: 16px; } /* Prevent iOS zoom on focus. */
+}
+@media (max-height: 520px) {
+  #bookbot-root .bb-header { padding: 9px 14px; }
+  #bookbot-root .bb-quick-prompts,
+  #bookbot-root .bb-disclaimer { display: none; }
+  #bookbot-root .bb-tabs { padding-top: 4px; padding-bottom: 4px; }
+  #bookbot-root .bb-form { margin-top: 6px; margin-bottom: 8px; }
+}

@@ -31,6 +31,22 @@ Giữ `bookstory-ai-chatbot` **bên trong** thư mục website. Không phải đ
 
 Nếu reverse proxy đổi URL công khai, đặt biến môi trường `BOOKBOT_SITE_PATH` (ví dụ `/cua-hang`, hoặc chuỗi rỗng ở gốc tên miền). Không thêm hostname vào giá trị này.
 
+## Giao diện và trang hiển thị
+
+Widget dùng tông tím pastel, font của cửa hàng, thẻ sách dạng hàng và các nút gợi ý tự xuống dòng. CSS nằm riêng trong `assets/chatbot.css`; các biến màu `--bb-*` ở đầu file là nơi đổi màu. Khoảng đệm của khung được đặt rõ để không bị CSS `section` chung làm lệch bố cục. Chỉ vùng tin nhắn/danh sách sách cuộn; ô nhập luôn ở dưới.
+
+Mặc định **không xuất nút, khung chat, CSS hoặc JavaScript chatbot** trên `pages/cart.php`, `pages/checkout.php` và `pages/orders.php`. Trang checkout được ẩn trong mọi trạng thái: nhập thông tin, chờ QR, đặt hàng COD và thanh toán thành công. Khi quay về trang chủ/cửa hàng, nút xuất hiện lại và khung vẫn đóng cho đến khi khách bấm mở.
+
+Danh sách này nằm trong `hidden_pages` của `config.php`. Có thể thêm trang bằng đường dẫn tương đối từ repository, hoặc cho hiện lại một trang bằng cấu hình riêng:
+
+```php
+'hidden_pages' => [
+    'pages/orders.php' => false,
+],
+```
+
+Không cần chỉnh các file xử lý giỏ hàng hay thanh toán để thay đổi quy tắc hiển thị.
+
 ## Đổi cấu hình mà không sửa logic
 
 Mặc định nằm trong `bookstory-ai-chatbot/config.php`. Muốn giữ cấu hình riêng qua các lần cập nhật code, sao chép `config.local.php.example` thành **`config.local.php`** ngay cạnh nó. File riêng đã được bỏ qua bằng `.gitignore`; chỉ khai báo những mục muốn đổi:
@@ -107,6 +123,7 @@ Kiểm tra hồi quy với database thử nghiệm đã tạo riêng (không dù
 
 ```sh
 TEST_DB_NAME=bookbot_test DB_HOST=127.0.0.1 DB_USER=root DB_PASSWORD='' php tests/chatbot.php
+php tests/chatbot_visibility.php
 node tests/navigation.cjs
 ```
 

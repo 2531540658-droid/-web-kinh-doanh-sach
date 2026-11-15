@@ -115,13 +115,20 @@
     const isChat = name === 'chat';
     chatView.hidden = !isChat;
     recommendView.hidden = isChat;
-    tabs.forEach(tab => tab.classList.toggle('is-active', tab.dataset.tab === name));
+    tabs.forEach(tab => {
+      const active = tab.dataset.tab === name;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
     if (!isChat) loadRecommendations();
   }
 
   function setOpen(open) {
     panel.hidden = !open;
+    root.classList.toggle('is-open', open);
     launcher.setAttribute('aria-expanded', String(open));
+    launcher.setAttribute('aria-label', open ? 'Đóng trợ lý tư vấn sách' : 'Mở trợ lý tư vấn sách');
     if (open) (chatView.hidden ? closeBtn : input).focus();
     else launcher.focus();
   }
@@ -129,6 +136,8 @@
   async function sendMessage(text) {
     const message = (text || '').trim();
     if (!message || busy) return;
+    const welcome = root.querySelector('.bb-welcome');
+    if (welcome) welcome.hidden = true;
     addMessage(message, 'user');
     input.value = '';
     busy = true;
@@ -141,8 +150,7 @@
       addMessage(data.answer || 'Mình chưa có câu trả lời phù hợp.');
       if (Array.isArray(data.products) && data.products.length) {
         addMessage('Sản phẩm có thể phù hợp:', 'bot');
-        const holder = element('div', 'bb-recommend-grid');
-        holder.style.padding = '0 12px 10px';
+        const holder = element('div', 'bb-recommend-grid bb-chat-products');
         data.products.forEach(product => holder.appendChild(productCard(product)));
         messages.appendChild(holder);
         messages.scrollTop = messages.scrollHeight;
@@ -161,6 +169,17 @@
   closeBtn.addEventListener('click', () => setOpen(false));
   root.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); });
   tabs.forEach(tab => tab.addEventListener('click', () => setTab(tab.dataset.tab)));
+  tabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = tabs.length - 1;
+    else return;
+    event.preventDefault();
+    setTab(tabs[next].dataset.tab);
+    tabs[next].focus();
+  }));
   form.addEventListener('submit', event => { event.preventDefault(); sendMessage(input.value); });
   root.querySelectorAll('[data-prompt]').forEach(button => button.addEventListener('click', () => sendMessage(button.dataset.prompt)));
   window.BookBot = window.BookBot || {};
