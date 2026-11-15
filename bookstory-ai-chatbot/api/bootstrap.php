@@ -5,10 +5,11 @@ $configFile = dirname(__DIR__) . '/config.php';
 if (!is_file($configFile)) {
     http_response_code(500);
     header('Content-Type: application/json; charset=utf-8');
-    echo json_encode(['error' => 'Chưa có config.php. Hãy sao chép config.php.example thành config.php và cấu hình trước.'], JSON_UNESCAPED_UNICODE);
+    echo json_encode(['error' => 'Chatbot tạm thời chưa sẵn sàng. Vui lòng liên hệ cửa hàng.'], JSON_UNESCAPED_UNICODE);
     exit;
 }
 $config = require $configFile;
+require_once __DIR__ . '/search.php';
 
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
@@ -133,6 +134,9 @@ function bb_image_url(?string $image): ?string
     if ($image === null || trim($image) === '') return null;
     $image = trim($image);
     if (preg_match('#^https?://#i', $image) || str_starts_with($image, '/')) return $image;
+    if (str_starts_with($image, 'uploaded_img/')) {
+        return rtrim((string)$config['site_base_path'], '/') . '/' . $image;
+    }
     return rtrim((string)$config['image_base_url'], '/') . '/' . ltrim($image, '/');
 }
 
@@ -151,60 +155,6 @@ function bb_format_product(array $row, ?string $reason = null): array
     ];
 }
 
-function bb_search_products(string $query, int $limit = 5): array
-{
-    $limit = max(1, min(10, $limit));
-    $table = bb_table('product_table');
-    $name = bb_col('name', 'p');
-    $description = bb_col('description', 'p');
-    $category = bb_col('category', 'p');
-    $id = bb_col('id', 'p');
-    $stock = bb_col('stock', 'p');
-    if ($name === null || $id === null) throw new RuntimeException('Cần cấu hình ít nhất cột id và name của bảng products.');
-
-    $terms = preg_split('/\s+/u', trim(mb_strtolower($query)), -1, PREG_SPLIT_NO_EMPTY) ?: [];
-    $stop = ['tôi','muốn','cần','tìm','mua','cho','một','cuốn','quyển','sách','nào','với','về','là','có','không','shop','bạn','hãy','giúp','the','a','an'];
-    $terms = array_values(array_unique(array_filter($terms, fn($t) => mb_strlen($t) >= 2 && !in_array($t, $stop, true))));
-    $terms = array_slice($terms, 0, 7);
-
-    $where = [];
-    $params = [];
-    if ($terms) {
-        foreach ($terms as $i => $term) {
-            $or = [];
-            foreach ([$name, $description, $category] as $j => $field) {
-                if ($field !== null) {
-                    $key = ':t' . $i . '_' . $j;
-                    $or[] = $field . ' LIKE ' . $key;
-                    $params[$key] = '%' . $term . '%';
-                }
-            }
-            if ($or) $where[] = '(' . implode(' OR ', $or) . ')';
-        }
-    }
-    $sql = 'SELECT ' . bb_product_select('p') . ' FROM ' . $table . ' p';
-    if ($stock !== null) $sql .= ' WHERE (' . $stock . ' > 0 OR ' . $stock . ' IS NULL)';
-    if ($where) $sql .= ($stock !== null ? ' AND ' : ' WHERE ') . '(' . implode(' OR ', $where) . ')';
-    $sql .= ' ORDER BY ' . $id . ' DESC LIMIT ' . ($terms ? 40 : $limit);
-
-    $stmt = bb_db()->prepare($sql);
-    foreach ($params as $key => $value) $stmt->bindValue($key, $value, PDO::PARAM_STR);
-    $stmt->execute();
-    $rows = $stmt->fetchAll();
-
-    if ($terms) {
-        foreach ($rows as &$row) {
-            $hay = mb_strtolower((string)($row['name'] ?? '') . ' ' . (string)($row['description'] ?? '') . ' ' . (string)($row['category'] ?? ''));
-            $score = 0;
-            foreach ($terms as $term) if (mb_strpos($hay, $term) !== false) $score++;
-            $row['_score'] = $score;
-        }
-        unset($row);
-        usort($rows, fn($a, $b) => ($b['_score'] <=> $a['_score']) ?: ((int)$b['id'] <=> (int)$a['id']));
-    }
-    return array_slice($rows, 0, $limit);
-}
-
 function bb_recommend_rows(int $limit = 6): array
 {
     global $config;
@@ -218,7 +168,6 @@ function bb_recommend_rows(int $limit = 6): array
     $stockCol = bb_col('stock', 'p');
 
     $categoryWeights = [];
-    $seenProductWeights = [];
     $popularity = [];
     $sqlHistory = 'SELECT i.event_type, i.product_id, ' . ($categoryCol ?? 'NULL') . ' AS category, i.created_at FROM ' . $interactionTable . ' i LEFT JOIN ' . $productTable . ' p ON ' . $productId . ' = i.product_id WHERE (i.visitor_key = :visitor OR (:user_id_check IS NOT NULL AND i.user_id = :user_id)) ORDER BY i.created_at DESC LIMIT 250';
     $historyStmt = $pdo->prepare($sqlHistory);
@@ -233,7 +182,6 @@ function bb_recommend_rows(int $limit = 6): array
         $cat = trim((string)($event['category'] ?? ''));
         if ($cat !== '') $categoryWeights[$cat] = ($categoryWeights[$cat] ?? 0) + $w;
         $pid = (int)$event['product_id'];
-        $seenProductWeights[$pid] = ($seenProductWeights[$pid] ?? 0) + $w;
         if ($event['event_type'] === 'purchase') $recentlyPurchased[$pid] = true;
     }
 
@@ -251,6 +199,7 @@ function bb_recommend_rows(int $limit = 6): array
         $affinity = $cat !== '' ? ($categoryWeights[$cat] ?? 0) : 0;
         $popScore = ($popularity[(int)$row['id']] ?? 0) / $maxPop;
         $alreadyPurchased = isset($recentlyPurchased[(int)$row['id']]);
+        $row['_personalized'] = $affinity > 0;
         // Blend personal category affinity and store-wide popularity. The weights are a simple baseline,
         // not a trained ranking model; they can later be replaced with XGBoost/reranking.
         $row['_score'] = ($affinity * 1.8) + ($popScore * 1.2) - ($alreadyPurchased ? 2.0 : 0.0);
@@ -263,42 +212,6 @@ function bb_recommend_rows(int $limit = 6): array
     return array_slice($rows, 0, $limit);
 }
 
-
-function bb_parse_budget(string $query): ?float
-{
-    $q = mb_strtolower($query);
-    if (!preg_match('/(?:dưới|tối đa|không quá|không vượt quá|<=?)\s*([0-9][0-9.,]*)\s*(triệu|tr|k|nghìn|ngàn)?/u', $q, $m)) return null;
-    $number = $m[1];
-    $unit = $m[2] ?? '';
-    if ($unit !== '') {
-        // With an explicit unit, a decimal separator means a decimal number (e.g. 1,5 triệu).
-        $value = (float)str_replace(',', '.', $number);
-        if (in_array($unit, ['triệu', 'tr'], true)) $value *= 1000000;
-        elseif (in_array($unit, ['k', 'nghìn', 'ngàn'], true)) $value *= 1000;
-    } elseif (str_contains($number, '.') || str_contains($number, ',')) {
-        // Vietnamese currency notation: 200.000 or 200,000 means two hundred thousand.
-        $digits = preg_replace('/[^0-9]/', '', $number);
-        $value = (float)$digits;
-    } else {
-        $value = (float)$number;
-        if ($value > 0 && $value < 1000) $value *= 1000;
-    }
-    return $value > 0 ? $value : null;
-}
-
-function bb_budget_products(float $maxPrice, int $limit = 5): array
-{
-    $price = bb_col('price', 'p');
-    $id = bb_col('id', 'p');
-    $stock = bb_col('stock', 'p');
-    if ($price === null || $id === null) return [];
-    $sql = 'SELECT ' . bb_product_select('p') . ' FROM ' . bb_table('product_table') . ' p WHERE ' . $price . ' <= :max_price';
-    if ($stock !== null) $sql .= ' AND (' . $stock . ' > 0 OR ' . $stock . ' IS NULL)';
-    $sql .= ' ORDER BY ' . $price . ' ASC, ' . $id . ' DESC LIMIT ' . max(1, min(10, $limit));
-    $stmt = bb_db()->prepare($sql);
-    $stmt->execute([':max_price' => $maxPrice]);
-    return $stmt->fetchAll();
-}
 
 function bb_save_message(string $role, string $message): void
 {

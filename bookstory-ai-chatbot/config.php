@@ -1,7 +1,8 @@
 <?php
 declare(strict_types=1);
 
-$localConfigPath = dirname(__DIR__) . '/web-kinh-doanh-s-ch/config/local.php';
+$projectRoot = dirname(__DIR__);
+$localConfigPath = $projectRoot . '/config/local.php';
 $localConfig = [];
 if (is_file($localConfigPath)) {
     $loadedConfig = require $localConfigPath;
@@ -17,7 +18,21 @@ $dbSetting = static function (string $environmentVariable, string $key, string $
 
 $dbPort = getenv('DB_PORT');
 
-return [
+// Derive the URL prefix from the current PHP file, including pages/ and api/.
+// BOOKBOT_SITE_PATH overrides this when a reverse proxy rewrites public URLs.
+$siteBasePath = '';
+$scriptFile = str_replace('\\', '/', realpath($_SERVER['SCRIPT_FILENAME'] ?? '') ?: '');
+$projectPrefix = str_replace('\\', '/', $projectRoot) . '/';
+$scriptUrl = $_SERVER['SCRIPT_NAME'] ?? '';
+if (str_starts_with($scriptFile, $projectPrefix)) {
+    $relativeScript = substr($scriptFile, strlen($projectPrefix));
+    if ($relativeScript !== '' && str_ends_with($scriptUrl, $relativeScript)) {
+        $siteBasePath = substr($scriptUrl, 0, -strlen($relativeScript));
+    }
+}
+$pathOverride = getenv('BOOKBOT_SITE_PATH');
+
+$settings = [
     'db' => [
         'host' => $dbSetting('DB_HOST', 'db_host', 'localhost'),
         'port' => $dbPort !== false ? (int)$dbPort : 3306,
@@ -26,8 +41,7 @@ return [
         'pass' => $dbSetting('DB_PASSWORD', 'db_password', ''),
         'charset' => 'utf8mb4',
     ],
-    'site_base_path' => '/web-kinh-doanh-s-ch',
-    'chatbot_url_path' => '/bookstore-ai-chatbot',
+    'site_base_path' => $pathOverride !== false ? $pathOverride : $siteBasePath,
     'product_table' => 'products',
     'product_columns' => [
         'id' => 'id',
@@ -38,12 +52,11 @@ return [
         'image' => 'image',
         'stock' => null,
     ],
-    'image_base_url' => '/web-kinh-doanh-s-ch/',
     'product_url_template' => '/pages/view_page.php?pid={id}',
     'currency_symbol' => '₫',
     'openai' => [
         'api_key' => getenv('OPENAI_API_KEY') ?: '',
-        'model' => 'gpt-4.1-mini',
+        'model' => getenv('OPENAI_MODEL') ?: 'gpt-4.1-mini',
         'endpoint' => 'https://api.openai.com/v1/responses',
         'timeout_seconds' => 35,
         'max_output_tokens' => 500,
@@ -54,5 +67,38 @@ return [
         'return' => 'Vui lòng xem mục Chính sách đổi trả trên website hoặc liên hệ bộ phận chăm sóc khách hàng để được xác nhận điều kiện áp dụng.',
         'contact' => 'Bạn có thể gửi yêu cầu qua trang Liên hệ của cửa hàng để được nhân viên hỗ trợ.',
     ],
+    // Add words here instead of changing the request handler.
+    'faq_keywords' => [
+        'shipping' => ['giao hàng', 'vận chuyển', 'ship', 'bao lâu nhận'],
+        'payment' => ['thanh toán', 'trả tiền', 'chuyển khoản', 'COD'],
+        'return' => ['đổi trả', 'hoàn tiền', 'trả hàng', 'đổi sách'],
+        'contact' => ['liên hệ', 'hotline', 'nhân viên', 'chăm sóc khách hàng'],
+    ],
+    'search' => [
+        'ignore_phrases' => [
+            'gợi ý', 'đề xuất', 'giới thiệu', 'phù hợp với tôi',
+            'cho người mới bắt đầu', 'cho người mới học', 'cho người mới',
+        ],
+        'stop_words' => [
+            'tôi', 'mình', 'muốn', 'cần', 'tìm', 'mua', 'cho', 'một', 'cuốn',
+            'quyển', 'sách', 'nào', 'với', 'về', 'là', 'có', 'không', 'shop',
+            'bạn', 'hãy', 'giúp', 'vui', 'lòng', 'hay', 'đọc', 'nên', 'và',
+            'ơi', 'nhé', 'được', 'the', 'a', 'an',
+        ],
+    ],
     'user_session_key' => 'user_id',
 ];
+
+// Optional private overrides; defaults stay versioned and easy to update.
+$overrideFile = __DIR__ . '/config.local.php';
+if (is_file($overrideFile)) {
+    $overrides = require $overrideFile;
+    if (!is_array($overrides)) {
+        throw new RuntimeException('bookstory-ai-chatbot/config.local.php phải trả về một array.');
+    }
+    $settings = array_replace_recursive($settings, $overrides);
+}
+$settings['site_base_path'] = rtrim((string)$settings['site_base_path'], '/');
+$settings['chatbot_url_path'] ??= $settings['site_base_path'] . '/bookstory-ai-chatbot';
+$settings['image_base_url'] ??= $settings['site_base_path'] . '/uploaded_img/';
+return $settings;

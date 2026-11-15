@@ -6,10 +6,10 @@ if (!is_file($configFile)) return;
 $bookbotConfig = require $configFile;
 if (empty($_SESSION['bookbot_csrf'])) $_SESSION['bookbot_csrf'] = bin2hex(random_bytes(32));
 $basePath = rtrim((string)($bookbotConfig['site_base_path'] ?? ''), '/');
-$widgetBase = rtrim((string)($bookbotConfig['chatbot_url_path'] ?? ($basePath . '/bookbot')), '/');
+$widgetBase = rtrim((string)($bookbotConfig['chatbot_url_path'] ?? ($basePath . '/bookstory-ai-chatbot')), '/');
 $csrf = (string)$_SESSION['bookbot_csrf'];
 ?>
-<link rel="stylesheet" href="<?= htmlspecialchars($widgetBase, ENT_QUOTES, 'UTF-8') ?>/assets/chatbot.css?v=2">
+<link rel="stylesheet" href="<?= htmlspecialchars($widgetBase, ENT_QUOTES, 'UTF-8') ?>/assets/chatbot.css?v=<?= filemtime(__DIR__ . '/assets/chatbot.css') ?>">
 <div id="bookbot-root"
      data-base="<?= htmlspecialchars($widgetBase, ENT_QUOTES, 'UTF-8') ?>"
      data-csrf="<?= htmlspecialchars($csrf, ENT_QUOTES, 'UTF-8') ?>"
@@ -40,7 +40,7 @@ $csrf = (string)$_SESSION['bookbot_csrf'];
         <input class="bb-input" type="text" maxlength="1500" placeholder="Nhập câu hỏi hoặc tên sách..." autocomplete="off" aria-label="Nhập câu hỏi">
         <button class="bb-send" type="submit" aria-label="Gửi">➤</button>
       </form>
-      <div class="bb-disclaimer">Thông tin giá và tồn kho được lấy từ dữ liệu cửa hàng.</div>
+      <div class="bb-disclaimer">Giá theo dữ liệu cửa hàng. Liên hệ cửa hàng để xác nhận còn sách.</div>
     </div>
     <div class="bb-recommend-view" hidden>
       <p class="bb-recommend-intro">Gợi ý dựa trên hoạt động của bạn và những sản phẩm được quan tâm.</p>
@@ -48,4 +48,4 @@ $csrf = (string)$_SESSION['bookbot_csrf'];
     </div>
   </section>
 </div>
-<script src="<?= htmlspecialchars($widgetBase, ENT_QUOTES, 'UTF-8') ?>/assets/chatbot.js?v=1" defer></script>
+<script src="<?= htmlspecialchars($widgetBase, ENT_QUOTES, 'UTF-8') ?>/assets/chatbot.js?v=<?= filemtime(__DIR__ . '/assets/chatbot.js') ?>" defer></script>

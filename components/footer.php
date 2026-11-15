@@ -30,4 +30,4 @@ require_once __DIR__ . '/../config/config.php';
         </div>
     </div>
 </section>
-<?php require_once dirname(__DIR__, 2) . '/bookstory-ai-chatbot/widget.php'; ?>
+<?php require_once dirname(__DIR__) . '/bookstory-ai-chatbot/widget.php'; ?>
