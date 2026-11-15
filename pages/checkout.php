@@ -241,7 +241,7 @@ $isPaymentCompleted = $checkoutOrder && $checkoutOrder['payment_status'] === 'co
                 <div class="sepay-pending-content" <?php echo $isPaymentCompleted ? 'hidden' : ''; ?>>
                     <p class="sepay-instruction">Mở ứng dụng ngân hàng và quét mã QR bên dưới để thanh toán.</p>
                     <div class="sepay-brand" aria-label="BookStory">BookStory<span aria-hidden="true"></span></div>
-                    <p class="sepay-provider">Chuyển khoản ngân hàng qua SePay</p>
+                    <p class="sepay-provider">Chuyển khoản ngân hàng qua QR</p>
                     <div class="sepay-qr-wrapper">
                         <img src="<?php echo htmlspecialchars($qrUrl, ENT_QUOTES, 'UTF-8'); ?>" alt="Mã QR thanh toán SePay">
                     </div>
