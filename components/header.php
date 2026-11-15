@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/../config/config.php';
+
 function getBaseUrl() {
     $current_path = $_SERVER['PHP_SELF'];
     // Kiểm tra xem đường dẫn có chứa '/pages/' không
