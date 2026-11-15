@@ -72,29 +72,39 @@
     products.forEach(product => container.appendChild(productCard(product)));
   }
 
-  async function post(path, body) {
-    const response = await fetch(base + path, {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrf },
-      body: JSON.stringify(body)
-    });
-    const data = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(data.error || 'Có lỗi khi kết nối máy chủ.');
-    return data;
+  async function request(path, body, keepalive = false) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 40000);
+    try {
+      const response = await fetch(base + path, {
+        method: body === undefined ? 'GET' : 'POST',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', 'X-CSRF-Token': csrf },
+        body: body === undefined ? undefined : JSON.stringify(body),
+        signal: controller.signal,
+        keepalive
+      });
+      const data = await response.json().catch(() => null);
+      if (!data || typeof data !== 'object') throw new Error('Máy chủ chưa trả về dữ liệu hợp lệ. Bạn vui lòng thử lại.');
+      if (!response.ok || data.ok === false) throw new Error(data.error || 'Có lỗi khi kết nối máy chủ.');
+      return data;
+    } catch (error) {
+      if (error.name === 'AbortError') throw new Error('Chatbot phản hồi chậm. Bạn vui lòng thử lại.');
+      throw error;
+    } finally {
+      clearTimeout(timeout);
+    }
   }
 
   async function track(event, productId, query = '') {
     if (!productId) return;
-    try { await post('/api/track.php', { event, product_id: Number(productId), query }); } catch (e) { /* tracking should not interrupt shopping */ }
+    try { await request('/api/track.php', { event, product_id: Number(productId), query }, true); } catch (e) { /* Tracking must not interrupt shopping. */ }
   }
 
   async function loadRecommendations() {
     recommendGrid.replaceChildren(element('div', 'bb-empty', 'Đang tải gợi ý...'));
     try {
-      const response = await fetch(base + '/api/recommend.php?limit=8', { credentials: 'same-origin' });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || 'Không tải được gợi ý.');
+      const data = await request('/api/recommend.php?limit=8');
       renderProducts(recommendGrid, data.products || []);
     } catch (error) {
       recommendGrid.replaceChildren(element('div', 'bb-empty', error.message));
@@ -112,7 +122,8 @@
   function setOpen(open) {
     panel.hidden = !open;
     launcher.setAttribute('aria-expanded', String(open));
-    if (open) input.focus();
+    if (open) (chatView.hidden ? closeBtn : input).focus();
+    else launcher.focus();
   }
 
   async function sendMessage(text) {
@@ -125,18 +136,17 @@
     const waiting = addMessage('BookBot đang tìm sách phù hợp...', 'bot');
     waiting.classList.add('bb-thinking');
     try {
-      const data = await post('/api/chat.php', { message });
+      const data = await request('/api/chat.php', { message });
       waiting.remove();
       addMessage(data.answer || 'Mình chưa có câu trả lời phù hợp.');
       if (Array.isArray(data.products) && data.products.length) {
-        const heading = addMessage('Sản phẩm có thể phù hợp:', 'bot');
+        addMessage('Sản phẩm có thể phù hợp:', 'bot');
         const holder = element('div', 'bb-recommend-grid');
         holder.style.padding = '0 12px 10px';
         data.products.forEach(product => holder.appendChild(productCard(product)));
         messages.appendChild(holder);
         messages.scrollTop = messages.scrollHeight;
       }
-      // Refresh the personalized list so the newest interactions can influence future results.
     } catch (error) {
       waiting.remove();
       addMessage(error.message || 'Không thể kết nối chatbot. Vui lòng thử lại.');
@@ -149,11 +159,11 @@
 
   launcher.addEventListener('click', () => setOpen(panel.hidden));
   closeBtn.addEventListener('click', () => setOpen(false));
+  root.addEventListener('keydown', event => { if (event.key === 'Escape') setOpen(false); });
   tabs.forEach(tab => tab.addEventListener('click', () => setTab(tab.dataset.tab)));
   form.addEventListener('submit', event => { event.preventDefault(); sendMessage(input.value); });
   root.querySelectorAll('[data-prompt]').forEach(button => button.addEventListener('click', () => sendMessage(button.dataset.prompt)));
   window.BookBot = window.BookBot || {};
   window.BookBot.track = track;
   window.BookBot.refreshRecommendations = loadRecommendations;
-  loadRecommendations();
 })();

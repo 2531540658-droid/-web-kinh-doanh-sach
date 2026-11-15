@@ -1,0 +1,20 @@
+<?php
+/**
+ * Optional: copy to config.local.php. That private file is ignored by Git.
+ * Only include settings you want to change; config.php supplies the rest.
+ * Database credentials are already read from ../config/local.php or DB_*.
+ */
+return [
+    'store_faq' => [
+        // Replace with the store's confirmed policies, not example delivery promises.
+        'shipping' => 'Vui lòng liên hệ cửa hàng để xác nhận phí và thời gian giao hàng.',
+        'return' => 'Vui lòng liên hệ cửa hàng để xác nhận điều kiện đổi trả.',
+    ],
+    'openai' => [
+        'api_key' => getenv('OPENAI_API_KEY') ?: '',
+        'model' => getenv('OPENAI_MODEL') ?: 'gpt-4.1-mini',
+    ],
+    // Only needed if a reverse proxy changes the public URL prefix.
+    // 'site_base_path' => '/ten-thu-muc-website',
+    // Use '' when serving this repository at the domain root.
+];
