@@ -1,13 +1,13 @@
 /* =====================================================================
-   BOOKSTORY / ABOUT.CSS - PASTEL V4
-   Giữ nguyên tất cả nội dung, ảnh, các khối flex và review của about.php.
-   Chỉ thay bảng màu, font và độ bo nhẹ để thống nhất Trang chủ/Cửa hàng.
-   Bố cục và palette riêng; chỉ nạp từ pages/about.php.
+   BOOKSTORY / ABOUT.CSS - MÀU DỊU V4
+   Giữ nguyên tất cả nội dung, ảnh, các khối flex và đánh giá của about.php.
+   Chỉ thay bảng màu, phông và độ bo nhẹ để thống nhất Trang chủ/Cửa hàng.
+   Bố cục và bảng màu riêng; chỉ nạp từ pages/about.php.
    ===================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
 
-/* Bố cục gốc chuyển từ css/style.css; giữ thứ tự trước palette. */
-/* Trang giới thiệu - about */
+/* Bố cục gốc chuyển từ css/style.css; giữ thứ tự trước bảng màu. */
+/* Trang giới thiệu */
 
 .about .flex {
   max-width: 1200px;
@@ -124,7 +124,7 @@
 .bs-about-page .heading p a:hover {
   color: #6f4988
 }
-/* 01. Giữ flex ảnh và nội dung y nguyên. Chỉ đổi màu nền/chữ/nút. */
+/* 01. Giữ nguyên bố cục flex của ảnh và nội dung. Chỉ đổi màu nền/chữ/nút. */
 .bs-about-page .about {
   background: #fffafd
 }
@@ -153,7 +153,7 @@
   border-radius: 14px;
   box-shadow: 0 10px 28px rgba(107,78,123,.08)
 }
-/* 02. Đánh giá vẫn như cũ: 6 ô, sao và profile; chỉ thay màu. */
+/* 02. Đánh giá vẫn như cũ: 6 ô, sao và hồ sơ; chỉ thay màu. */
 .bs-about-page .reviews {
   background: linear-gradient(180deg,#fffafd,#f9f1fa)
 }

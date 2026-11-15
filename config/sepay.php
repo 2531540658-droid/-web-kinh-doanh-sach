@@ -27,7 +27,7 @@ function sepay_configuration(array $localConfig = []): array
     $bank = $setting('SEPAY_BANK_CODE', 'sepay_bank_code');
     $webhookBank = $setting('SEPAY_WEBHOOK_BANK', 'sepay_webhook_bank');
     $key = $setting('SEPAY_WEBHOOK_API_KEY', 'sepay_webhook_api_key');
-    // Revoke the key previously committed to Git. Only its digest is retained.
+    // Thu hồi khóa từng được đưa vào Git. Chỉ giữ lại mã băm của khóa đó.
     $revokedDigest = 'e55e4458ad2f03db52f1c0117caa6494048637c0238c40c79ee62096fc2e6925';
     if (hash_equals($revokedDigest, hash('sha256', $key))) {
         $key = '';

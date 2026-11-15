@@ -1,6 +1,6 @@
-/* components/header.php: logo, menu, tài khoản và responsive. */
-/* Logo fonts are self-hosted so the wordmark never falls back to a system
-   script when Google Fonts is blocked, offline or slow. */
+/* components/header.php: biểu trưng, trình đơn, tài khoản và thích ứng màn hình. */
+/* Phông chữ biểu trưng được lưu trên máy chủ để tránh dùng chữ viết tay mặc định
+   của hệ thống khi Google Fonts bị chặn, mất mạng hoặc tải chậm. */
 @font-face {
   font-family: "Kaushan Script";
   font-style: normal;
@@ -23,7 +23,7 @@
   }
 }
 
-/* Header */
+/* Đầu trang */
 
 .header {
   position: sticky;
@@ -45,9 +45,9 @@
   position: relative;
 }
 
-/* Logo lockup: brush wordmark + hanko seal.
-   Every part below is em-based, so the lockup scales from this single
-   font-size (the html font-size steps at 991px / 450px handle the rest). */
+/* Cụm biểu trưng: chữ kiểu bút lông và con dấu vuông kiểu Nhật.
+   Mọi thành phần bên dưới dùng đơn vị em, nên cả cụm co giãn theo một
+   giá trị font-size (cỡ chữ html thay đổi ở các mốc 991px / 450px). */
 .header .flex .logo {
   display: inline-flex;
   align-items: flex-end;
@@ -68,7 +68,7 @@
   outline-offset: 0.4rem;
 }
 
-/* three ink speed lines feeding into the first letter */
+/* Ba nét mực tạo cảm giác chuyển động, dẫn vào chữ cái đầu tiên */
 .header .flex .logo .logo-speed-lines {
   display: flex;
   flex-direction: column;
@@ -98,7 +98,7 @@
   height: 0.045em;
 }
 
-/* brush lettering with the violet ink offset trailing to the right */
+/* Chữ kiểu bút lông với bóng mực tím lệch sang bên phải */
 .header .flex .logo .logo-wordmark {
   font-family: "Kaushan Script", "Segoe Script", "Brush Script MT", cursive;
   font-size: 1em;
@@ -113,7 +113,7 @@
   text-shadow: 0.1em 0.075em 0 var(--brown);
 }
 
-/* hanko seal, tilted off the baseline */
+/* Con dấu vuông kiểu Nhật, nghiêng so với đường chân chữ */
 .header .flex .logo .logo-seal {
   display: flex;
   align-items: center;
@@ -138,8 +138,8 @@
   border: 0.035em solid rgba(255, 255, 255, 0.9);
 }
 
-/* The seal descriptor only resolves above roughly 90px, so at header scale
-   the seal is left as a single ink plate on purpose. */
+/* Chữ trong con dấu chỉ rõ ở kích thước khoảng trên 90px, nên khi đặt ở đầu trang
+   con dấu được chủ động giữ thành một mảng mực liền. */
 .header .flex .logo .logo-seal-text {
   display: none;
   font-family: "Russo One", sans-serif;
@@ -149,7 +149,7 @@
   color: var(--white);
 }
 
-/* Below this the lockup would push the nav onto a second row. */
+/* Dưới kích thước này, cụm biểu trưng sẽ đẩy thanh điều hướng xuống hàng thứ hai. */
 @media (max-width: 1100px) {
   .header .flex .logo {
     font-size: 2.6rem;
@@ -291,7 +291,7 @@
 
 }
 
-/* Trạng thái do js/script.js bật/tắt cho menu và tài khoản. */
+/* Trạng thái do js/script.js bật/tắt cho trình đơn và tài khoản. */
 .active {
   background-color: #717171;
 }

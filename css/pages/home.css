@@ -1,15 +1,15 @@
 /* ================================================================
-   BOOKSTORY / HOME.CSS - PASTEL V3
-   01. Voucher thu gọn theo KHUNG, không thu nhỏ chữ
+   BOOKSTORY / HOME.CSS - MÀU DỊU V3
+   01. Mã giảm giá thu gọn theo KHUNG, không thu nhỏ chữ
    02. Thẻ mã giảm giá + nút sao chép
-   03. Lời mời liên hệ cuối trang - nhẹ nhàng, không icon
-   04. Responsive
-   Chỉ nạp ở index.php: banner, voucher, liên hệ nhanh và palette.
+   03. Lời mời liên hệ cuối trang - nhẹ nhàng, không biểu tượng
+   04. Thích ứng màn hình
+   Chỉ nạp ở index.php: dải tiêu đề, mã giảm giá, liên hệ nhanh và bảng màu.
    ================================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap');
 
 
-/* Bố cục gốc chuyển từ css/style.css; giữ thứ tự trước palette. */
+/* Bố cục gốc chuyển từ css/style.css; giữ thứ tự trước bảng màu. */
 .home {
   min-height: 60vh;
   position: relative;
@@ -76,14 +76,14 @@
   border-radius: 10px;
 }
 
-/* Slideshow container */
+/* Khung trình chiếu ảnh */
 .slideshow-container {
   width: 85%;
   position: relative;
   margin: 0 auto;
 }
 
-/* Next & previous buttons */
+/* Nút chuyển tiếp và quay lại */
 .prev,
 .next {
    cursor: pointer;
@@ -100,7 +100,7 @@
    user-select: none;
 }
 
-/* Position the "next button" to the right */
+/* Đặt nút chuyển tiếp ở bên phải */
  .next {
    right: 0;
    border-radius: 3px 0 0 3px;
@@ -109,7 +109,7 @@
    left: 0;
    border-radius: 0px 3px 3px 0px;
 }
-/* On hover, add a black background color with a little bit see-through */
+/* Khi rê chuột, thêm nền đen hơi trong suốt */
 .prev:hover,
 .next:hover {
    background-color: #9b6fcf;
@@ -137,7 +137,7 @@
   }
 }
 
-/* 01. Khung voucher: thu chiều rộng toàn khu và bỏ nền cam toàn màn hình.
+/* 01. Khung mã giảm giá: thu chiều rộng toàn khu và bỏ nền cam toàn màn hình.
    Kích thước chữ được GIỮ/LÀM DỄ ĐỌC, chỉ giảm diện tích khối. */
 .bs-home-offers {
   padding: 16px 20px 18px;
@@ -203,7 +203,7 @@
 .bs-home-offers .bs-offers-shop-link:hover {
   color: #794e7d;
 }
-/* 02. Voucher: card nhỏ gọn hơn theo chiều ngang, chữ giá vẫn nổi bật. */
+/* 02. Mã giảm giá: thẻ nhỏ gọn hơn theo chiều ngang, chữ giá vẫn nổi bật. */
 .bs-home-offers .bs-offers-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -333,8 +333,8 @@
   font-size: 13px;
   color: #867784;
 }
-/* 03. Khối Liên hệ ở trang chủ: bỏ nền tím đậm toàn màn hình.
-   Nền hồng/lavender nhẹ, hai cột gọn, không icon trang trí. */
+/* 03. Khối liên hệ ở trang chủ: bỏ nền tím đậm toàn màn hình.
+   Nền hồng và tím nhạt, hai cột gọn, không dùng biểu tượng trang trí. */
 .home-contact {
   padding: 34px 22px 56px;
   text-align: left;
@@ -394,7 +394,7 @@
   background: #936fa0;
   color: #fff;
 }
-/* 04. Responsive: thẻ không bị nhỏ chữ hoặc tràn ở màn hình hẹp. */
+/* 04. Thích ứng màn hình: thẻ không bị nhỏ chữ hoặc tràn ở màn hình hẹp. */
 @media (max-width: 1050px) {
   .bs-home-offers .bs-offers-grid {
     grid-template-columns: repeat(2,minmax(0,1fr));
@@ -442,7 +442,7 @@
     text-align: center;
   }
 }
-/* 05. Trang chủ: chỉ đổi màu và kiểu chữ theo trang Cửa hàng pastel.
+/* 05. Trang chủ: chỉ đổi màu và kiểu chữ theo tông màu dịu của trang Cửa hàng.
    Không thay đổi kích thước thẻ, số cột, ảnh bìa hay hành vi các nút. */
 .bs-home-page {
   background: #fffafd;
@@ -526,7 +526,7 @@
 .bs-home-page .more-btn .option-btn:hover {
   background: #7d52a4;
 }
-/* Đổi nền đệm mà không tác động ảnh banner/slideshow gốc. */
+/* Đổi nền đệm mà không tác động ảnh quảng bá và trình chiếu gốc. */
 .bs-home-page .slideshow {
   background: #fffafd;
 }

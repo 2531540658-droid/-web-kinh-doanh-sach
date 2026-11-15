@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// No database is needed: check the HTML actually emitted by the widget.
+// Không cần cơ sở dữ liệu: kiểm tra HTML mà tiện ích thực sự xuất ra.
 session_start();
 $checks = 0;
 $originalServer = $_SERVER;

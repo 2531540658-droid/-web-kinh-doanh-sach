@@ -3,7 +3,7 @@ require_once '../config/config.php';
 require_once __DIR__ . '/../config/sepay.php';
 session_start();
 
-/** @var mysqli $conn Connection initialized by config.php. */
+/** @var mysqli $conn Kết nối được khởi tạo bởi config.php. */
 $user_id = $_SESSION['user_id'] ?? null;
 
 if ($user_id === null) {
@@ -224,7 +224,7 @@ $isPaymentCompleted = $checkoutOrder && $checkoutOrder['payment_status'] === 'co
     <nav class="bs-crumb" aria-label="Đường dẫn"><a href="../index.php">Trang chủ</a><i class="fas fa-chevron-right"></i><a href="cart.php">Giỏ hàng</a><i class="fas fa-chevron-right"></i><span>Thanh toán</span></nav>
     <div class="bs-page-intro"><div><span class="bs-eyebrow"><i class="fas fa-lock"></i> Thanh toán an toàn</span><h1><?= $checkoutOrder ? 'Thông tin đơn hàng' : 'Hoàn tất đơn hàng' ?></h1><p><?= $checkoutOrder ? 'Theo dõi trạng thái thanh toán của bạn.' : 'Chỉ một bước nữa là những cuốn sách sẽ đến tay bạn.' ?></p></div></div>
     <?php if ($checkoutOrder): ?>
-    <!-- Sau khi đặt hàng: giữ nguyên logic thanh toán COD/SePay hiện có. -->
+    <!-- Sau khi đặt hàng: giữ nguyên xử lý thanh toán COD/SePay hiện có. -->
     <section class="bs-payment-result bs-panel">
         <?php if ($isQrPayment): ?>
             <div class="sepay-payment-card <?php echo $isPaymentCompleted ? 'is-completed' : ''; ?>" id="sepay-payment-card" data-order-id="<?= (int) $checkoutOrder['id'] ?>">
@@ -306,7 +306,7 @@ $isPaymentCompleted = $checkoutOrder && $checkoutOrder['payment_status'] === 'co
     <div class="bs-checkout-layout">
       <section class="bs-panel bs-checkout-form">
         <div class="bs-panel-heading"><h2>Thông tin thanh toán</h2><small>Các ô có dấu * là bắt buộc</small></div>
-        <!-- FORM đặt hàng dùng đúng tên trường mà PHP phía trên đang xử lý. -->
+        <!-- Biểu mẫu đặt hàng dùng đúng tên trường mà PHP phía trên đang xử lý. -->
         <form method="post" action="">
           <input type="hidden" name="csrf_token" value="<?= $escape($_SESSION['checkout_csrf_token']) ?>">
           <div class="bs-form-section"><div class="bs-form-title"><i class="far fa-user"></i><h3>Thông tin người nhận</h3></div><div class="bs-form-grid">
@@ -341,7 +341,7 @@ $isPaymentCompleted = $checkoutOrder && $checkoutOrder['payment_status'] === 'co
          </div>
          <div class="bs-summary">
             <h3><i class="fas fa-tag"></i> Mã giảm giá</h3>
-            <!-- Form mã giảm giá độc lập, không lồng trong form đặt hàng. -->
+            <!-- Biểu mẫu mã giảm giá độc lập, không lồng trong biểu mẫu đặt hàng. -->
             <form method="post" class="bs-coupon-form"><input type="hidden" name="csrf_token" value="<?= $escape($_SESSION['checkout_csrf_token']) ?>"><input name="coupon_code" value="<?= $escape($_SESSION['checkout_coupon'] ?? '') ?>" placeholder="Nhập mã giảm giá"><button type="submit" name="apply_coupon" class="bs-btn bs-btn-soft">Áp dụng</button></form>
             <?php if ($activeCoupon): ?><div class="bs-coupon-success">Mã <?= $escape($activeCoupon['code']) ?> giảm <?= $formatPrice($discountAmount) ?><form method="post"><input type="hidden" name="csrf_token" value="<?= $escape($_SESSION['checkout_csrf_token']) ?>"><button type="submit" name="remove_coupon" class="bs-text-danger">Bỏ mã</button></form></div><?php endif; ?>
             <div class="bs-summary-row"><span>Tạm tính</span><strong><?= $formatPrice($grand_total) ?></strong></div><div class="bs-summary-row"><span>Giảm giá</span><strong class="bs-discount">− <?= $formatPrice($discountAmount) ?></strong></div><div class="bs-summary-row"><span>Phí vận chuyển</span><span>Chưa tính</span></div><hr><div class="bs-summary-total"><span>Thành tiền</span><strong><?= $formatPrice($checkoutTotal) ?></strong></div>

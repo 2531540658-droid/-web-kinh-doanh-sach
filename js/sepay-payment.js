@@ -89,7 +89,7 @@
     } catch (error) {
       failures += 1;
       showError('Chưa lấy được trạng thái thanh toán. Nếu đã chuyển tiền, không chuyển lại; hãy kiểm tra lại hoặc liên hệ cửa hàng.');
-      // Bound retries and never overlap requests. Manual retry remains available.
+      // Giới hạn số lần thử lại và không để các yêu cầu chồng nhau. Vẫn cho phép thử lại thủ công.
       if (failures < 3) timer = window.setTimeout(refresh, 5000 * failures);
     } finally {
       window.clearTimeout(timeout);

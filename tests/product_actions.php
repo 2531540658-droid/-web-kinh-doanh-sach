@@ -1,6 +1,6 @@
 <?php
-// Run against a disposable database: TEST_DB_NAME=... php tests/product_actions.php
-// Temporary tables shadow application tables and disappear when this connection closes.
+// Chạy với cơ sở dữ liệu thử nghiệm: TEST_DB_NAME=... php tests/product_actions.php
+// Các bảng tạm che khuất bảng ứng dụng cùng tên trong kết nối này và tự mất khi đóng kết nối.
 require_once __DIR__ . '/../config/product_actions.php';
 require_once __DIR__ . '/../config/passwords.php';
 function check(bool $condition, string $message): void {
@@ -48,7 +48,7 @@ $input['product_csrf'] = [];
 handle_product_action($conn, 8, $input);
 check((int) mysqli_fetch_row(mysqli_query($conn, 'SELECT COUNT(*) FROM cart WHERE user_id = 8'))[0] === 0, 'Invalid requests changed cart');
 
-// A wishlist request must remain a wishlist request even if the book is in cart.
+// Yêu cầu thêm vào danh sách yêu thích vẫn phải được xử lý đúng, kể cả khi sách đã ở trong giỏ.
 $wish = ['product_csrf' => $_SESSION['product_csrf'], 'product_id' => 1,
     'product_quantity' => 0, 'add_to_wishlist' => 1];
 http_response_code(200);

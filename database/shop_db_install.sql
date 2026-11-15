@@ -1,5 +1,5 @@
--- One-time database setup for the bookstore application.
--- Run this file once in MySQL/phpMyAdmin. It creates the schema and loads the current catalog.
+-- Thiết lập cơ sở dữ liệu một lần cho ứng dụng bán sách.
+-- Chạy tệp này một lần trong MySQL/phpMyAdmin để tạo cấu trúc và nạp danh mục hiện tại.
 
 -- ===== shop_db.sql =====
 CREATE DATABASE IF NOT EXISTS `shop_db`
@@ -112,8 +112,8 @@ VALUES ('Quản trị viên', '123@gmail.com', MD5('123'), 'admin');
 -- ===== seed_uploaded_books.sql =====
 USE `shop_db`;
 
--- Prices/descriptions are maintained in update_verified_book_content.sql.
--- Prices were checked against publisher/retailer listings on 2026-10-27/28.
+-- Giá/mô tả được cập nhật trong update_verified_book_content.sql.
+-- Giá đã được đối chiếu với trang nhà xuất bản/nhà bán lẻ vào 2026-10-27/28.
 INSERT INTO `products` (`name`, `category`, `details`, `price`, `image`)
 SELECT seed.`name`, seed.`category`, seed.`details`, seed.`price`, seed.`image`
 FROM (
@@ -188,12 +188,12 @@ WHERE NOT EXISTS (
 -- ===== seed_kim_dong_books.sql =====
 USE `shop_db`;
 
--- Prices and availability checked against NXB Kim Dong listings on 2026-10-27.
--- Current sale prices may change. Descriptions are original paraphrases of the
--- publisher's product information. Cover files are sourced from the linked
--- official listings; use them only under the store's confirmed authorization.
+-- Giá và tình trạng còn hàng được đối chiếu với trang NXB Kim Đồng ngày 2026-10-27.
+-- Giá bán hiện tại có thể thay đổi. Mô tả được diễn đạt lại từ
+-- thông tin sản phẩm của nhà xuất bản. Ảnh bìa được lấy từ các trang
+-- chính thức đã dẫn; chỉ sử dụng khi cửa hàng xác nhận có quyền dùng.
 --
--- Sources:
+-- Nguồn tham khảo:
 -- https://nxbkimdong.com.vn/products/dao-lam-chong-dam-tap-15
 -- https://nxbkimdong.com.vn/products/tokyo-aliens-tap-9-tang-kem-set-card
 -- https://nxbkimdong.com.vn/products/45-chuong-mo-dau-bo-truyen-ngan-doraemon-tap-2-26
@@ -350,10 +350,10 @@ WHERE NOT EXISTS (
 -- ===== update_verified_book_content.sql =====
 USE `shop_db`;
 
--- Previously unpriced books checked on 2026-10-28; the other seeded books
--- were checked on 2026-10-27. Current sale prices may change.
+-- Sách trước đây chưa có giá được đối chiếu ngày 2026-10-28; các sách mẫu khác
+-- được đối chiếu ngày 2026-10-27. Giá bán hiện tại có thể thay đổi.
 
--- Listing is currently out of stock; price is the displayed sale price.
+-- Trang bán hiện báo hết hàng; giá là mức giá bán đang hiển thị.
 -- https://nxbkimdong.com.vn/products/bach-tuyet-toc-do-tap-16
 UPDATE `products`
 SET
@@ -368,7 +368,7 @@ SET
   `details` = 'Tác phẩm khám phá vai trò của nước đối với sự sống, văn hóa và lịch sử qua nhiều góc nhìn. Nội dung cũng gợi mở suy nghĩ về việc trân trọng và bảo vệ nguồn nước.'
 WHERE `image` = 'bangiaohuongcuanuoc.png';
 
--- Variant "Tập 06 (2026)" is currently available.
+-- Phiên bản "Tập 06 (2026)" hiện còn hàng.
 -- https://nxbkimdong.com.vn/products/tap-le-duoc-su-tu-su-manga
 UPDATE `products`
 SET
@@ -376,7 +376,7 @@ SET
   `details` = 'Miêu Miêu từng hành nghề dược sư ở phố hoa trước khi bị đưa vào cung đình, nơi kiến thức về dược liệu giúp cô lần theo những bí ẩn trong cung. Đây là phần giới thiệu tiền đề chung của bộ manga, không phải tóm tắt riêng tập 6.'
 WHERE `image` = 'duocsutusu.png';
 
--- Variant "Tập 23 (2026)" is currently available.
+-- Phiên bản "Tập 23 (2026)" hiện còn hàng.
 -- https://nxbkimdong.com.vn/products/tap-le-chu-thuat-hoi-chien
 UPDATE `products`
 SET
@@ -384,8 +384,8 @@ SET
   `details` = 'Itadori Yuji là một học sinh trung học có thể lực phi thường; cuộc đời cậu rẽ sang hướng khác sau khi vướng vào một vật bị nguyền rủa. Đây là phần giới thiệu tiền đề chung của bộ manga Chú thuật hồi chiến, không phải tóm tắt riêng tập 23.'
 WHERE `image` = 'jujustukaisen23.png';
 
--- This cover is the light-novel edition, not the manga edition.
--- Listing is currently out of stock; price is the displayed sale price.
+-- Ảnh bìa này thuộc bản tiểu thuyết, không phải bản truyện tranh.
+-- Trang bán hiện báo hết hàng; giá là mức giá bán đang hiển thị.
 -- https://nxbkimdong.com.vn/products/hon-nhan-hanh-phuc-cua-toi-light-novel-tap-1-tang-02-clipsheet-01-card-nhua-trong
 UPDATE `products`
 SET
@@ -393,8 +393,8 @@ SET
   `details` = 'Miyo lớn lên trong sự ghẻ lạnh của gia đình và bị sắp đặt kết hôn với Kiyoka, một quân nhân mang tiếng lạnh lùng. Cuộc gặp gỡ ban đầu đầy dè dặt mở ra cơ hội để cả hai dần hiểu nhau và tìm kiếm một mái ấm.'
 WHERE `image` = 'honnhanhahphuc.png';
 
--- The standard-edition listing is out of stock; the limited-edition listing
--- with the same ISBN is available at the same displayed price.
+-- Trang bán bản thường đang hết hàng; trang bán bản giới hạn
+-- cùng ISBN còn hàng với cùng mức giá hiển thị.
 -- https://nxbkimdong.com.vn/products/loi-chao-tu-moskva-james-bond-ban-gioi-han-tang-kem-bia-ao-postcard
 UPDATE `products`
 SET
@@ -402,7 +402,7 @@ SET
   `details` = 'Điệp viên James Bond trở thành mục tiêu của SMERSH trong một kế hoạch gài bẫy được chuẩn bị kỹ lưỡng. Sự xuất hiện của nữ điệp viên Tatiana Romanova khiến nhiệm vụ và lòng tin của Bond thêm phức tạp.'
 WHERE `image` = 'moskva.jpg';
 
--- Exact standard-edition listing from Nhà Sách Phương Nam on Tiki.
+-- Trang bán đúng bản thường của Nhà Sách Phương Nam trên Tiki.
 -- https://tiki.vn/son-goal-tap-3-p275838908.html?spid=275838909
 UPDATE `products`
 SET
@@ -410,8 +410,8 @@ SET
   `details` = 'Sơn và Phong được gọi lên trại huấn luyện để chuẩn bị cho giải U15 châu Á. Trong lúc Phong quyết tâm giành suất thi đấu, Sơn tìm hiểu thêm về mẹ mình qua những câu chuyện của người thân. Cả hai phải đối mặt với thử thách để có cơ hội góp mặt trong đội tuyển.'
 WHERE `image` = 'SonGoal.png';
 
--- Standard-edition listing is out of stock; the limited-edition listing with
--- the same ISBN is available at the same displayed price.
+-- Trang bán bản thường đang hết hàng; trang bán bản giới hạn với
+-- cùng ISBN còn hàng với cùng mức giá hiển thị.
 -- https://nxbkimdong.com.vn/products/su-gia-bon-mua-vu-dieu-mua-xuan-quyen-2-ban-gioi-han-tang-postcard-clear-bookmark
 UPDATE `products`
 SET
@@ -419,7 +419,7 @@ SET
   `details` = 'Trong thế giới nơi bốn mùa được hình thành từ mùa đông, các sứ giả có nhiệm vụ đưa mùa đi theo dòng thời gian. Quyển 2 giới thiệu Hinagiku, sứ giả mùa xuân, cùng Sakura, kiếm sĩ đã thề bảo vệ cô; câu chuyện đặt họ trong một hành trình gắn với sứ mệnh và lời hẹn.'
 WHERE `image` = 'sugia4mua.png';
 
--- Variant "Tập 08 (2025)" is currently available.
+-- Phiên bản "Tập 08 (2025)" hiện còn hàng.
 -- https://nxbkimdong.com.vn/products/tap-le-thien-su-nha-ben-light-novel
 UPDATE `products`
 SET
@@ -427,7 +427,7 @@ SET
   `details` = 'Amane Fujimiya sống cạnh Shiina Mahiru, nữ sinh nổi tiếng nhất trường; một lần gặp nhau trong ngày mưa mở đầu cho mối gắn kết giữa hai người. Đây là tiền đề chung của bộ tiểu thuyết Thiên sứ nhà bên, không phải tóm tắt riêng tập 8.'
 WHERE `image` = 'thien-su-nha-ben-tap-8.jpg';
 
--- Variant "Tập 02 (2025)" is currently available.
+-- Phiên bản "Tập 02 (2025)" hiện còn hàng.
 -- https://nxbkimdong.com.vn/products/tap-le-thien-su-nha-ben-light-novel
 UPDATE `products`
 SET
@@ -462,8 +462,8 @@ UPDATE `products` SET `image` = 'kd-book-20.jpg' WHERE `name` = 'Tranh truyện 
 
 
 -- ===== bookstory-ai-chatbot/database/install.sql =====
--- Run this SQL in phpMyAdmin after selecting your bookstore database.
--- These are NEW chatbot tables; this script does not modify your products/users/orders tables.
+-- Chạy SQL này trong phpMyAdmin sau khi chọn cơ sở dữ liệu của cửa hàng sách.
+-- Đây là các bảng chatbot MỚI; lệnh này không sửa các bảng products/users/orders.
 
 CREATE TABLE IF NOT EXISTS ai_book_interactions (
     id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,

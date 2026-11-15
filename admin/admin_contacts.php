@@ -51,7 +51,7 @@ $total_senders = count($unique_senders);
 <?php @include 'admin_header.php'; ?>
 
 <section class="helpdesk-section">
-   <!-- 1. Banner Tiêu Đề -->
+   <!-- 1. Khối tiêu đề -->
    <div class="helpdesk-hero-bar">
       <div class="helpdesk-hero-title">
          <h1><i class="fas fa-headset"></i> Trung Tâm Chăm Sóc Khách Hàng & Hộp Thư</h1>
@@ -62,7 +62,7 @@ $total_senders = count($unique_senders);
       </span>
    </div>
 
-   <!-- 2. 3 Thẻ KPI Hộp Thư -->
+   <!-- 2. Ba thẻ thống kê hộp thư -->
    <div class="helpdesk-kpi-grid">
       <div class="hd-kpi-card kpi-inbox">
          <div class="hd-kpi-info">

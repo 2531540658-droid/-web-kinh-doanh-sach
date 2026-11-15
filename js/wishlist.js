@@ -2,7 +2,7 @@
   const dialog = document.querySelector('#wishlist-confirm');
   if (!dialog || typeof dialog.showModal !== 'function'
       || typeof HTMLFormElement.prototype.requestSubmit !== 'function') {
-    // Keep the existing native confirm() handlers in older browsers.
+    // Giữ cách xử lý confirm() có sẵn trên các trình duyệt cũ.
     return;
   }
 
@@ -66,7 +66,7 @@
     deleteButton.disabled = true;
     confirmedForms.add(form);
     dialog.close();
-    // Submit the original form, including its existing action, item ID and CSRF.
+    // Gửi biểu mẫu gốc cùng đích xử lý, mã mục dữ liệu và mã CSRF hiện có.
     if (submitter) form.requestSubmit(submitter);
     else form.requestSubmit();
   });

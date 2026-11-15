@@ -13,7 +13,7 @@ if ($user_id <= 0) {
     exit();
 }
 
-// Giữ nguyên các tên field và cách lưu bảng message của nhóm.
+// Giữ nguyên các tên trường và cách lưu bảng message của nhóm.
 if (isset($_POST['send'])) {
     $name = mysqli_real_escape_string($conn, trim((string) ($_POST['name'] ?? '')));
     $email = mysqli_real_escape_string($conn, trim((string) ($_POST['email'] ?? '')));
@@ -46,7 +46,7 @@ if (isset($_POST['send'])) {
 <body>
 <?php @include '../components/header.php'; ?>
 <main class="bs-contact-page">
-   <!-- 01. Phần giới thiệu: typography đơn giản, không dùng icon trang trí. -->
+   <!-- 01. Phần giới thiệu: kiểu chữ đơn giản, không dùng biểu tượng trang trí. -->
    <section class="bs-contact-hero" aria-labelledby="bs-contact-title">
       <div class="bs-contact-wrap">
          <nav class="bs-contact-crumb" aria-label="Đường dẫn"><a href="../index.php">Trang chủ</a><span>/</span><span>Liên hệ</span></nav>
@@ -56,7 +56,7 @@ if (isset($_POST['send'])) {
       </div>
    </section>
 
-   <!-- 02. Hai cột vừa đủ: lời giới thiệu bên trái, form liên hệ bên phải. -->
+   <!-- 02. Hai cột vừa đủ: lời giới thiệu bên trái, biểu mẫu liên hệ bên phải. -->
    <section class="bs-contact-body" aria-label="Biểu mẫu liên hệ">
       <div class="bs-contact-wrap bs-contact-layout">
          <aside class="bs-contact-aside">
@@ -76,7 +76,7 @@ if (isset($_POST['send'])) {
             <?php if (!empty($message)): ?>
                <?php foreach ($message as $feedback): ?><p class="bs-contact-notice" role="status"><?= htmlspecialchars((string) $feedback, ENT_QUOTES, 'UTF-8') ?></p><?php endforeach; ?>
             <?php endif; ?>
-            <!-- Giữ nguyên tên field name/email/number/message và name=send để PHP xử lý như cũ. -->
+            <!-- Giữ nguyên tên trường name/email/number/message và name=send để PHP xử lý như cũ. -->
             <form action="" method="POST" class="bs-contact-form">
                <div class="bs-contact-field"><label for="bs-contact-name">Họ và tên <span>*</span></label><input id="bs-contact-name" type="text" name="name" placeholder="Tên của bạn" autocomplete="name" maxlength="100" required></div>
                <div class="bs-contact-row">

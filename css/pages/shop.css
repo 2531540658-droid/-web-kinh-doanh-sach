@@ -1,11 +1,11 @@
 /* ===============================================================
-   BOOKSTORY / SHOP.CSS - V2 PASTEL
-   Chỉ đổi bảng màu và kiểu chữ; giữ nguyên kích thước, layout
-   và tên field của form lọc / lưới sách.
-   01. Banner  02. Form lọc (chỉ màu)  03. Thẻ sản phẩm (chỉ màu)
+   BOOKSTORY / SHOP.CSS - V2 MÀU DỊU
+   Chỉ đổi bảng màu và kiểu chữ; giữ nguyên kích thước, bố cục
+   và tên trường của biểu mẫu lọc / lưới sách.
+   01. Dải tiêu đề  02. Biểu mẫu lọc (chỉ màu)  03. Thẻ sản phẩm (chỉ màu)
    =============================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
-/* 01. Banner tím lavender pha hồng pastel - giữ chiều cao gốc. */
+/* 01. Dải tiêu đề tím nhạt pha hồng dịu - giữ chiều cao gốc. */
 .bs-shop-heading {
   background: linear-gradient(115deg,#eee8fa 0%,#f8e9f3 65%,#fff3eb 100%)
 }
@@ -29,7 +29,7 @@
 .bs-shop-heading p a:hover {
   color: #6f4988
 }
-/* 02. Chỉ đổi màu viền/chữ/nút của form lọc; giữ nguyên flex/width/padding. */
+/* 02. Chỉ đổi màu viền/chữ/nút của biểu mẫu lọc; giữ nguyên flex/width/padding. */
 .bs-shop-heading + .search-form {
   background: #fffafd
 }
@@ -49,7 +49,7 @@
 .bs-shop-heading + .search-form form .btn:hover {
   background: #7d52a4
 }
-/* 03. Giữ lưới & ảnh sách; chỉ làm mềm palette, viền, chữ và hover. */
+/* 03. Giữ lưới & ảnh sách; chỉ làm mềm bảng màu, viền, chữ và trạng thái rê chuột. */
 .bs-shop-products {
   background: #fffafd
 }

@@ -1,6 +1,6 @@
 /* =========================================================
    BOOKSTORY · VIEW-PAGE.CSS
-   01. Breadcrumb  02. Chi tiết sách  03. Mua hàng  04. Mô tả  05. Mobile
+   01. Đường dẫn điều hướng  02. Chi tiết sách  03. Mua hàng  04. Mô tả  05. Điện thoại
    Chỉ áp dụng ở trang pages/view_page.php.
    ========================================================= */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
@@ -11,7 +11,7 @@
   min-height: 58vh;
   font-size: 14px
 }
-/* Kế thừa font chữ ở độ ưu tiên thấp để giữ font riêng của các icon. */
+/* Kế thừa phông chữ ở độ ưu tiên thấp để giữ phông riêng của các biểu tượng. */
 :where(.bs-view-page *) {
   font-family: inherit
 }
@@ -193,7 +193,7 @@
   border-color: #C5B3D3;
   color: #7e6889
 }
-/* Kết thúc yêu cầu thì trở lại tim rỗng, kể cả khi nút còn focus. */
+/* Kết thúc yêu cầu thì trở lại tim rỗng, kể cả khi nút vẫn đang được chọn. */
 .bs-view-page .bs-view-like[data-wishlist-hovered="true"] i,
 .bs-view-page .bs-view-like:active i,
 .bs-view-page .bs-view-like[data-wishlist-pending="true"] i {
@@ -260,7 +260,7 @@
   margin-top: 20px;
   font-weight: 700
 }
-/* 05. Responsive */
+/* 05. Thích ứng màn hình */
 @media(max-width:850px) {
   .bs-view-page .bs-view-product {
     grid-template-columns: 1fr;
@@ -299,7 +299,7 @@
     font-size: 26px
   }
 }
-/* Mô tả chỉ dùng tiêu đề chữ, bỏ icon ô vuông khi thiếu Font Awesome. */
+/* Mô tả chỉ dùng tiêu đề chữ, bỏ biểu tượng ô vuông khi thiếu Font Awesome. */
 .bs-view-page .bs-view-description-header {
   gap: 0;
 }

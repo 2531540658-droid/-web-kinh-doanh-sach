@@ -1,8 +1,8 @@
 /* ====================================================================
-   BOOKSTORY · WISHLIST — chỉ nạp từ pages/wishlist.php
-   00. Shared storefront shell · 01. Tiêu đề / lưới sách · 02. Thẻ sách · 03. Hành động · 04. Mobile · 05. Xác nhận xóa
+   BOOKSTORY · DANH SÁCH YÊU THÍCH — chỉ nạp từ pages/wishlist.php
+   00. Khung giao diện cửa hàng dùng chung · 01. Tiêu đề / lưới sách · 02. Thẻ sách · 03. Hành động · 04. Điện thoại · 05. Xác nhận xóa
    ==================================================================== */
-/* 00. Shared storefront shell: dùng riêng cho trang mua sắm */
+/* 00. Khung giao diện cửa hàng dùng chung: dùng riêng cho trang mua sắm */
 .bs-commerce {
   --bs-purple: #9b6fcf;
   --bs-purple-dark: #6f4988;
@@ -536,7 +536,7 @@
   color: #664ca8;
   font-size: 16px;
 }
-/* 03. Button add to cart / view */
+/* 03. Nút thêm vào giỏ hàng / xem chi tiết */
 .bs-wishlist .bs-book-actions {
   display: grid;
   grid-template-columns: minmax(0,1fr) 46px;
@@ -584,7 +584,7 @@
   opacity: .9;
   transform: translateY(-1px);
 }
-/* 04. Responsive */
+/* 04. Thích ứng màn hình */
 @media(max-width:990px) {
   .bs-wishlist .bs-wishlist-grid {
     grid-template-columns: repeat(2,minmax(0,1fr));
@@ -619,7 +619,7 @@
   }
 }
 
-/* 05. Xác nhận xóa: dialog ở top layer, không phụ thuộc font biểu tượng. */
+/* 05. Xác nhận xóa: hộp thoại ở lớp hiển thị trên cùng, không phụ thuộc phông biểu tượng. */
 body.bs-wishlist-confirm-open {
   overflow: hidden;
 }

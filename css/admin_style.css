@@ -124,7 +124,7 @@ section {
   padding: 1rem 1.2rem;
 }
 
-/* Nhãn trạng thái (Badges) */
+/* Nhãn trạng thái */
 .status-badge,
 .role-badge {
   padding: 0.6rem 1.4rem;
@@ -212,7 +212,7 @@ section {
 }
 
 /* =========================================================
-   THANH ĐIỀU HƯỚNG ADMIN (HEADER)
+   THANH ĐIỀU HƯỚNG QUẢN TRỊ (ĐẦU TRANG)
    ========================================================= */
 .header {
   position: sticky;
@@ -1197,7 +1197,7 @@ section {
   line-height: 1.6;
 }
 
-/* Responsive Media Queries */
+/* Các quy tắc thích ứng theo kích thước màn hình */
 @media (max-width: 991px) {
   html {
     font-size: 55%;
@@ -1242,11 +1242,11 @@ section {
   }
 }
 
-/* === CSS GOM TU CAC FILE ADMIN PHP === */
+/* === CSS GỘP TỪ CÁC TỆP PHP QUẢN TRỊ === */
 
 /* --- admin/admin_contacts.php --- */
 /* =========================================================
-         CSS TRUNG TÂM CHĂM SÓC KHÁCH HÀNG & HELPDESK CHUYÊN NGHIỆP
+         CSS TRUNG TÂM CHĂM SÓC KHÁCH HÀNG & HỖ TRỢ CHUYÊN NGHIỆP
          ========================================================= */
       .helpdesk-section {
          max-width: 1300px;
@@ -1300,7 +1300,7 @@ section {
          gap: 0.8rem;
       }
 
-      /* 3 Thẻ KPI Hộp Thư */
+      /* Ba thẻ thống kê hộp thư */
       .helpdesk-kpi-grid {
          display: grid;
          grid-template-columns: repeat(3, 1fr);
@@ -1638,7 +1638,7 @@ section {
       }
 
 /* --- admin/admin_coupons.php --- */
-/* CSS đặc biệt riêng cho bộ tạo Voucher thông minh */
+/* CSS riêng cho bộ tạo mã giảm giá thông minh */
         .live-voucher-preview {
             display: flex;
             align-items: center;
@@ -1707,7 +1707,7 @@ section {
             border: 0.2rem dashed #f59e0b;
         }
 
-        /* Nút chọn hình thức giảm giá dạng Tab đôi */
+        /* Nút chọn hình thức giảm giá dạng hai thẻ */
         .discount-type-switcher {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1791,7 +1791,7 @@ section {
             color: #fff;
         }
 
-        /* Các nút gợi ý chọn nhanh mức giảm (Quick Chips) */
+        /* Các nút gợi ý chọn nhanh mức giảm */
         .quick-chips {
             display: flex;
             flex-wrap: wrap;
@@ -1875,7 +1875,7 @@ section {
          color: #fff;
       }
 
-      /* 4 Thẻ KPI Đơn Hàng */
+      /* Bốn thẻ thống kê đơn hàng */
       .orders-kpi-grid {
          display: grid;
          grid-template-columns: repeat(4, 1fr);
@@ -2347,7 +2347,7 @@ body { font-family: Arial, sans-serif; padding: 30px; color: #1e293b; }
 
 /* --- admin/admin_products.php --- */
 /* =========================================================
-         CSS NÂNG CẤP STUDIO THÊM SẢN PHẨM & QUẢN LÝ KHO SÁCH
+         CSS NÂNG CẤP KHU VỰC THÊM SẢN PHẨM & QUẢN LÝ KHO SÁCH
          ========================================================= */
       .product-studio-section {
          max-width: 1300px;
@@ -3060,7 +3060,7 @@ body { font-family: Arial, sans-serif; padding: 30px; color: #1e293b; }
             padding: 2.8rem 2rem 5rem;
         }
 
-        /* Banner đầu trang */
+        /* Dải tiêu đề đầu trang */
         .users-hero-bar {
             background: var(--white);
             border: var(--border);
@@ -3112,7 +3112,7 @@ body { font-family: Arial, sans-serif; padding: 30px; color: #1e293b; }
             transform: translateY(-2px);
         }
 
-        /* 3 Thẻ Thống Kê KPI */
+        /* Ba thẻ thống kê */
         .users-kpi-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -3293,7 +3293,7 @@ body { font-family: Arial, sans-serif; padding: 30px; color: #1e293b; }
             color: #fff;
         }
 
-        /* Lưới Thẻ Tài Khoản Cỡ Lớn (Enterprise Cards) */
+        /* Lưới thẻ tài khoản cỡ lớn */
         .enterprise-users-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));

@@ -1,14 +1,14 @@
 <?php
 declare(strict_types=1);
 
-// TEST_DB_NAME=bookbot_test php tests/chatbot.php
-// All test tables are TEMPORARY and disappear with this PDO connection.
+// Chạy kiểm tra: TEST_DB_NAME=bookbot_test php tests/chatbot.php
+// Mọi bảng kiểm tra đều là bảng TEMPORARY và tự mất khi đóng kết nối PDO này.
 $database = getenv('TEST_DB_NAME');
 if (!$database) throw new RuntimeException('Set TEST_DB_NAME to an existing disposable database.');
 putenv('DB_NAME=' . $database);
 require __DIR__ . '/../bookstory-ai-chatbot/api/bootstrap.php';
 require __DIR__ . '/../bookstory-ai-chatbot/api/answers.php';
-$config['openai']['api_key'] = ''; // Never spend real API credit in this suite.
+$config['openai']['api_key'] = ''; // Không tiêu tốn hạn mức API thật trong bộ kiểm tra này.
 $checks = 0;
 function check(bool $condition, string $message): void
 {
@@ -116,7 +116,7 @@ bb_save_message('user', 'Python');
 bb_save_message('assistant', 'Sách phù hợp');
 check((int)$pdo->query('SELECT COUNT(*) FROM ai_book_chat_messages')->fetchColumn() === 2, 'Conversation not saved');
 
-// Simulate a provider outage without calling any external service.
+// Giả lập dịch vụ AI bị gián đoạn mà không gọi bất kỳ dịch vụ bên ngoài nào.
 $config['openai'] = ['api_key' => 'local-test-only', 'endpoint' => 'http://127.0.0.1:1', 'timeout_seconds' => 1];
 $reply = bb_chat_reply('Jujutsu Kaisen');
 check($reply['ai_enabled'] === false && $reply['products'][0]['id'] === 4, 'AI outage broke catalog fallback');

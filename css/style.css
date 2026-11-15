@@ -1,5 +1,5 @@
-/* Dùng chung: font chữ, biến màu, reset, nút, thông báo và tiêu đề.
-   Header/footer và bố cục từng trang được nạp riêng trong PHP. */
+/* Dùng chung: phông chữ, biến màu, đặt lại kiểu mặc định, nút, thông báo và tiêu đề.
+   Đầu trang/chân trang và bố cục từng trang được nạp riêng trong PHP. */
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 
 :root {
@@ -91,7 +91,7 @@ section {
   text-transform: capitalize;
 }
 
-/*background cho nút xem thêm*/
+/* Nền cho nút xem thêm */
 .btn {
   background-color: #f39c12;
 }

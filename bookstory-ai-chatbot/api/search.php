@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-/** Fold Vietnamese accents without requiring the intl extension. */
+/** Chuyển tiếng Việt về dạng không dấu mà không cần phần mở rộng intl. */
 function bb_fold_text(string $text): string
 {
     return preg_replace(
@@ -17,7 +17,7 @@ function bb_normalize_text(string $text): string
     return trim(preg_replace('/[^\p{L}\p{N}]+/u', ' ', bb_fold_text($text)) ?? '');
 }
 
-/** Shared by price parsing and keyword extraction so prices never become topics. */
+/** Dùng chung khi đọc ngân sách và tách từ khóa để giá tiền không bị hiểu thành chủ đề. */
 function bb_budget_pattern(): string
 {
     return '/(?:\b(?:duoi|toi da|khong qua|khong vuot qua)|<=?)\s*([0-9]+(?:[.,][0-9]+)*)\s*(trieu|tr|k|nghin|ngan)?(?:\s*(?:dong|vnd|₫))?/u';
@@ -33,7 +33,7 @@ function bb_parse_budget(string $query): ?float
         $value *= in_array($unit, ['trieu', 'tr'], true) ? 1000000 : 1000;
     } else {
         $value = (float)str_replace(['.', ','], '', $number);
-        // Common shorthand: "dưới 200" means 200.000 đồng.
+        // Cách viết tắt thường gặp: "dưới 200" nghĩa là 200.000 đồng.
         if ($value > 0 && $value < 1000) $value *= 1000;
     }
     return $value;
@@ -53,7 +53,7 @@ function bb_search_terms(string $query): array
     return array_slice(array_values(array_unique($terms)), 0, 12);
 }
 
-/** Match every requested keyword AND the budget; never fill gaps with unrelated books. */
+/** Phải khớp mọi từ khóa và ngân sách; không bù kết quả bằng sách không liên quan. */
 function bb_search_products(string $query, int $limit = 5, ?float $maxPrice = null): array
 {
     $terms = bb_search_terms($query);

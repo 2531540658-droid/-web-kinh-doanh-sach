@@ -1,5 +1,5 @@
 <?php
-// BookStory / Wishlist: mọi thao tác thay đổi dữ liệu đều dùng POST + CSRF.
+// BookStory / Danh sách yêu thích: mọi thao tác thay đổi dữ liệu đều dùng POST + CSRF.
 require_once '../config/config.php';
 
 if (!isset($conn) || !($conn instanceof mysqli)) {
@@ -17,7 +17,7 @@ $_SESSION['wishlist_csrf'] ??= bin2hex(random_bytes(32));
 $notice = $_SESSION['wishlist_notice'] ?? '';
 unset($_SESSION['wishlist_notice']);
 
-// Không nhận tên/giá/ảnh từ hidden input: đọc sách từ dữ liệu đã lưu trên server.
+// Không nhận tên/giá/ảnh từ trường nhập ẩn: đọc sách từ dữ liệu đã lưu trên máy chủ.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = (string) ($_POST['csrf_token'] ?? '');
     if (!hash_equals($_SESSION['wishlist_csrf'], $token)) {
@@ -90,7 +90,7 @@ $money = static fn($value): string => number_format((float) $value, 0, ',', '.')
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/components/header.css">
     <link rel="stylesheet" href="../css/components/footer.css">
-    <!-- CSS tách riêng theo trang để dễ bảo trì và không phụ thuộc file chung. -->
+    <!-- CSS tách riêng theo trang để dễ bảo trì và không phụ thuộc tệp chung. -->
     <link rel="stylesheet" href="../css/pages/wishlist.css">
 </head>
 <body>

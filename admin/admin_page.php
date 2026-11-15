@@ -72,7 +72,7 @@ try {
    if ($select_messages) $number_of_messages = mysqli_num_rows($select_messages);
 } catch (Throwable $e) {}
 
-// 2. Lấy dữ liệu thật từ Database cho Biểu đồ cơ cấu thể loại sách
+// 2. Lấy dữ liệu thật từ cơ sở dữ liệu cho biểu đồ cơ cấu thể loại sách
 $category_labels = [];
 $category_counts = [];
 try {
@@ -145,7 +145,7 @@ if (!$has_real_orders) {
       </div>
    </div>
 
-   <!-- 8 Thẻ chỉ số KPI -->
+   <!-- Tám thẻ thống kê -->
    <div class="box-container">
       <div class="box stat-card card-warning">
          <div class="stat-header">
@@ -220,7 +220,7 @@ if (!$has_real_orders) {
       </div>
    </div>
 
-   <!-- Khu vực Biểu đồ trực quan (Analytics Charts) -->
+   <!-- Khu vực biểu đồ phân tích trực quan -->
    <div class="analytics-grid">
       <!-- Biểu đồ 1: Sơ đồ doanh thu & dòng tiền -->
       <div class="chart-card">
@@ -314,7 +314,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return `${label} (${pct}%)`;
    });
 
-   // Plugin vẽ trực tiếp số % lên trên từng múi của biểu đồ tròn
+   // Phần mở rộng vẽ trực tiếp số % lên trên từng múi của biểu đồ tròn
    const doughnutPercentPlugin = {
       id: 'doughnutPercentPlugin',
       afterDatasetsDraw(chart) {
