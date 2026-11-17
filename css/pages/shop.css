@@ -1,0 +1,127 @@
+/* ===============================================================
+   BOOKSTORY / SHOP.CSS - V2 MÀU DỊU
+   Chỉ đổi bảng màu và kiểu chữ; giữ nguyên kích thước, bố cục
+   và tên trường của biểu mẫu lọc / lưới sách.
+   01. Dải tiêu đề  02. Biểu mẫu lọc (chỉ màu)  03. Thẻ sản phẩm (chỉ màu)
+   =============================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap');
+/* 01. Dải tiêu đề tím nhạt pha hồng dịu - giữ chiều cao gốc. */
+.bs-shop-heading {
+  background: linear-gradient(115deg,#eee8fa 0%,#f8e9f3 65%,#fff3eb 100%)
+}
+.bs-shop-heading h3 {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  color: #665077;
+  font-size: clamp(28px,3.4vw,44px);
+  font-weight: 900;
+  letter-spacing: -.025em;
+  text-transform: none;
+  text-shadow: none
+}
+.bs-shop-heading p {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  color: #95849e;
+  font-size: 18px
+}
+.bs-shop-heading p a {
+  color: #8a62a4
+}
+.bs-shop-heading p a:hover {
+  color: #6f4988
+}
+/* 02. Chỉ đổi màu viền/chữ/nút của biểu mẫu lọc; giữ nguyên flex/width/padding. */
+.bs-shop-heading + .search-form {
+  background: #fffafd
+}
+.bs-shop-heading + .search-form form .box {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  color: #695b71;
+  border-color: #d9c8df;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(106,76,119,.06)
+}
+.bs-shop-heading + .search-form form .btn {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  background: #9b6fcf;
+  color: #fff;
+  font-weight: 800
+}
+.bs-shop-heading + .search-form form .btn:hover {
+  background: #7d52a4
+}
+/* 03. Giữ lưới & ảnh sách; chỉ làm mềm bảng màu, viền, chữ và trạng thái rê chuột. */
+.bs-shop-products {
+  background: #fffafd
+}
+.bs-shop-products .title {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  color: #665077;
+  font-size: clamp(29px,3vw,37px);
+  font-weight: 900;
+  letter-spacing: -.02em;
+  text-transform: none
+}
+.bs-shop-products .box-container .box {
+  background: #fff;
+  border-color: #eee1eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(88,61,103,.035)
+}
+.bs-shop-products .box-container .box:hover {
+  border-color: #d6c3e3;
+  box-shadow: 0 8px 20px rgba(122,82,164,.12)
+}
+.bs-shop-products .box-container .box .price {
+  background: #C5B3D3;
+  color: #fff;
+  font-family: 'Nunito','Quicksand',sans-serif
+}
+.bs-shop-products .box-container .box .fa-eye {
+  color: #80648f;
+  border-color: #e2d6e9;
+  background: #fcf9ff
+}
+.bs-shop-products .box-container .box .fa-eye:hover {
+  color: #fff;
+  background: #9b6fcf;
+  border-color: #9b6fcf
+}
+.bs-shop-products .box-container .box .name {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  color: #5c4d66;
+  font-weight: 800
+}
+.bs-shop-products .box-container .box .category {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  color: #ad8ba9;
+  border-color: #e4cbe1
+}
+.bs-shop-products .box-container .box .qty {
+  color: #6e6171;
+  background: #fdfdfd;
+  border-color: #e6d8e7
+}
+.bs-shop-products .box-container .box .box-actions .option-btn {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  color: #A47CAA;
+  border-color: #e6d8e7;
+  background: #FBEEEE
+}
+.bs-shop-products .box-container .box .box-actions .option-btn:hover {
+  color: #A47CAA;
+  background: #ffe2e2;
+  border-color: #e6d8e7
+}
+.bs-shop-products .box-container .box .box-actions .option-btn[data-wishlist-hovered="true"] i,
+.bs-shop-products .box-container .box .box-actions .option-btn[data-wishlist-pending="true"] i {
+  color: #d997ad
+}
+.bs-shop-products .box-container .box .box-actions .btn {
+  font-family: 'Nunito','Quicksand',sans-serif;
+  background: #9b6fcf;
+  color: #fff;
+  font-weight: 800
+}
+.bs-shop-products .box-container .box .box-actions .btn:hover {
+  background: #7d52a4
+}

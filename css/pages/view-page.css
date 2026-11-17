@@ -1,0 +1,305 @@
+/* =========================================================
+   BOOKSTORY · VIEW-PAGE.CSS
+   01. Đường dẫn điều hướng  02. Chi tiết sách  03. Mua hàng  04. Mô tả  05. Điện thoại
+   Chỉ áp dụng ở trang pages/view_page.php.
+   ========================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
+.bs-view-page {
+  background: #fffafd;
+  color: #62546b;
+  font-family: 'Be Vietnam Pro','Quicksand',sans-serif;
+  min-height: 58vh;
+  font-size: 14px
+}
+/* Kế thừa phông chữ ở độ ưu tiên thấp để giữ phông riêng của các biểu tượng. */
+:where(.bs-view-page *) {
+  font-family: inherit
+}
+.bs-view-page .bs-view-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 30px 24px 70px
+}
+/* 01. Đường dẫn điều hướng */
+.bs-view-page .bs-view-crumb {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #95849e;
+  font-size: 12px;
+  margin: 0 0 28px
+}
+.bs-view-page .bs-view-crumb i {
+  font-size: 10px
+}
+.bs-view-page .bs-view-crumb a {
+  color: #a47caa
+}
+.bs-view-page .bs-view-crumb a:hover {
+  text-decoration: underline
+}
+/* 02. Hai cột bìa + thông tin, khối nền trắng và màu tím nhẹ */
+.bs-view-page .bs-view-product {
+  display: grid;
+  grid-template-columns: minmax(240px,410px) minmax(0,1fr);
+  gap: clamp(24px,5vw,68px);
+  padding: 42px;
+  background: #fff;
+  border: 1px solid #eee1eb;
+  border-radius: 24px;
+  box-shadow: 0 14px 45px rgba(88,61,103,.055)
+}
+.bs-view-page .bs-view-visual {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 13px
+}
+.bs-view-page .bs-view-image-frame {
+  width: 100%;
+  min-height: 440px;
+  padding: 25px;
+  background: linear-gradient(150deg,#f4ecf9,#fff0eb);
+  border-radius: 20px;
+  display: grid;
+  place-items: center
+}
+.bs-view-page .bs-view-image-frame img {
+  display: block;
+  width: 100%;
+  max-width: 310px;
+  max-height: 460px;
+  object-fit: contain;
+  box-shadow: 12px 14px 20px rgba(38,27,51,.14);
+  border-radius: 3px
+}
+.bs-view-page .bs-view-image-note {
+  font-size: 11px;
+  color: #a29ba9
+}
+.bs-view-page .bs-view-image-note i {
+  margin-right: 6px
+}
+.bs-view-page .bs-view-information {
+  padding-top: 4px
+}
+.bs-view-page .bs-view-kicker {
+  display: block;
+  color: #a47caa;
+  font-weight: 800;
+  font-size: 11px;
+  letter-spacing: .11em;
+  margin: 0 0 22px
+}
+.bs-view-page .bs-view-kicker i {
+  margin-right: 8px
+}
+.bs-view-page .bs-view-category {
+  display: inline-block;
+  border-radius: 100px;
+  background: #f8e9f3;
+  color: #9675a0;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 700
+}
+.bs-view-page .bs-view-information h1 {
+  font-size: clamp(26px,3vw,39px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.35;
+  margin: 17px 0 22px;
+  color: #59435a
+}
+.bs-view-page .bs-view-price {
+  padding: 22px 0;
+  border-top: 1px solid #eee1eb;
+  border-bottom: 1px solid #eee1eb;
+  margin-bottom: 24px
+}
+.bs-view-page .bs-view-price span,.bs-view-page .bs-view-price small {
+  display: block;
+  color: #95849e;
+  font-size: 12px
+}
+.bs-view-page .bs-view-price strong {
+  display: block;
+  color: #c39acb;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -.025em;
+  margin: 3px 0
+}
+/* 03. Nút đặt hàng vẫn dùng name=add_to_cart/add_to_wishlist, POST như cũ. */
+.bs-view-page .bs-view-action-area label {
+  display: block;
+  color: #62546b;
+  font-weight: 800;
+  font-size: 12px;
+  margin-bottom: 10px
+}
+.bs-view-page .bs-view-purchase {
+  display: grid;
+  grid-template-columns: 100px minmax(0,1fr);
+  gap: 12px
+}
+.bs-view-page .bs-view-purchase input {
+  background: #fcf6fc;
+  border: 1px solid #e6d8e7;
+  border-radius: 10px;
+  padding: 12px 6px;
+  text-align: center;
+  color: #62546b;
+  width: 100%;
+  font-size: 15px;
+  font-weight: 700
+}
+.bs-view-page button {
+  cursor: pointer
+}
+.bs-view-page .bs-view-add-cart {
+  border: 0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #fff;
+  background: #f2c3c3;
+  font-size: 14px;
+  font-weight: 800;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  justify-content: center
+}
+.bs-view-page .bs-view-add-cart:hover {
+  background: #b991a3
+}
+.bs-view-page .bs-view-like {
+  border: 1px solid #C5B3D3;
+  border-radius: 10px;
+  background: #a786be;
+  color: #FBEFEF;
+  min-height: 47px;
+  font-size: 13px;
+  font-weight: 800;
+  width: 100%;
+  margin-top: 10px
+}
+.bs-view-page .bs-view-like i {
+  margin-right: 8px
+}
+.bs-view-page .bs-view-like:hover {
+  background: #b89bceea;
+  border-color: #C5B3D3;
+  color: #7e6889
+}
+/* Kết thúc yêu cầu thì trở lại tim rỗng, kể cả khi nút vẫn đang được chọn. */
+.bs-view-page .bs-view-like[data-wishlist-hovered="true"] i,
+.bs-view-page .bs-view-like:active i,
+.bs-view-page .bs-view-like[data-wishlist-pending="true"] i {
+  color: #d997ad;
+  font-weight: 900;
+}
+.bs-view-page .bs-view-like:focus-visible {
+  outline: 2px solid #c5b3d3;
+  outline-offset: 2px;
+}
+/* 04. Mô tả sách riêng, dễ đọc */
+.bs-view-page .bs-view-description {
+  padding: 32px 38px;
+  margin: 22px 0 0;
+  background: #fff;
+  border: 1px solid #eee1eb;
+  border-radius: 20px
+}
+.bs-view-page .bs-view-description-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px
+}
+.bs-view-page .bs-view-description h2 {
+  font-size: 20px;
+  font-weight: 800;
+  color: #59435a;
+  margin: 0
+}
+.bs-view-page .bs-view-description p {
+  font-size: 14px;
+  color: #6e6171;
+  line-height: 2;
+  text-align: justify;
+  text-align-last: left;
+  overflow-wrap: anywhere;
+  white-space: normal
+}
+.bs-view-page .bs-view-missing {
+  text-align: center;
+  background: white;
+  padding: 70px 20px;
+  border: 1px solid #eee4f3;
+  border-radius: 20px
+}
+.bs-view-page .bs-view-missing>i {
+  font-size: 42px;
+  color: #956ad3
+}
+.bs-view-page .bs-view-missing h1 {
+  font-size: 23px;
+  margin: 15px 0
+}
+.bs-view-page .bs-view-missing p {
+  color: #81798b
+}
+.bs-view-page .bs-view-missing a {
+  display: inline-block;
+  background: #9465d7;
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+  font-weight: 700
+}
+/* 05. Thích ứng màn hình */
+@media(max-width:850px) {
+  .bs-view-page .bs-view-product {
+    grid-template-columns: 1fr;
+    padding: 24px
+  }
+  .bs-view-page .bs-view-image-frame {
+    min-height: 350px
+  }
+  .bs-view-page .bs-view-image-frame img {
+    max-height: 350px
+  }
+}
+@media(max-width:520px) {
+  .bs-view-page .bs-view-wrap {
+    padding: 20px 13px 45px
+  }
+  .bs-view-page .bs-view-product {
+    padding: 16px;
+    border-radius: 16px;
+    gap: 18px
+  }
+  .bs-view-page .bs-view-image-frame {
+    min-height: 290px;
+    padding: 16px
+  }
+  .bs-view-page .bs-view-image-frame img {
+    max-height: 300px
+  }
+  .bs-view-page .bs-view-purchase {
+    grid-template-columns: 76px minmax(0,1fr)
+  }
+  .bs-view-page .bs-view-description {
+    padding: 24px 19px
+  }
+  .bs-view-page .bs-view-information h1 {
+    font-size: 26px
+  }
+}
+/* Mô tả chỉ dùng tiêu đề chữ, bỏ biểu tượng ô vuông khi thiếu Font Awesome. */
+.bs-view-page .bs-view-description-header {
+  gap: 0;
+}

@@ -1,0 +1,540 @@
+/* ================================================================
+   BOOKSTORY / HOME.CSS - MÀU DỊU V3
+   01. Mã giảm giá thu gọn theo KHUNG, không thu nhỏ chữ
+   02. Thẻ mã giảm giá + nút sao chép
+   03. Lời mời liên hệ cuối trang - nhẹ nhàng, không biểu tượng
+   04. Thích ứng màn hình
+   Chỉ nạp ở index.php: dải tiêu đề, mã giảm giá, liên hệ nhanh và bảng màu.
+   ================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800;900&display=swap');
+
+
+/* Bố cục gốc chuyển từ css/style.css; giữ thứ tự trước bảng màu. */
+.home {
+  min-height: 60vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeslide {
+    min-height: 60vh;
+    display: none;
+}
+
+.homeslide img {
+    width: 100%;
+    height: 60vh;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.home .content {
+  text-align: center;
+}
+
+/* Liên hệ ở trang chủ - index */
+
+.home-contact {
+  background-color: #665077;
+  text-align: center;
+}
+
+.home-contact .content {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.home-contact .content h3 {
+  text-transform: uppercase;
+  color: var(--white);
+  font-size: 3rem;
+}
+
+.home-contact .content p {
+  line-height: 2;
+  font-size: 1.5rem;
+  color: var(--light-white);
+  padding: 1rem 0;
+}
+
+.home-contact .content .btn:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.mySlides {
+  width: 100%;
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Khung trình chiếu ảnh */
+.slideshow-container {
+  width: 85%;
+  position: relative;
+  margin: 0 auto;
+}
+
+/* Nút chuyển tiếp và quay lại */
+.prev,
+.next {
+   cursor: pointer;
+   position: absolute;
+   top: 50%;
+   width: auto;
+   padding: 16px;
+   margin-top: -22px;
+   color: white;
+   font-weight: bold;
+   font-size: 18px;
+   transition: 0.6s ease;
+   border-radius: 0 3px 3px 0;
+   user-select: none;
+}
+
+/* Đặt nút chuyển tiếp ở bên phải */
+ .next {
+   right: 0;
+   border-radius: 3px 0 0 3px;
+}
+ .prev {
+   left: 0;
+   border-radius: 0px 3px 3px 0px;
+}
+/* Khi rê chuột, thêm nền đen hơi trong suốt */
+.prev:hover,
+.next:hover {
+   background-color: #9b6fcf;
+}
+
+.fade {
+   animation-name: fade;
+   animation-duration: 1.5s;
+}
+
+@keyframes fade {
+   from {
+      opacity: 0.4
+   }
+
+   to {
+      opacity: 1
+   }
+}
+
+@media only screen and (max-width: 300px) {
+  .prev,
+  .next {
+    font-size: 11px;
+  }
+}
+
+/* 01. Khung mã giảm giá: thu chiều rộng toàn khu và bỏ nền cam toàn màn hình.
+   Kích thước chữ được GIỮ/LÀM DỄ ĐỌC, chỉ giảm diện tích khối. */
+.bs-home-offers {
+  padding: 16px 20px 18px;
+  background: #fbf9fa;
+  font-family: 'Be Vietnam Pro', 'Quicksand', sans-serif;
+}
+.bs-home-offers .bs-offers-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 28px;
+  background: linear-gradient(113deg, #fff0eb 0%, #fff5ef 54%, #faf0fa 100%);
+  border: 1px solid #f1dcdf;
+  border-radius: 21px;
+  box-shadow: 0 8px 22px rgba(110, 71, 90, .035);
+}
+.bs-home-offers .bs-offers-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 16px;
+  color: #5c4554;
+}
+.bs-home-offers .bs-offers-heading h2 {
+  color: #59435a;
+  font-size: clamp(23px, 2.35vw, 28px);
+  font-family: inherit;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 5px 0 2px;
+  text-transform: none;
+  letter-spacing: -.025em;
+}
+.bs-home-offers .bs-offers-heading p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #857581;
+}
+.bs-home-offers .bs-offers-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #fff;
+  border: 1px solid #f2d4cf;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .035em;
+  color: #cb6a66;
+}
+.bs-home-offers .bs-offers-shop-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  color: #a65f79;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 5px 0;
+  border-bottom: 1px solid #dca8b5;
+}
+.bs-home-offers .bs-offers-shop-link:hover {
+  color: #794e7d;
+}
+/* 02. Mã giảm giá: thẻ nhỏ gọn hơn theo chiều ngang, chữ giá vẫn nổi bật. */
+.bs-home-offers .bs-offers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 11px;
+}
+.bs-home-offers .bs-offer-card {
+  min-width: 0;
+  min-height: 148px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #fff;
+  border: 1px solid #f3e2e5;
+  border-radius: 13px;
+  padding: 11px 13px;
+  box-shadow: 0 5px 15px rgba(120, 76, 83, .04);
+}
+.bs-home-offers .bs-offer-card::before {
+  display: none;
+}
+.bs-home-offers .bs-offer-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.bs-home-offers .bs-offer-icon {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  background: #fff0e9;
+  color: #d56e69;
+  border-radius: 8px;
+  font-size: 15px;
+}
+.bs-home-offers .bs-offer-type {
+  font-size: 11px;
+  font-weight: 800;
+  color: #b38e94;
+  letter-spacing: .03em;
+}
+.bs-home-offers .bs-offer-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #544955;
+  margin: 5px 0 2px;
+}
+.bs-home-offers .bs-offer-value strong {
+  font-size: 25px;
+  font-weight: 800;
+  color: #d75c5c;
+  letter-spacing: -.03em;
+}
+.bs-home-offers .bs-offer-minimum {
+  font-size: 12px;
+  color: #716674;
+  line-height: 1.5;
+  margin: 0 0 2px;
+}
+.bs-home-offers .bs-offer-expiry {
+  font-size: 11.5px;
+  color: #9a8d98;
+  margin: 0 0 5px;
+}
+.bs-home-offers .bs-offer-expiry i {
+  margin-right: 4px;
+  color: #bf8992;
+}
+.bs-home-offers .bs-offer-code-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding: 3px;
+  background: #fff7f5;
+  border: 1px dashed #ecc8c8;
+  border-radius: 8px;
+}
+.bs-home-offers .bs-offer-code-row code {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  color: #aa5867;
+  text-align: center;
+}
+.bs-home-offers .bs-offer-code-row button {
+  border: 0;
+  cursor: pointer;
+  background: #cd7f8b;
+  color: #fff;
+  border-radius: 6px;
+  min-height: 29px;
+  padding: 5px 8px;
+  font: 700 11.5px 'Be Vietnam Pro', sans-serif;
+  white-space: nowrap;
+}
+.bs-home-offers .bs-offer-code-row button:hover,
+.bs-home-offers .bs-offer-code-row button.bs-copied {
+  background: #a65f79;
+}
+.bs-home-offers .bs-offers-empty {
+  background: #fff;
+  border: 1px solid #f0dfe5;
+  border-radius: 13px;
+  padding: 23px 27px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: #59475b;
+}
+.bs-home-offers .bs-offers-empty div {
+  flex: 1;
+}
+.bs-home-offers .bs-offers-empty strong,
+.bs-home-offers .bs-offers-empty span {
+  display: block;
+}
+.bs-home-offers .bs-offers-empty strong {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.bs-home-offers .bs-offers-empty span {
+  font-size: 13px;
+  color: #867784;
+}
+/* 03. Khối liên hệ ở trang chủ: bỏ nền tím đậm toàn màn hình.
+   Nền hồng và tím nhạt, hai cột gọn, không dùng biểu tượng trang trí. */
+.home-contact {
+  padding: 34px 22px 56px;
+  text-align: left;
+  background: #fcfafc;
+}
+.home-contact .content {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 36px 42px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 24px;
+  background: linear-gradient(112deg, #f4ecf9 0%, #fff4f6 100%);
+  border: 1px solid #e9dce9;
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(99, 70, 108, .045);
+}
+.home-contact .bs-home-contact-copy {
+  min-width: 0;
+}
+.home-contact .content h3 {
+  font-family: 'Be Vietnam Pro','Quicksand',sans-serif;
+  font-size: clamp(21px, 2vw, 26px);
+  font-weight: 800;
+  line-height: 1.4;
+  color: #644e6e;
+  text-transform: none;
+  margin: 0 0 5px;
+}
+.home-contact .content p {
+  max-width: 720px;
+  font-family: 'Be Vietnam Pro','Quicksand',sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #7b6d7e;
+}
+.home-contact .content .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin: 0;
+  padding: 11px 22px;
+  border-radius: 11px;
+  background: #b18bb8;
+  color: #fff;
+  font-family: 'Be Vietnam Pro','Quicksand',sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: none;
+  white-space: nowrap;
+  box-shadow: 0 5px 12px rgba(144, 97, 161, .09);
+}
+.home-contact .content .btn:hover {
+  background: #936fa0;
+  color: #fff;
+}
+/* 04. Thích ứng màn hình: thẻ không bị nhỏ chữ hoặc tràn ở màn hình hẹp. */
+@media (max-width: 1050px) {
+  .bs-home-offers .bs-offers-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+@media (max-width: 680px) {
+  .bs-home-offers {
+    padding: 20px 14px 23px;
+  }
+  .bs-home-offers .bs-offers-inner {
+    padding: 20px 16px;
+  }
+  .bs-home-offers .bs-offers-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bs-home-offers .bs-offers-shop-link {
+    font-size: 13px;
+  }
+  .home-contact {
+    padding: 22px 14px 36px;
+  }
+  .home-contact .content {
+    grid-template-columns: 1fr;
+    padding: 25px 20px;
+    gap: 18px;
+  }
+  .home-contact .content .btn {
+    justify-self: start;
+  }
+}
+@media (max-width: 480px) {
+  .bs-home-offers .bs-offers-grid {
+    grid-template-columns: 1fr;
+  }
+  .bs-home-offers .bs-offer-card {
+    min-height: 0;
+  }
+  .bs-home-offers .bs-offers-heading h2 {
+    font-size: 23px;
+  }
+  .bs-home-offers .bs-offers-empty {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* 05. Trang chủ: chỉ đổi màu và kiểu chữ theo tông màu dịu của trang Cửa hàng.
+   Không thay đổi kích thước thẻ, số cột, ảnh bìa hay hành vi các nút. */
+.bs-home-page {
+  background: #fffafd;
+}
+.bs-home-page > .products {
+  background: #fffafd;
+}
+.bs-home-page > .products .title {
+  color: #665077;
+  font-family: 'Nunito','Quicksand',sans-serif;
+  font-weight: 900;
+  text-transform: none;
+  letter-spacing: -.02em;
+  font-size: clamp(29px, 3vw, 37px);
+}
+.bs-home-page > .products .box-container .box {
+  background: #fff;
+  border-color: #eee1eb;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(88,61,103,.035);
+}
+.bs-home-page > .products .box-container .box:hover {
+  border-color: #d6c3e3;
+  box-shadow: 0 8px 20px rgba(122,82,164,.12);
+}
+.bs-home-page > .products .box-container .box .price {
+  background: #af84c9;
+  color: #fff;
+}
+.bs-home-page > .products .box-container .box .fa-eye {
+  color: #80648f;
+  border-color: #e2d6e9;
+  background: #fcf9ff;
+}
+.bs-home-page > .products .box-container .box .fa-eye:hover {
+  color: #fff;
+  background: #9b6fcf;
+  border-color: #9b6fcf;
+}
+.bs-home-page > .products .box-container .box .name {
+  color: #5c4d66;
+  font-family: 'Nunito','Quicksand',sans-serif;
+  font-weight: 800;
+}
+.bs-home-page > .products .box-container .box .category {
+  color: #ad8ba9;
+  border-color: #e4cbe1;
+}
+.bs-home-page > .products .box-container .box .qty {
+  color: #6e6171;
+  background: #ffffff;
+  border-color: #e6d8e7;
+}
+.bs-home-page > .products .box-container .box .box-actions .option-btn {
+  color: #A47CAA;
+  border-color: #e6d8e7;
+  background: #FBEEEE;
+}
+.bs-home-page > .products .box-container .box .box-actions .option-btn:hover {
+  color: #A47CAA;
+  background: #ffe2e2;
+  border-color: #e6d8e7;
+}
+.bs-home-page > .products .box-container .box .box-actions .option-btn[data-wishlist-hovered="true"] i,
+.bs-home-page > .products .box-container .box .box-actions .option-btn[data-wishlist-pending="true"] i {
+  color: #d997ad;
+}
+.bs-home-page > .products .box-container .box .box-actions .btn {
+  background: #9b6fcf;
+  color: #fff;
+  font-weight: 800;
+}
+.bs-home-page > .products .box-container .box .box-actions .btn:hover {
+  background: #7d52a4;
+}
+.bs-home-page .more-btn .option-btn {
+  background: #9b6fcf;
+  color: #fff;
+  border-radius: 10px;
+}
+.bs-home-page .more-btn .option-btn:hover {
+  background: #7d52a4;
+}
+/* Đổi nền đệm mà không tác động ảnh quảng bá và trình chiếu gốc. */
+.bs-home-page .slideshow {
+  background: #fffafd;
+}
+@media(max-width:680px) {
+  .bs-home-offers .bs-offers-inner {
+    padding: 20px 16px;
+  }
+  .home-contact .content {
+    padding: 25px 20px;
+  }
+}

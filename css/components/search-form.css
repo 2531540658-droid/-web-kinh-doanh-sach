@@ -1,0 +1,113 @@
+/* pages/shop.php và pages/search_page.php: biểu mẫu lọc/tìm kiếm. */
+/* Trang tìm kiếm */
+
+.heading:not(.bs-shop-heading) {
+  min-height: 22vh;
+  background: linear-gradient(115deg, #eee8fa 0%, #f8e9f3 65%, #fff3eb 100%);
+}
+
+.heading:not(.bs-shop-heading) h3 {
+  color: #665077;
+  font-size: clamp(3.2rem, 4vw, 5rem);
+  text-transform: none;
+}
+
+.heading:not(.bs-shop-heading) p {
+  color: #95849e;
+  font-size: 1.8rem;
+}
+
+.heading:not(.bs-shop-heading) p a {
+  color: #8a62a4;
+}
+
+.heading:not(.bs-shop-heading) p a:hover {
+  color: #6f4988;
+}
+
+.search-form {
+  background: #fffafd;
+}
+
+.search-form form {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-form form .box {
+  width: 100%;
+  border: 1px solid #d9c8df;
+  background-color: var(--white);
+  box-shadow: 0 4px 15px rgba(106, 76, 119, 0.06);
+  padding: 1.2rem 1.4rem;
+  font-size: 1.8rem;
+  color: #695b71;
+  border-radius: 0.5rem;
+}
+
+.search-form form .box::placeholder {
+  color: #9a8d98;
+}
+
+.search-form form .box:focus {
+  border-color: #b99bd1;
+  box-shadow: 0 0 0 3px #f4ecf9;
+}
+
+.search-form form .btn {
+  margin-top: 0;
+  background: #9b6fcf;
+  color: #fff;
+  font-weight: 700;
+}
+
+.search-form form .btn:hover {
+  background: #7d52a4;
+}
+
+.search-form + .products {
+  background: #fffafd;
+}
+
+.search-form + .products .empty {
+  color: #756b7c;
+  border: 1px solid #eee1eb;
+  box-shadow: 0 5px 18px rgba(88, 61, 103, 0.05);
+}
+
+.search-form + .products .box-container .box {
+  border-color: #eee1eb;
+  box-shadow: 0 4px 15px rgba(88, 61, 103, 0.04);
+}
+
+.search-form + .products .box-container .box .price {
+  background: #af84c9;
+}
+
+.search-form + .products .box-container .box .box-actions .btn {
+  background: #9b6fcf;
+}
+
+.search-form + .products .box-container .box .box-actions .btn:hover {
+  background: #7d52a4;
+}
+
+.search-form + .products .box-container .box .box-actions .option-btn {
+  color: #705b78;
+  border-color: #f5cbcb;
+  background: #fbeeee;
+}
+
+.search-form + .products .box-container .box .box-actions .option-btn:hover {
+  color: #5f4b68;
+  border-color: #f5cbcb;
+  background: #ffe2e2;
+}
+
+.search-form + .products .box-container .box .box-actions .option-btn[data-wishlist-hovered="true"] i,
+.search-form + .products .box-container .box .box-actions .option-btn[data-wishlist-pending="true"] i {
+  color: #d997ad;
+}
